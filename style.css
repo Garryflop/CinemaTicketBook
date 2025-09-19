@@ -1,0 +1,131 @@
+body {
+    background-color: #0f0f23;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #ff6b35;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #1e1e40;
+    padding: 20px 0;
+    border-bottom: 2px solid #ff6b35;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff6b35;
+}
+
+.search-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.search-group label {
+    margin-bottom: 5px;
+}
+
+#city-search, #cinema-list {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(255, 107, 53, 0.3);
+    border-radius: 10px;
+    background: rgba(15, 15, 35, 0.8);
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6b35;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.location-card {
+    background: rgba(15, 15, 35, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ff6b35;
+}
+
+.cinema-details h3 {
+    text-align: center;
+}
+
+.cinema-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.info li {
+    font-size: 1.1em;
+}
+
+.icon {
+    font-size: 1.2em;
+}

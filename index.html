@@ -3,224 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
-    <style>
-        /* General styling for the body */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        /* Header styling */
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Section titles */
-        h2 {
-            color: #4CAF50;
-        }
-
-        /* Paragraphs and text content */
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 10px 0;
-        }
-
-        /* Links styling */
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Image styling */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px 0;
-        }
-
-        /* Lists */
-        ul, ol {
-            margin: 10px 0;
-        }
-
-        /* Table styling */
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Form styling */
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Cinema Locations</title>
 </head>
 <body>
-
-    <!-- Header Section -->
     <header>
-        <h1>Welcome to My First Webpage</h1>
-        <p>This is a simple webpage to showcase HTML skills.</p>
+        <div class="container">
+            <div id="header">
+                <a href="index.html" class="logo">CinemaHub</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie-details.html">Movies</a></li>
+                        <li><a href="cinema-locations.html">Cinemas</a></li>
+                        <li><a href="seat-selection.html">Book Seats</a></li>
+                        <li><a href="booking-form.html">Account</a></li>
+                        <li><a href="confirmation.html">My Bookings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
-
-    <!-- Text Formatting Section -->
-    <section>
-        <h2>Text Formatting</h2>
-        <p><strong>Bold Text:</strong> This text is <strong>bold</strong>.</p>
-        <p><em>Italic Text:</em> This text is <em>italic</em>.</p>
-        <p><u>Underlined Text:</u> This text is <u>underlined</u>.</p>
-        <p>This is a line break:<br>Line break occurs here.</p>
+<h1>Our Cinema Locations</h1>
+<p>Find a cinema near you and enjoy the latest movies!</p>
+<main>
+    <section class="section">
+        <div>
+            <label for="city-search">Search By City</label><br>
+            <input type="text" id="city-search" placeholder="Enter city name..." style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
+        </div>
+        <div>
+            <label for="cinema-list">Cinema Locations</label><br>
+            <select id="cinema-list" style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
+                <option value="all types">All Types</option>
+                <option value="Standard">Standard</option>
+                <option value="Imax">Imax</option>
+                <option value="Premium">Premium</option>
+                <option value="Drive-in">Drive-in</option>
+            </select>
+            <div>
+                <button style="margin-top: 20px; padding: 15px 30px; border: none; border-radius: 10px; background: #ff6b35; color: #ffffff; font-size: 16px; cursor: pointer;">Search Locations</button>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div>
+            <h2>All Locations</h2>
+            <div>
+                <h3 style="width: auto; align-content: center; ">CinemaHub Downtown</h3>
+                <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5hnyvj3f75r3a1yj9bnywxy%2F1758308924_img_0.webp?st=2025-09-19T17%3A34%3A53Z&se=2025-09-25T18%3A34%3A53Z&sks=b&skt=2025-09-19T17%3A34%3A53Z&ske=2025-09-25T18%3A34%3A53Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=b4ab33b8-2ad4-40af-8ed0-a2b350b6603c&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=AAJ9MEYUSM00Hofzyhoy3vQrxaSffxpDkFZgBDcKOwE%3D&az=oaivgprodscus"  alt="Downtown Cinema" style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
+                <ul class="info">
+                    <li>
+                        <span class="icon">📍</span> 123 Main st, DownTown
+                    </li>
+                    <li>
+                        <span class="icon">📞</span> +7(701) 123-45-67
+                    </li>
+                    <li>
+                        <span class="icon">🎬</span> Standard, Imax
+                    </li>
+                    <li>
+                        <span class="icon">🍿</span> Snack Bar: Yes
+                    </li>
+                    <li>
+                        <span class="icon">🕒</span> Hours: 10:00 AM - 11:00 PM
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <!-- Image Section -->
-    <section>
-        <h2>Images</h2>
-        <p>Here is an image of a cute cat:</p>
-        <img src="https://placekitten.com/200/300" alt="Cute Kitten">
-    </section>
 
-    <!-- Link Section -->
-    <section>
-        <h2>Links</h2>
-        <p>Visit <a href="https://www.w3schools.com" target="_blank">W3Schools</a> for more HTML tutorials.</p>
-    </section>
-
-    <!-- List Section -->
-    <section>
-        <h2>Lists</h2>
-        <h3>Unordered List (Bullets):</h3>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
-
-        <h3>Ordered List (Numbered):</h3>
-        <ol>
-            <li>Introduction to HTML</li>
-            <li>Learning CSS</li>
-            <li>Mastering JavaScript</li>
-        </ol>
-    </section>
-
-    <!-- Table Section -->
-    <section>
-        <h2>Table</h2>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Occupation</th>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>25</td>
-                <td>Web Developer</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>30</td>
-                <td>Designer</td>
-            </tr>
-            <tr>
-                <td>Paul</td>
-                <td>22</td>
-                <td>Student</td>
-            </tr>
-        </table>
-    </section>
-
-    <!-- Form Section -->
-    <section>
-        <h2>Contact Form</h2>
-        <form action="#" method="post">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
-
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message"></textarea><br><br>
-
-            <input type="submit" value="Submit">
-        </form>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 My First Webpage. All rights reserved.</p>
-    </footer>
-    <h1>Welcome to My WebSite</h1>
-    <p>This is a sample paragraph.</p>
+</main>
 </body>
 </html>
