@@ -3,15 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <title>Absolute Cinema</title>
     <link rel="stylesheet" href="styles.css">
+
+<style>
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+  justify-content: center;
+}
+
+ul li {
+  float: right;
+}
+
+ul li a, .dropbtn {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a.active {
+  background-color: #04AA6D;
+  
+}
+
+ul li a.naming {
+    background-color: #4B0082;
+    text-align: center;
+}
+
+ul li a:hover, dropdown:hover {
+  background-color: #111111;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 </head>
 <body>
-    <h1>Welcome to My WebSite</h1>
-    <p>This is a sample paragraph.</p>
-<<<<<<< HEAD
-    <h1>PIDORAS GONDON EBLAN</h1> --- IGNORE ---
-=======
->>>>>>> f09fda5706fb5fc89d28989556a57a9b4369a876
+    <ul>
+        <li style="float:left"><a class="naming"></a>Absolute Cinema</li>
+        
+        
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"> My account</a>
+            <div class="dropdown-content"> 
+                <a href=""> Profile</a>
+                <a href=""> My bookings</a>
+                <a href="">Log out</a>
+            </div>
+        </li>
+        <li><a href="">Booking</a></li>
+        <li><a href="">Locations</a></li>
+        <li><a href="details.html">Movies</a></li>
+        <li><a class = "active", href="index.html">Home</a></li>
+      </ul>
 </body>
 </html>
