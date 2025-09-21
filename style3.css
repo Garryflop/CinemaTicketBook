@@ -8,10 +8,20 @@
 }
 
 body {
+    font-family: "Montserrat", sans-serif;
     background-color: #0f0f23;
     color: #ffffff;
     line-height: 1.6;
 }
+
+h1 {
+    color:rgb(255, 255, 255)
+}
+
+p {
+    color: rgb(255, 255, 255)
+}
+
 
 .container {
     max-width: 1200px;
@@ -34,7 +44,7 @@ body {
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
-/* .btn:hover {
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
     background: linear-gradient(45deg, #f7931e, #ff6b35);
@@ -48,7 +58,7 @@ body {
 .btn-secondary:hover {
     background: linear-gradient(45deg, #3b82f6, #1e3a8a);
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-} */
+}
 
 /* Header Styles */
 header {
@@ -84,7 +94,7 @@ header {
     box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
 }
 
-/* .logo::before {
+.logo::before {
     content: "";
     display: inline-block;
     width: 40px;
@@ -97,7 +107,7 @@ header {
     mask-size: contain;
 
     background-color: white; 
-} */
+}
 
 /* Navigation Styles */
 nav ul {
@@ -116,7 +126,7 @@ nav a {
     position: relative;
 }
 
-/* nav a:hover {
+nav a:hover {
     color: #ff6b35;
     background: rgba(255, 107, 53, 0.1);
     transform: translateY(-2px);
@@ -136,7 +146,7 @@ nav a::after {
 nav a:hover::after {
     width: 80%;
     left: 10%;
-} */
+}
 
 /* Main Content */
 main {
@@ -158,7 +168,7 @@ main {
     position: relative;
 }
 
-/* .section-title::after {
+.section-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -168,7 +178,7 @@ main {
     height: 3px;
     background: linear-gradient(45deg, #ff6b35, #f7931e);
     border-radius: 2px;
-} */
+}
 
 /* Grid Layouts */
 .movie-grid {
@@ -201,13 +211,14 @@ main {
     border-color: #ff6b35;
 }
 
+
 .movie-poster {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 50%;
     margin-bottom: 15px;
-    transition: all 0.3s ease;
+
 }
 
 .movie-poster:hover {
@@ -247,6 +258,16 @@ main {
     max-width: 600px;
     border: 1px solid rgba(255, 107, 53, 0.3);
 }
+
+.form-container2 {
+    background: rgba(30, 30, 60, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 600rem;
+    border: 1px solid rgb(235, 201, 9);
+}
+
 
 .form-group {
     margin-bottom: 25px;
@@ -419,7 +440,7 @@ footer {
 }
 
 /* Responsive Design */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .container {
         padding: 0 15px;
     }
@@ -454,4 +475,4 @@ footer {
     main {
         margin-top: 120px;
     }
-} */
+}
