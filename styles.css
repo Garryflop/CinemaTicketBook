@@ -82,11 +82,11 @@ nav ul li a:hover {
 
 .carousel {
     position: relative;
-    width: 80%; /* Adjust this to fit your design */
-    height: 50vh; /* Adjust height as needed */
+    width: 70%;
+    height: 70vh;
     margin-top: 30px;
     margin-left: auto;
-    margin-right: auto; /* Center the carousel */
+    margin-right: auto;
 }
 
 .carousel-container {
@@ -104,7 +104,7 @@ nav ul li a:hover {
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure images cover the area */
+    object-fit: cover;
 }
 
 .carousel-controls button {
@@ -114,8 +114,8 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    font-size: 30px;
-    padding: 10px;
+    font-size: 20px;
+    padding: 3px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -131,6 +131,7 @@ nav ul li a:hover {
 .next {
     right: 20px;
 }
+
 
 
 /* Cinema Information Section */
@@ -179,15 +180,13 @@ nav ul li a:hover {
     background-color: #ff1493;
 }
 
-/* Footer Styles */
-/* Fixed Footer at the Bottom */
 .fixed-footer {
     position: bottom;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* Dark background for footer */
-    color: #fff; /* White text color */
+    background-color: #333; 
+    color: #fff; 
     padding: 10px 0;
     text-align: center;
     font-size: 1rem;
