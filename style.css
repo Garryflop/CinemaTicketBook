@@ -190,17 +190,16 @@ nav a:hover {
   border: 2px solid #ff6b35;
 }
 .image-scroll-container {
-  display: flex; /* Aligns images in a single row */
-  overflow-x: auto; /* Enables horizontal scrolling */
-  white-space: nowrap; /* Prevents images from wrapping to the next line */
-  gap: 10px; /* Adds space between images */
-  padding: 10px; /* Adds a little padding for better visuals */
-  -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS devices */
+  display: flex; 
+  overflow-x: auto; 
+  white-space: nowrap; 
+  gap: 10px; 
+  padding: 10px;
+  -webkit-overflow-scrolling: touch; 
 }
 
-/* Optional: Styles for the images themselves */
 .image-scroll-container img {
-  max-width: none; /* Prevents images from shrinking */
-  height: 200px; /* Sets a fixed height for all images */
-  flex-shrink: 0; /* Prevents images from shrinking to fit the container */
+  max-width: none; 
+  height: 200px; 
+  flex-shrink: 0; 
 }
