@@ -66,7 +66,7 @@ nav a:hover {
 .search-controls {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Aligns items at the bottom */
+    align-items: flex-end;
     gap: 20px;
     flex-wrap: wrap;
     position: relative;
@@ -75,24 +75,32 @@ nav a:hover {
 .search-group {
     display: flex;
     flex-direction: column;
-    position: relative; /* Needed for positioning the suggestions box */
+    position: relative;
     flex-grow: 1;
 }
 
 #city-search, #cinema-list {
-    /* Existing styles for input and select */
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ff6b35;
+    border-radius: 5px;
+    background-color: #1a1a33;
+    color: #ffffff;
 }
 
 .search-button {
-    /* Existing styles for button */
-    align-self: flex-end; /* Ensures button is aligned with other items */
+    align-self: flex-end; 
+    padding: 10px 20px;
+    background-color: #ff6b35;
+    color: #0f0f23;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
-
-/* New CSS for the autocomplete suggestions box */
 .autocomplete-suggestions {
     position: absolute;
-    top: 100%; /* Positions the box directly below the input */
+    top: 100%; 
     left: 0;
     right: 0;
     background-color: #1a1a33;
@@ -132,44 +140,34 @@ nav a:hover {
 }
 
 .info {
-  /* Aligns all list items in a single row */
   display: flex;
-  /* Removes default bullet points */
   list-style: none;
-  /* Removes default padding from the list */
   padding: 0;
-  /* Adds space between each item */
   gap: 30px;
-  /* Aligns items vertically in the center */
   align-items: center;
-  /* Allows items to wrap onto the next line if space is limited */
   flex-wrap: wrap;
 }
 
 .info li {
-  /* Sets a consistent font size */
   font-size: 16px;
-  /* Aligns icons with text */
   display: flex;
   align-items: center;
-  /* Gives each list item some space */
   padding: 5px 0;
-  /* Ensures the items don't shrink */
   flex-shrink: 0;
 }
 
 .info .icon {
-  /* Spacing between the icon and text */
   margin-right: 8px;
-  /* Custom color for the icons */
   color: #ff6b35; 
 }
 
 .action-buttons {
-  /* Pushes buttons to the right side of the container */
   margin-left: auto;
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;    
+  margin-top: 10px;
 }
 
 .btn {
