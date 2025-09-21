@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Seat Selection</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="header">
+                <a href="index.html" class="logo">Absolute Cinema</a>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="movie-details.html">Movies</a></li>
+                        <li><a href="cinema-locations.html">Cinemas</a></li>
+                        <li><a href="seat-selection.html">Book Seats</a></li>
+                        <li><a href="booking-form.html">Account</a></li>
+                        <li><a href="confirmation.html">My Bookings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <h1 style="text-align: center;">Booking Place</h1>
+    <div>
+        <section class="search-controls">
+            <div class="search-group">
+                <label for="film-search">Search Film by Title</label>
+                <input type="text" id="film-search" placeholder="Enter film title..." style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
+            </div>
+            <button class="search-button" style="width: 20%;">Search Film</button>
+        </section>
+        <h2 style="text-align: center;">Popular Films</h2>
+    </div>
+    <div class="details-list">  
+             
+            <div class="movie">
+                <img src="images/film1.png" alt="Somnia: The House of Nightmares" style="width:280px; height:300px; object-fit: cover; border-radius: 15px;">
+                <p>Somnia: The House of Nightmares</p>
+            </div>
+
+            <div class="movie">
+                <img src="images/film2.png" alt="Demon Slayer: Kimetsu no Yaiba - To the Swordsmith Village" style="width:280px; height:300px; object-fit: cover; border-radius: 15px;">
+                <p>Demon Slayer: Kimetsu no Yaiba</p>
+            </div>
+
+            <div class="movie">
+                <img src="images/film3.png" alt="Ghost Train" style="width:280px; height:300px; object-fit: cover; border-radius: 15px;">
+                <p>Ghost Train</p>
+            </div>
+
+            <div class="movie">
+                <img src="images/film4.png" alt="Final Destination: Deadly Game" style="width:280px; height:300px; object-fit: cover; border-radius: 15px;">
+                <p>Final Destination: Deadly Game</p>
+            </div>
+
+            <div class="movie">
+                <img src="images/film5.png" alt="Caught Red-Handed" style="width:280px; height:300px; object-fit: cover; border-radius: 15px;">
+                <p>Caught Red-Handed</p>
+            </div>
+    <div class="movie-card">
+    <a href="seat-selection.html?movie_id=123">
+        <img src="path-to-poster.jpg" alt="Movie Title" class="poster-image">
+    </a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
