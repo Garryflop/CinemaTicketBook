@@ -62,7 +62,7 @@
                         <div>
                             <div>
                                 <p>Movie</p>
-                                <p>Action Hero</p>
+                                <p>TEST MOVIE</p>
                             </div>
                             <div>
                                 <p>Date & Time</p>
@@ -70,15 +70,15 @@
                             </div>
                             <div>
                                 <p>Cinema</p>
-                                <p>CinemaHub Downtown</p>
+                                <p>Any Cinema</p>
                             </div>
                             <div>
                                 <p>Seats</p>
-                                <p>Row B, Seats 4-5</p>
+                                <p>Seats 4-5</p>
                             </div>
                             <div>
                                 <p>Total Amount</p>
-                                <p>₸5,824</p>
+                                <p>₸1000</p>
                             </div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
                                             Transfer payment to our bank account
                                         </p>
                                         <div>
-                                            <p><strong>Account Name:</strong> CinemaHub Kazakhstan</p>
+                                            <p><strong>Account Name:</strong> AbsCinema Kazakhstan</p>
                                             <p><strong>Account Number:</strong> KZ86 125K ZT50 0410 0100</p>
                                             <p><strong>Bank:</strong> Kaspi Bank</p>
                                             <p><strong>Reference:</strong> BOOKING-2025-001</p>
@@ -254,7 +254,7 @@
                                             <p>2 tickets • Booking fee included</p>
                                         </div>
                                         <div>
-                                            <p id="finalTotal">₸5,824</p>
+                                            <p id="finalTotal">₸1000</p>
                                             <p>Secure Payment 🔒</p>
                                         </div>
                                     </div>
@@ -326,5 +326,167 @@
                 </div>
             </div>
         </footer>
+        <!-- JavaScript for Form Interactions -->
+        <script>
+            // Payment method selection
+            function selectPaymentMethod(element, method) {
+                // Reset all payment method styles
+                const paymentMethods = element.parentElement.children;
+                for (let i = 0; i < paymentMethods.length; i++) {
+                    paymentMethods[i].style.borderColor = paymentMethods[i].style.borderColor.replace('0.8', '0.3');
+                    paymentMethods[i].style.transform = 'scale(1)';
+                }
+                
+                // Highlight selected method
+                element.style.borderColor = element.style.borderColor.replace('0.3', '0.8');
+                element.style.transform = 'scale(1.05)';
+                
+                // Show/hide payment forms
+                const forms = ['cardPaymentForm', 'kaspiPaymentForm', 'applePayForm', 'bankTransferForm'];
+                forms.forEach(formId => {
+                    document.getElementById(formId).style.display = 'none';
+                });
+                
+                switch(method) {
+                    case 'card':
+                        document.getElementById('cardPaymentForm').style.display = 'block';
+                        break;
+                    case 'kaspi':
+                        document.getElementById('kaspiPaymentForm').style.display = 'block';
+                        break;
+                    case 'applepay':
+                        document.getElementById('applePayForm').style.display = 'block';
+                        break;
+                    case 'bank':
+                        document.getElementById('bankTransferForm').style.display = 'block';
+                        break;
+                }
+            }
+            
+            // Promo code application
+            function applyPromoCode() {
+                const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
+                const messageDiv = document.getElementById('promoMessage');
+                const totalElement = document.getElementById('finalTotal');
+                
+                if (!promoCode) {
+                    messageDiv.innerHTML = '<span style="color: #ef4444;">Please enter a promo code</span>';
+                    return;
+                }
+                
+                // Simulate promo code validation
+                const validCodes = {
+                    'STUDENT20': { discount: 20, message: 'Student discount applied!' },
+                    'FIRST10': { discount: 10, message: 'First time customer discount!' },
+                    'WEEKEND15': { discount: 15, message: 'Weekend special discount!' },
+                    'AITU25': { discount: 25, message: 'VIP member discount!' }
+                };
+                
+                if (validCodes[promoCode]) {
+                    const discount = validCodes[promoCode].discount;
+                    const originalTotal = 1000;
+                    const discountAmount = Math.round(originalTotal * discount / 100);
+                    const newTotal = originalTotal - discountAmount;
+                    
+                    messageDiv.innerHTML = `<span style="color: #22c55e;">✓ ${validCodes[promoCode].message} Save ₸${discountAmount}</span>`;
+                    totalElement.textContent = `₸${newTotal.toLocaleString()}`;
+                } else {
+                    messageDiv.innerHTML = '<span style="color: #ef4444;">Invalid promo code</span>';
+                }
+            }
+            
+            // Card number formatting
+            document.getElementById('cardNumber').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                e.target.value = formattedValue;
+            });
+            
+            // Expiry date formatting
+            document.getElementById('expiryDate').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.substring(0,2) + '/' + value.substring(2,4);
+                }
+                e.target.value = value;
+            });
+            
+            // CVV formatting
+            document.getElementById('cvv').addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/[^0-9]/gi, '');
+            });
+            
+            // Form submission
+            function processPayment() {
+                const form = document.getElementById('customerForm');
+                const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+                let isValid = true;
+                
+                // Validate required fields
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#ef4444';
+                    } else {
+                        field.style.borderColor = 'rgba(255, 107, 53, 0.3)';
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Simulate payment processing
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(15, 15, 35, 0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    color: white;
+                    text-align: center;
+                `;
+                
+                overlay.innerHTML = `
+                    <div>
+                        <div style="font-size: 48px; margin-bottom: 20px; animation: spin 1s linear infinite;">⚡</div>
+                        <h3 style="color: #ff6b35; margin-bottom: 15px;">Processing Payment...</h3>
+                        <p style="color: #cccccc;">Please wait while we process your booking</p>
+                    </div>
+                    <style>
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                    </style>
+                `;
+                
+                document.body.appendChild(overlay);
+                
+                // Redirect to confirmation page after 3 seconds
+                setTimeout(() => {
+                    window.location.href = 'confirmation.html';
+                }, 3000);
+            }
+            
+            // Auto-fill name from card name to customer name
+            document.getElementById('cardName').addEventListener('blur', function(e) {
+                const cardName = e.target.value.trim();
+                if (cardName && !document.getElementById('firstName').value && !document.getElementById('lastName').value) {
+                    const names = cardName.split(' ');
+                    if (names.length >= 2) {
+                        document.getElementById('firstName').value = names[0];
+                        document.getElementById('lastName').value = names.slice(1).join(' ');
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
