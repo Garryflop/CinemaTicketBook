@@ -11,10 +11,10 @@
     </head>
     <body>
         <!-- Header Section -->
-        <header>
+        <header class="header-section">
             <div class="container">
                 <a href="index.html" class="logo">AbsoluteCinema</a>
-                <nav>
+                <nav  class="nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html">Home</a></li>
@@ -24,6 +24,11 @@
                 </nav>
             </div>
         </header>
+        
+        <div id="top-banner">
+            <h1 class="decorative-heading">Complete Your Booking</h1>
+            <p class="highlighted-text">Secure and easy ticket booking process</p>
+        </div>
 
         <!-- Main Content -->
         <main id="main-content">
@@ -57,8 +62,8 @@
             <!-- Booking Summary -->
             <section class="section">
                 <div class="container">
-                    <div>
-                        <h3>Booking Summary</h3>
+                    <div id="booking-summary">
+                        <h3 class="accent-border">Booking Summary</h3>
                         <div>
                             <div>
                                 <p>Movie</p>
@@ -88,9 +93,9 @@
             <!-- Forms Section -->
             <section class="section">
                 <div class="container">
-                    <div>
+                    <div class="box-example-3">
                         <!-- Customer Information Form -->
-                        <div>
+                        <div class="box-example-1">
                             <h2 class="section-title">Customer Information</h2>
                             <form class="form-container" id="customerForm">
                                 <div class="form-group">
@@ -133,14 +138,14 @@
                                 <div class="form-group">
                                     <div>
                                         <input type="checkbox" id="terms" name="terms" required>
-                                        <label for="terms">I agree to the <a href="#">Terms and Conditions</a> *</label>
+                                        <label for="terms">I agree to the <a href="#" class="link-style">Terms and Conditions</a> *</label>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
                         <!-- Payment Information Form -->
-                        <div>
+                        <div class="box-example-1">
                             <h2 class="section-title">Payment Information</h2>
                             <div class="form-container">
                                 <!-- Payment Method Selection -->
@@ -274,24 +279,24 @@
             <!-- Security & Trust Section -->
             <section class="section">
                 <div class="container">
-                    <h3>Secure & Trusted Payment</h3>
-                    <div>
-                        <div>
+                    <h3 class="decorative-heading text-center">Secure & Trusted Payment</h3>
+                    <div class="security-features">
+                        <div class="security-item hover-lift">
                             <div>🔒</div>
                             <h4>SSL Encrypted</h4>
                             <p>Your payment information is protected with bank-level security encryption</p>
                         </div>
-                        <div>
+                        <div class="security-item hover-lift">
                             <div>💳</div>
                             <h4>PCI Compliant</h4>
                             <p>We meet the highest standards for processing card payments securely</p>
                         </div>
-                        <div>
+                        <div class="security-item hover-lift">
                             <div>🛡️</div>
                             <h4>Money Back Guarantee</h4>
                             <p>Full refund if technical issues prevent you from enjoying your movie</p>
                         </div>
-                        <div>
+                        <div class="security-item hover-lift">
                             <div>📞</div>
                             <h4>24/7 Support</h4>
                             <p>Our customer service team is always ready to help with your booking</p>
@@ -299,9 +304,9 @@
                     </div>
 
                     <!-- Accepted Payment Methods -->
-                    <div>
-                        <h4>Accepted Payment Methods</h4>
-                        <div>
+                    <div class="text-center" style="margin-top: 50px;">
+                        <h4 style="color: #ff6b35; margin-bottom: 25px;">Accepted Payment Methods</h4>
+                        <div class="payment-logos">
                             <div>VISA</div>
                             <div>MasterCard</div>
                             <div>American Express</div>
