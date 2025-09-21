@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <title>Cinema Locations</title>
 </head>
 <body>
@@ -24,56 +24,124 @@
             </div>
         </div>
     </header>
-<h1>Our Cinema Locations</h1>
-<p>Find a cinema near you and enjoy the latest movies!</p>
-<main>
-    <section class="section">
-        <div>
-            <label for="city-search">Search By City</label><br>
-            <input type="text" id="city-search" placeholder="Enter city name..." style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
-        </div>
-        <div>
-            <label for="cinema-list">Cinema Locations</label><br>
-            <select id="cinema-list" style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
-                <option value="all types">All Types</option>
-                <option value="Standard">Standard</option>
-                <option value="Imax">Imax</option>
-                <option value="Premium">Premium</option>
-                <option value="Drive-in">Drive-in</option>
-            </select>
-            <div>
-                <button style="margin-top: 20px; padding: 15px 30px; border: none; border-radius: 10px; background: #ff6b35; color: #ffffff; font-size: 16px; cursor: pointer;">Search Locations</button>
+    <h1 style="text-align: center;">Our Cinema Locations</h1>
+    <p style="text-align: center;">Find a cinema near you and enjoy the latest movies!</p>
+    <main>
+        <section class="search-controls">
+            <div class="search-group">
+                <label for="city-search">Search By City</label>
+                <input type="text" id="city-search" placeholder="Enter city name..." style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
             </div>
-        </div>
-    </section>
-    <section class="section">
-        <div>
-            <h2>All Locations</h2>
-            <div>
-                <h3 style="width: auto; align-content: center; ">CinemaHub Downtown</h3>
-                <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5hnyvj3f75r3a1yj9bnywxy%2F1758308924_img_0.webp?st=2025-09-19T17%3A34%3A53Z&se=2025-09-25T18%3A34%3A53Z&sks=b&skt=2025-09-19T17%3A34%3A53Z&ske=2025-09-25T18%3A34%3A53Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=b4ab33b8-2ad4-40af-8ed0-a2b350b6603c&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=AAJ9MEYUSM00Hofzyhoy3vQrxaSffxpDkFZgBDcKOwE%3D&az=oaivgprodscus"  alt="Downtown Cinema" style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
-                <ul class="info">
-                    <li>
-                        <span class="icon">📍</span> 123 Main st, DownTown
-                    </li>
-                    <li>
-                        <span class="icon">📞</span> +7(701) 123-45-67
-                    </li>
-                    <li>
-                        <span class="icon">🎬</span> Standard, Imax
-                    </li>
-                    <li>
-                        <span class="icon">🍿</span> Snack Bar: Yes
-                    </li>
-                    <li>
-                        <span class="icon">🕒</span> Hours: 10:00 AM - 11:00 PM
-                    </li>
-                </ul>
+            <div class="search-group">
+                <label for="cinema-list">Cinema Types</label>
+                <select id="cinema-list" style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
+                    <option value="all types">All Types</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Imax">Imax</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Drive-in">Drive-in</option>
+                </select>
             </div>
-        </div>
-    </section>
+            <button class="search-button" style="width: 20%;">Search Locations</button>
+        </section>
+        <section class="section">
+            <div>
+                <h2 style="text-align: center;">All Available Cinemas</h2>
+                <div>
+                    <h3 style="width: auto; align-content: center; ">1. Downtown Cinema</h3>
+                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5hnyvj3f75r3a1yj9bnywxy%2F1758308924_img_0.webp?st=2025-09-19T17%3A34%3A53Z&se=2025-09-25T18%3A34%3A53Z&sks=b&skt=2025-09-19T17%3A34%3A53Z&ske=2025-09-25T18%3A34%3A53Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=b4ab33b8-2ad4-40af-8ed0-a2b350b6603c&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=AAJ9MEYUSM00Hofzyhoy3vQrxaSffxpDkFZgBDcKOwE%3D&az=oaivgprodscus"  alt="Downtown Cinema" style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
+                    <ul class="info">
+                        <li>
+                            <span class="icon">📍</span> Astana, 123 Main st, DownTown
+                        </li>
+                        <li>
+                            <span class="icon">📞</span> +7(701) 123-45-67
+                        </li>
+                        <li>
+                            <span class="icon">🎬</span> Standard, Imax
+                        </li>
+                        <li>
+                            <span class="icon">🍿</span> Snack Bar: Yes
+                        </li>
+                        <li>
+                            <span class="icon">🕒</span> Hours: 10:00 AM - 11:00 PM
+                        </li>
+                        <a href="seat-selection.html" class="book-now-button" style="flex: 1;text-align: center; color: white;">Book Now</a>
+                        <button class="view-map-button" style="flex: auto; text-align: center;">View on Map</button>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="width: auto; align-content: center; ">2. City Center Cinema</h3>
+                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5htcfm1fy6bb5tyssxz6zct%2F1758313752_img_0.webp?st=2025-09-20T15%3A34%3A08Z&se=2025-09-26T16%3A34%3A08Z&sks=b&skt=2025-09-20T15%3A34%3A08Z&ske=2025-09-26T16%3A34%3A08Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=cfbc986b-d2bc-4088-8b71-4f962129715b&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=bqQK%2Bvpfp6K%2BSscem2RnTecpV0zIwztMKE9OaIqMxtI%3D&az=oaivgprodscus" alt="City Center Cinema" style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
+                    <ul class="info">
+                        <li>
+                            <span class="icon">📍</span> Almaty, 456 Center Rd, CityCenter
+                        </li>
+                        <li>
+                            <span class="icon">📞</span> +7(727) 765-43-21
+                        </li>
+                        <li>
+                            <span class="icon">🎬</span> Premium, Imax
+                        </li>
+                        <li>
+                            <span class="icon">🍿</span> Snack Bar: Yes
+                        </li>
+                        <li>
+                            <span class="icon">🕒</span> Hours: 11:00 AM - 12:00 AM
+                        </li>
+                        <a href="seat-selection.html" class="book-now-button" style="flex: 1;text-align: center; color: white;">Book Now</a>
+                        <button class="view-map-button" style="flex: auto; text-align: center;">View on Map</button>
+                    </ul>
+                </div>                                                                                                                                                                                                                                      
+                <div>
+                    <h3 style="width: auto; align-content: center; ">3. Suburban Cinema</h3>
+                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5n98mp7f3vswx1gqgxevhhd%2F1758429810_img_0.webp?st=2025-09-21T03%3A30%3A00Z&se=2025-09-27T04%3A30%3A00Z&sks=b&skt=2025-09-21T03%3A30%3A00Z&ske=2025-09-27T04%3A30%3A00Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=cfbc986b-d2bc-4088-8b71-4f962129715b&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=zDcu5Cs6cQD9eUPp1h6hKDpc5g6C6xQ4o8kOrIgRlcs%3D&az=oaivgprodscus" alt="Suburban Cinema" style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
+                    <ul class="info">
+                        <li>
+                            <span class="icon">📍</span> Shymkent, 789 Suburb Ln, Suburbia
+                        </li>
+                        <li>
+                            <span class="icon">📞</span> +7(7252) 12-34-56
+                        </li>
+                        <li>
+                            <span class="icon">🎬</span> Standard, Drive-in
+                        </li>
+                        <li>
+                            <span class="icon">🍿</span> Snack Bar: No
+                        </li>
+                        <li>
+                            <span class="icon">🕒</span> Hours: 09:00 AM - 10:00 PM
+                        </li>
+                        <a href="seat-selection.html" class="book-now-button" style="flex: 1;text-align: center; color: white;">Book Now</a>
+                        <button class="view-map-button" style="flex: auto; text-align: center;">View on Map</button>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="width: auto; align-content: center; ">4. Riverside Cinema</h3>
+                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5nc49qkfa8t2rn8ewnzdef9%2F1758432771_img_0.webp?st=2025-09-21T04%3A25%3A02Z&se=2025-09-27T05%3A25%3A02Z&sks=b&skt=2025-09-21T04%3A25%3A02Z&ske=2025-09-27T05%3A25%3A02Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=cfbc986b-d2bc-4088-8b71-4f962129715b&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=CjW3KH98BFxSI4e9N%2FQNpGDPQfyJT1zqMHW%2Bza%2FXM7g%3D&az=oaivgprodscus" alt="Riverside Cinema" style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
+                    <ul class="info">
+                        <li>
+                            <span class="icon">📍</span> Aktobe, 321 River Rd, Riverside
+                        </li>
+                        <li>
+                            <span class="icon">📞</span> +7(7132) 98-76-54
+                        </li>
+                        <li>
+                            <span class="icon">🎬</span> Premium, Imax
+                        </li>
+                        <li>
+                            <span class="icon">🍿</span> Snack Bar: Yes
+                        </li>
+                        <li>
+                            <span class="icon">🕒</span> Hours: 12:00 PM - 01:00 AM
+                        </li>
+                        <a href="seat-selection.html" class="book-now-button" style="flex: 1;text-align: center; color: white;">Book Now</a>
+                        <button class="view-map-button" style="flex: auto; text-align: center;">View on Map</button>
+                    </ul>
+                </div>
+        </section>
 
 
-</main>
+    </main>
 </body>
 </html>

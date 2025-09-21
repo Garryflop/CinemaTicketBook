@@ -63,35 +63,54 @@ nav a:hover {
     margin-bottom: 40px;
 }
 
+.search-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aligns items at the bottom */
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
 .search-group {
     display: flex;
     flex-direction: column;
+    position: relative; /* Needed for positioning the suggestions box */
     flex-grow: 1;
 }
 
-.search-group label {
-    margin-bottom: 5px;
-}
-
 #city-search, #cinema-list {
+    /* Existing styles for input and select */
     width: 100%;
-    padding: 15px;
-    border: 2px solid rgba(255, 107, 53, 0.3);
-    border-radius: 10px;
-    background: rgba(15, 15, 35, 0.8);
-    color: #ffffff;
-    font-size: 16px;
 }
 
 .search-button {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
-    background: #ff6b35;
-    color: #ffffff;
-    font-size: 16px;
+    /* Existing styles for button */
+    align-self: flex-end; /* Ensures button is aligned with other items */
+}
+
+/* New CSS for the autocomplete suggestions box */
+.autocomplete-suggestions {
+    position: absolute;
+    top: 100%; /* Positions the box directly below the input */
+    left: 0;
+    right: 0;
+    background-color: #1a1a33;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-top: none;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 0 0 10px 10px;
+}
+
+.autocomplete-suggestions div {
+    padding: 10px;
     cursor: pointer;
-    align-self: flex-start;
+}
+
+.autocomplete-suggestions div:hover {
+    background-color: #2a2a47;
 }
 
 .location-card {
@@ -113,19 +132,62 @@ nav a:hover {
 }
 
 .info {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+  /* Aligns all list items in a single row */
+  display: flex;
+  /* Removes default bullet points */
+  list-style: none;
+  /* Removes default padding from the list */
+  padding: 0;
+  /* Adds space between each item */
+  gap: 30px;
+  /* Aligns items vertically in the center */
+  align-items: center;
+  /* Allows items to wrap onto the next line if space is limited */
+  flex-wrap: wrap;
 }
 
 .info li {
-    font-size: 1.1em;
+  /* Sets a consistent font size */
+  font-size: 16px;
+  /* Aligns icons with text */
+  display: flex;
+  align-items: center;
+  /* Gives each list item some space */
+  padding: 5px 0;
+  /* Ensures the items don't shrink */
+  flex-shrink: 0;
 }
 
-.icon {
-    font-size: 1.2em;
+.info .icon {
+  /* Spacing between the icon and text */
+  margin-right: 8px;
+  /* Custom color for the icons */
+  color: #ff6b35; 
+}
+
+.action-buttons {
+  /* Pushes buttons to the right side of the container */
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: #ff6b35;
+  border: 2px solid #ff6b35;
+}
+
+.btn-secondary {
+  background-color: #ff6b35;
+  color: #0f0f23;
+  border: 2px solid #ff6b35;
 }
