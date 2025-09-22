@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Seat Selection</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="header">
+                <a href="index.html" class="logo">Absolute Cinema</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie-details.html">Movies</a></li>
+                        <li><a href="cinema-locations.html">Cinemas</a></li>
+                        <li><a href="seat-selection.html">Book Seats</a></li>
+                        <li><a href="booking-form.html">Account</a></li>
+                        <li><a href="confirmation.html">My Bookings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <h1 style="text-align: center;">Booking Place</h1>
+    <div>
+        <section class="search-controls">
+            <div class="search-group">
+                <label for="film-search">Search Film by Title</label>
+                <input type="text" id="film-search" placeholder="Enter film title..." style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
+            </div>
+            <button class="search-button" style="width: 20%;">Search Film</button>
+        </section>
+        <h2 style="text-align: center;">Popular Films</h2>
+    </div>
+    <div class="movie-gallery">
+        <div class="movie">
+            <img src="images/film1.png" alt="Somnia: The House of Nightmares">
+            <p>Somnia: The House of Nightmares</p>
+            <details>
+                <summary>🎟 Book Now</summary>
+                <div class="booking-box">
+                    <label for="cinema1">Choose Cinema:</label>
+                    <select id="cinema1">
+                        <option>Kinopark 8</option>
+                        <option>Chaplin Khan Shatyr</option>
+                        <option>Keruen Cinema</option>
+                        <option>Kinopark 16</option>
+                    </select>
+                    <label for="date1">Select Date:</label>
+                    <input type="date" id="date1">
+                    <label for="time1">Select Time:</label>
+                    <select id="time1">
+                        <option>12:00</option>
+                        <option>15:00</option>
+                        <option>18:00</option>
+                        <option>21:00</option>
+                    </select>
+                    <h4>Choose Seats</h4>
+                    <div class="seats">
+                        <input type="checkbox" id="A1"><label for="A1">A1</label>
+                        <input type="checkbox" id="A2"><label for="A2">A2</label>
+                        <input type="checkbox" id="A3"><label for="A3">A3</label>
+                        <input type="checkbox" id="A4"><label for="A4">A4</label>
+                    </div>
+                    <p>
+                        <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>
+                    </p>    
+                    <label for="ticket-type">Ticket Type:</label>
+                    <select id="ticket-type">
+                        <option value="adult">Adult ($10)</option>
+                        <option value="student">Student ($8)</option>
+                        <option value="child">Child ($6)</option>
+                    </select>
+                    <button id="payment-btn">Proceed to Payment</button>
+                </div>
+            </details>
+        </div>
+
+        <div class="movie">
+            <img src="images/film2.png" alt="Demon Slayer: Kimetsu no Yaiba - To the Swordsmith Village">
+            <p>Demon Slayer: Kimetsu no Yaiba</p>
+            <details>
+                <summary>🎟 Book Now</summary>
+                <div class="booking-box">
+                    <label for="cinema2">Choose Cinema:</label>
+                    <select id="cinema2">
+                        <option>Kinopark 8</option>
+                        <option>Chaplin Khan Shatyr</option>
+                        <option>Keruen Cinema</option>
+                        <option>Kinopark 16</option>
+                    </select>
+                    <label for="date2">Select Date:</label>
+                    <input type="date" id="date2">
+                    <label for="time2">Select Time:</label>
+                    <select id="time2">
+                        <option>12:00</option>
+                        <option>15:00</option>
+                        <option>18:00</option>
+                        <option>21:00</option>
+                    </select>
+                    <h4>Choose Seats</h4>
+                    <div class="seats">
+                        <input type="checkbox" id="B1"><label for="B1">B1</label>
+                        <input type="checkbox" id="B2"><label for="B2">B2</label>
+                        <input type="checkbox" id="B3"><label for="B3">B3</label>
+                        <input type="checkbox" id="B4"><label for="B4">B4</label>
+                    </div>
+                    <p>
+                        <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>   
+                    </p>
+                    <label for="ticket-type">Ticket Type:</label>       
+                    <select id="ticket-type">
+                        <option value="adult">Adult ($10)</option>
+                        <option value="student">Student ($8)</option>
+                        <option value="child">Child ($6)</option>   
+                    </select>       
+                    <button id="payment-btn">Proceed to Payment</button>
+                </div>
+            </details>
+        </div>
+
+        <div class="movie">
+            <img src="images/film3.png" alt="Ghost Train">
+            <p>Ghost Train</p>
+            <details>
+                <summary>🎟 Book Now</summary>
+                <div class="booking-box">
+                    <label for="cinema3">Choose Cinema:</label>
+                    <select id="cinema3">
+                        <option>Kinopark 8</option>
+                        <option>Chaplin Khan Shatyr</option>
+                        <option>Keruen Cinema</option>
+                        <option>Kinopark 16</option>
+                    </select>
+                    <label for="date3">Select Date:</label>
+                    <input type="date" id="date3">
+                    <label for="time3">Select Time:</label>
+                    <select id="time3">
+                        <option>12:00</option>
+                        <option>15:00</option>
+                        <option>18:00</option>
+                        <option>21:00</option>
+                    </select>
+                    <h4>Choose Seats</h4>
+                    <div class="seats">
+                        <input type="checkbox" id="C1"><label for="C1">C1</label>
+                        <input type="checkbox" id="C2"><label for="C2">C2</label>
+                        <input type="checkbox" id="C3"><label for="C3">C3</label>
+                        <input type="checkbox" id="C4"><label for="C4">C4</label>
+                    </div>  
+                    <p>
+                        <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>
+                    </p>                
+                    <label for="ticket-type">Ticket Type:</label>               
+                    <select id="ticket-type">
+                        <option value="adult">Adult ($10)</option>
+                        <option value="student">Student ($8)</option>
+                        <option value="child">Child ($6)</option>   
+                    </select>
+                    <button id="payment-btn">Proceed to Payment</button>
+                </div>
+            </details>
+        </div>
+
+        <div class="movie">
+            <img src="images/film4.png" alt="Final Destination: Deadly Game">
+            <p>Final Destination: Deadly Game</p>
+            <details>
+                <summary>🎟 Book Now</summary>
+                <div class="booking-box">
+                    <label for="cinema4">Choose Cinema:</label>
+                    <select id="cinema4">
+                        <option>Kinopark 8</option>
+                        <option>Chaplin Khan Shatyr</option>
+                        <option>Keruen Cinema</option>
+                        <option>Kinopark 16</option>
+                    </select>
+                    <label for="date4">Select Date:</label>
+                    <input type="date" id="date4">
+                    <label for="time4">Select Time:</label>
+                    <select id="time4">
+                        <option>12:00</option>
+                        <option>15:00</option>
+                        <option>18:00</option>
+                        <option>21:00</option>
+                    </select>
+                    <h4>Choose Seats</h4>
+                    <div class="seats">
+                        <input type="checkbox" id="D1"><label for="D1">D1</label>
+                        <input type="checkbox" id="D2"><label for="D2">D2</label>
+                        <input type="checkbox" id="D3"><label for="D3">D3</label>
+                        <input type="checkbox" id="D4"><label for="D4">D4</label>
+                    </div>
+                    <p>
+                        <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>   
+                    </p>                
+                    <label for="ticket-type">Ticket Type:</label>
+                    <select id="ticket-type">
+                        <option value="adult">Adult ($10)</option>
+                        <option value="student">Student ($8)</option>
+                        <option value="child">Child ($6)</option>       
+                    </select>
+                    <button id="payment-btn">Proceed to Payment</button>
+                </div>
+            </details>
+        </div>
+
+        <div class="movie">
+            <img src="images/film5.png" alt="Caught Red-Handed"> 
+            <p>Caught Red-Handed</p>
+            <details>
+                <summary>🎟 Book Now</summary>
+                <div class="booking-box">
+                    <label for="cinema5">Choose Cinema:</label>
+                    <select id="cinema5">
+                        <option>Kinopark 8</option>
+                        <option>Chaplin Khan Shatyr</option>
+                        <option>Keruen Cinema</option>
+                        <option>Kinopark 16</option>
+                    </select>
+                    <label for="date5">Select Date:</label>
+                    <input type="date" id="date5">
+                    <label for="time5">Select Time:</label>
+                    <select id="time5">
+                        <option>12:00</option>
+                        <option>15:00</option>
+                        <option>18:00</option>
+                        <option>21:00</option>
+                    </select>
+                    <h4>Choose Seats</h4>
+                    <div class="seats">
+                        <input type="checkbox" id="E1"><label for="E1">E1</label>
+                        <input type="checkbox" id="E2"><label for="E2">E2</label>
+                        <input type="checkbox" id="E3"><label for="E3">E3</label>
+                        <input type="checkbox" id="E4"><label for="E4">E4</label>
+                    </div>
+                    <p>
+                        <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>
+                    </p>
+                    <label for="ticket-type1">Ticket Type:</label>
+                    <select id="ticket-type1">
+                        <option value="adult">Adult ($10)</option>
+                        <option value="child">Child ($6)</option>
+                    </select>
+                    <button id="payment-btn">Proceed to Payment</button>
+                </div>
+            </details>
+        </div>
+    </div>
+    <footer>
+            <div class="container">
+                <div id="footer-content">
+                    <div class="team-members">
+                        <h3> Team Members </h3>
+                        <p>Diasbek Amangeldiyev - Foundation & Layout</p>
+                        <p>Ernar Omarov - Navigation & Interactive </p>
+                        <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
+                        <p>Web Technologies Frontend Course - Assignment 2</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>
