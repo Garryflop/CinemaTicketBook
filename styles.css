@@ -50,6 +50,12 @@ nav ul li a:hover {
     height: 80vh;
     background: #111;
     text-align: center;
+    background-image: url('images/ironman.jpg');
+    background-size: cover; /* Ensures the image covers the entire section */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center;
+  background-color: rgb(80, 77, 77); /* Or any dark color */
+  background-blend-mode: multiply;
 }
 
 .welcome-content h1 {
