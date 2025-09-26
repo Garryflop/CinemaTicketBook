@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Absolute Cinema - Your Provider Perfect Movie Experience">
+    <meta name="keywords" content="cinema, movies, tickets, booking">
+    <title>Booking Confirmed | Absolute Cinema</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="icon" type="image/x-icon" href="images/logoAC.svg">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">AbsoluteCinema</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movie-list.html">Movies</a></li>
+                    <li><a href="cinema-locations.html">Cinemas</a></li>
+                    <li><a href="seat-selection.html">Book Seats</a></li>
+                    <li><a href="booking-form.html">Account</a></li>
+                    <li><a href="confirmation.html">My Bookings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Success Message -->
+        <section class="section">
+            <div class="container">
+                <div>
+                    <div id="success-icon">🎉</div>
+                    <h1>Booking Confirmed!</h1>
+                    <p>
+                        Your tickets have been successfully booked. Get ready for an amazing movie experience!
+                    </p>
+                    <a href="index.html" class="logo2"></a>
+                    <div id="booking-box">
+                        <h3>Booking Reference</h3>
+                        <p id="bookingRef">CH-2025-0919-001</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Ticket -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Your Digital Ticket</h2>
+                <div>
+                    <!-- Ticket Design -->
+                    <div class="ticket">
+                        <!-- Ticket Header -->
+                        <div class="ticket-header">
+                            <div class="ticket-brand">
+                                <div>🎬</div>
+                                <h2>Absolute Cinema</h2>
+                            </div>
+                            <p>Premium Cinema Experience</p>
+                        </div>
+                        
+                        <!-- Ticket Body -->
+                        <div class="ticket-body">
+                            <div class="ticket-grid">
+                                <!-- Movie Info -->
+                                <div>
+                                    <div class="movie-head">
+                                        <img src="images/posters/QaitadanPoster.png" width="120px" height="160px" alt="Qaitadan">
+                                        <div>
+                                            <h3>Qaitadan</h3>
+                                            <p>PG-13 • Drama/Fiction</p>
+                                            <p>Duration: 1h 43min</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Booking Details Grid -->
+                                    <div class="details-grid">
+                                        <div>
+                                            <h4>Date & Time</h4>
+                                            <p>Sept 19, 2025</p>
+                                            <p>8:00 PM</p>
+                                        </div>
+                                        <div>
+                                            <h4>Cinema</h4>
+                                            <p>Cinema Chaplin</p>
+                                            <p></p>
+                                        </div>
+                                        <div>
+                                            <h4>Screen & Seats</h4>
+                                            <p>Screen 3</p>
+                                            <p>Seats 4-5</p>
+                                        </div>
+                                        <div>
+                                            <h4>Total Paid</h4>
+                                            <p>₸1140</p>
+                                            <p>2 Tickets</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- QR Code -->
+                                <div class="qr-block">
+                                    <div class="qr-wrap">
+                                        <div class="qr-box">
+                                            <div class="qr-corner top-left"></div>
+                                            <div class="qr-corner top-right"></div>
+                                            <div class="qr-corner bottom-left"></div>
+                                            <div>SCAN<br>TO<br>ENTER</div>
+                                            <img src="images/qr-code.png" width="100px" height="100px"> </img>
+                                        </div>
+                                    </div>
+                                    <p>Show this QR code<br>at the cinema entrance</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ticket Footer -->
+                        <div class="ticket-footer">
+                            <div class="footer-row">
+                                <div>
+                                    <p><strong>Booking ID:</strong> CH-2025-0919-001</p>
+                                </div>
+                                <div>
+                                    <p>Please arrive 15 minutes before showtime</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="actions">
+                        <button class="btn" onclick="downloadTicket()">📱 Add to Wallet</button>
+                        <button class="btn btn-secondary" onclick="printTicket()">🖨️ Print Ticket</button>
+                        <button class="btn btn-secondary" onclick="shareTicket()">📤 Share</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Details -->
+        <section class="section">
+            <div class="container">
+                <div class="two-columns">
+                    <!-- Order Summary -->
+                    <div>
+                        <h3 class="section-title">Order Summary</h3>
+                        <div class="order-summary">
+                            <div class="payment-block">
+                                <h4>Payment Details</h4>
+                                <div>
+                                    <span>2 × Standard Tickets</span>
+                                    <span>₸1000</span>
+                                </div>
+                                <div>
+                                    <span>Booking Fee</span>
+                                    <span>₸20</span>
+                                </div>
+                                <div>
+                                    <span>VAT (12%)</span>
+                                    <span>₸120</span>
+                                </div>
+                                <div class="total">
+                                    <span>Total Paid</span>
+                                    <span>₸1140</span>
+                                </div>
+                                <p>✓ Payment successful via Credit Card</p>
+                            </div>
+                            
+                            <div class="customer-info">
+                                <h4>Customer Information</h4>
+                                <p><strong>Name:</strong> Nurdaulet</p>
+                                <p><strong>Email:</strong> nursap@absolute.com</p>
+                                <p><strong>Phone:</strong> +7 (700) 700 70 00</p>
+                                <p><strong>Booking Date:</strong> September 19, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Important Information -->
+                    <div>
+                        <h3 class="section-title">Important Information</h3>
+                        <div class="important-info">
+                            <div>
+                                <h4>📍 Cinema Location</h4>
+                                <p>Chaplin Khan Shatyr</p>
+                                <p>Astana, Turan Ave. 37</p>
+                                <p>+7(747) 174-25-08</p>
+                                <div class="cinema-actions">
+                                    <button class="btn btn-secondary" onclick="openMaps()">🗺️ Directions</button>
+                                    <button class="btn btn-secondary" onclick="callCinema()">📞 Call</button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4>⏰ Show Information</h4>
+                                <p><strong>Arrival Time:</strong> 7:45 PM</p>
+                                <p>Please arrive 15 minutes early</p>
+                                <p><strong>Duration:</strong> 2h 15min</p>
+                                <p>Expected end time: 10:15 PM</p>
+                            </div>
+                            
+                            <div class="guidelines">
+                                <h4>📋 Cinema Guidelines</h4>
+                                <ul>
+                                    <li>Show your QR code or mobile ticket</li>
+                                    <li>No outside food or drinks allowed</li>
+                                    <li>Please silence mobile phones</li>
+                                    <li>Latecomers may not be admitted</li>
+                                    <li>No refunds or exchanges</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps & Actions -->
+        <section class="section">
+            <div class="container">
+                <h3>What's Next?</h3>
+                <div class="next-steps">
+                    <div>
+                        <div>📧</div>
+                        <h4>Check Your Email</h4>
+                        <p>We've sent your tickets and booking confirmation to your email address. Check your inbox and spam folder.</p>
+                        <button class="btn" onclick="resendEmail()">Resend Email</button>
+                    </div>
+                    
+                    <div>
+                        <div>📱</div>
+                        <h4>Save to Mobile</h4>
+                        <p>Add your tickets to your mobile wallet for easy access at the cinema. Works with Apple Wallet and Google Pay.</p>
+                        <button class="btn btn-secondary" onclick="addToWallet()">Add to Wallet</button>
+                    </div>
+                    
+                    <div>
+                        <div>🍿</div>
+                        <h4>Pre-Order Snacks</h4>
+                        <p>Skip the queue and pre-order your favorite movie snacks. Pick them up at the cinema before the show.</p>
+                        <button class="btn btn-secondary" onclick="orderSnacks()">Order Snacks</button>
+                    </div>
+                </div>
+                
+                <!-- Social Sharing -->
+                <div>
+                    <h4>Share Your Movie Plans</h4>
+                    <div class="social-buttons">
+                        <button class="btn btn-secondary" onclick="shareOnFacebook()">📘 Facebook</button>
+                        <button class="btn btn-secondary" onclick="shareOnTwitter()">🐦 Twitter</button>
+                        <button class="btn btn-secondary" onclick="shareOnInstagram()">📷 Instagram</button>
+                        <button class="btn btn-secondary" onclick="shareOnWhatsApp()">💬 WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">You Might Also Like</h2>
+                <div class="movie-grid">
+                    <!-- Recommendation 1 -->
+                    <div class="movie-card">
+                        <img src="images/posters/QaitadanPoster.png" alt="Qaitadan" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
+                        <h4 class="movie-title">Qaitadan</h4>
+                        <p class="movie-info">Fiction Drama • PG-13</p>
+                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    </div>
+                    
+                    <!-- Recommendation 2 -->
+                    <div class="movie-card">
+                        <img src="images/posters/DemonSlayerPoster.png" alt="DemonSlayer" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
+                        <h4 class="movie-title">Demon Slayer Infinity Castle</h4>
+                        <p class="movie-info">Anime Drama • PG</p>
+                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    </div>
+                    
+                    <!-- Recommendation 3 -->
+                    <div class="movie-card">
+                        <img src="images/posters/Zaklyatya4Poster.png" alt="Zak" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
+                        <h4 class="movie-title">The Conjuring: Last Rites</h4>
+                        <p class="movie-info">Horror • R</p>
+                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <a href="index.html" class="btn">Browse All Movies</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div id="footer-content">
+                <div class="team-members">
+                    <h3> Team Members </h3>
+                    <p>Diasbek Amangeldiyev - Foundation & Layout</p>
+                    <p>Ernar Omarov - Navigation & Interactive </p>
+                    <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
+                    <p>Web Technologies Frontend Course - Assignment 2</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

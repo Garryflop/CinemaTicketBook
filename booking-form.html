@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Absolute Cinema - Your Provider Perfect Movie Experience">
+        <meta name="keywords" content="cinema, movies, tickets, booking">
+        <title>Complete Your Booking | Absolute Cinema</title>
+        <link rel="stylesheet" href="style3.css">
+        <link rel="icon" type="image/x-icon" href="images/logoAC.svg">
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="header-section">
+            <div class="container">
+                <a href="index.html" class="logo">AbsoluteCinema</a>
+                <nav  class="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie-list.html">Movies</a></li>
+                        <li><a href="cinema-locations.html">Cinemas</a></li>
+                        <li><a href="seat-selection.html">Book Seats</a></li>
+                        <li><a href="booking-form.html">Account</a></li>
+                        <li><a href="confirmation.html">My Bookings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Progress Indicator -->
+            <section class="section">
+                <div id="top-banner">
+                    <h1 >Complete Your Booking</h1>
+                    <p>Secure and easy ticket booking process</p>
+                </div>
+                <div class="container">
+                    <div>
+                        <div>
+                            <div>✓</div>
+                            <span>Select Movie</span>
+                        </div>
+                        <div></div>
+                        <div>
+                            <div>✓</div>
+                            <span>Select Seats</span>
+                        </div>
+                        <div></div>
+                        <div>
+                            <div>3</div>
+                            <span>Payment</span>
+                        </div>
+                        <div></div>
+                        <div>
+                            <div>4</div>
+                            <span>Confirmation</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Summary -->
+            <section class="section">
+                <div class="container">
+                    <div id="booking-summary">
+                        <h3 class="accent-border">Booking Summary</h3>
+                        <div>
+                            <div>
+                                <p>Movie</p>
+                                <p>Qaitadan</p>
+                            </div>
+                            <div>
+                                <p>Date & Time</p>
+                                <p>Sep 19, 2025 - 8:00 PM</p>
+                            </div>
+                            <div>
+                                <p>Cinema</p>
+                                <p>Astana, Turan Ave. 37</p>
+                            </div>
+                            <div>
+                                <p>Seats</p>
+                                <p>Seats 4-5</p>
+                            </div>
+                            <div>
+                                <p>Total Amount</p>
+                                <p>₸1140</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forms Section -->
+            <section class="section">
+                <div class="container">
+                    <div class="box-example-3">
+                        <!-- Customer Information Form -->
+                        <div class="box-example-1">
+                            <h2 class="section-title">Customer Information</h2>
+                            <form class="form-container" id="customerForm">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XXXX" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="birthDate">Date of Birth</label>
+                                    <input type="date" id="birthDate" name="birthDate">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="specialRequests">Special Requests</label>
+                                    <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Any special requirements or requests..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <div>
+                                        <input type="checkbox" id="newsletter" name="newsletter">
+                                        <label for="newsletter">Subscribe to our newsletter for exclusive offers</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div>
+                                        <input type="checkbox" id="terms" name="terms" required>
+                                        <label for="terms">I agree to the <a href="#" class="link-style">Terms and Conditions</a> *</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Payment Information Form -->
+                        <div class="box-example-1">
+                            <h2 class="section-title">Payment Information</h2>
+                            <div class="form-container2">
+                                <!-- Payment Method Selection -->
+                                <div class="form-group">
+                                    <label>Payment Method *</label>
+                                    <div>
+                                        <div onclick="selectPaymentMethod(this, 'card')">
+                                            <div>💳</div>
+                                            <p>Credit Card</p>
+                                        </div>
+                                        <div onclick="selectPaymentMethod(this, 'kaspi')">
+                                            <div>📱</div>
+                                            <p>Kaspi QR</p>
+                                        </div>
+                                        <div onclick="selectPaymentMethod(this, 'applepay')">
+                                            <div>🍎</div>
+                                            <p>Apple Pay</p>
+                                        </div>
+                                        <div onclick="selectPaymentMethod(this, 'bank')">
+                                            <div>🏦</div>
+                                            <p>Bank Transfer</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Credit Card Form (Default) -->
+                                <div id="cardPaymentForm">
+                                    <div class="form-group">
+                                        <label for="cardNumber">Card Number *</label>
+                                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    </div>
+
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="expiryDate">Expiry Date *</label>
+                                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cvv">CVV *</label>
+                                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cardName">Cardholder Name *</label>
+                                        <input type="text" id="cardName" name="cardName" placeholder="Name as on card">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="billingAddress">Billing Address</label>
+                                        <textarea id="billingAddress" name="billingAddress" rows="3" placeholder="Enter your billing address..."></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Alternative Payment Methods (Hidden by default) -->
+                                <div id="kaspiPaymentForm" style="display: none;">
+                                    <div>
+                                        <div>📱</div>
+                                        <h3>Kaspi QR Payment</h3>
+                                        <p>
+                                            You will be redirected to Kaspi app to complete the payment
+                                        </p>
+                                        <div>
+                                            <div>QR CODE</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="applePayForm" style="display: none;">
+                                    <div>
+                                        <div>🍎</div>
+                                        <h3>Apple Pay</h3>
+                                        <p>
+                                            Use Touch ID or Face ID to complete your payment
+                                        </p>
+                                        <button class="btn">Pay with Apple Pay</button>
+                                    </div>
+                                </div>
+
+                                <div id="bankTransferForm" style="display: none;">
+                                    <div>
+                                        <div>🏦</div>
+                                        <h3>Bank Transfer</h3>
+                                        <p>
+                                            Transfer payment to our bank account
+                                        </p>
+                                        <div>
+                                            <p><strong>Account Name:</strong> AbsCinema Kazakhstan</p>
+                                            <p><strong>Account Number:</strong> KZ86 125K ZT50 0410 0100</p>
+                                            <p><strong>Bank:</strong> Kaspi Bank</p>
+                                            <p><strong>Reference:</strong> BOOKING-2025-001</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Discount Codes -->
+                                <div class="form-group">
+                                    <label for="promoCode">Promo Code (Optional)</label>
+                                    <div>
+                                        <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
+                                        <button type="button" class="btn btn-secondary" onclick="applyPromoCode()">Apply Code</button>
+                                    </div>
+                                    <div id="promoMessage"></div>
+                                </div>
+
+                                <!-- Final Total -->
+                                <div>
+                                    <div>
+                                        <div>
+                                            <h3>Total Amount</h3>
+                                            <p>2 tickets • Booking fee included</p>
+                                        </div>
+                                        <div>
+                                            <p id="finalTotal">₸1140</p>
+                                            <p>Secure Payment 🔒</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div>
+                                    <a href="seat-selection.html" class="btn btn-secondary">← Back to Seats</a>
+                                    <button type="submit" class="btn" onclick="processPayment()">Complete Payment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security & Trust Section -->
+            <section class="section">
+                <div class="container">
+                    <h3 class="decorative-heading text-center">Secure & Trusted Payment</h3>
+                    <div class="security-features">
+                        <div class="security-item hover-lift">
+                            <div>🔒</div>
+                            <h4>SSL Encrypted</h4>
+                            <p>Your payment information is protected with bank-level security encryption</p>
+                        </div>
+                        <div class="security-item hover-lift">
+                            <div>💳</div>
+                            <h4>PCI Compliant</h4>
+                            <p>We meet the highest standards for processing card payments securely</p>
+                        </div>
+                        <div class="security-item hover-lift">
+                            <div>🛡️</div>
+                            <h4>Money Back Guarantee</h4>
+                            <p>Full refund if technical issues prevent you from enjoying your movie</p>
+                        </div>
+                        <div class="security-item hover-lift">
+                            <div>📞</div>
+                            <h4>24/7 Support</h4>
+                            <p>Our customer service team is always ready to help with your booking</p>
+                        </div>
+                    </div>
+
+                    <!-- Accepted Payment Methods -->
+                    <div class="text-center" style="margin-top: 50px;">
+                        <h4 style="color: #ff6b35; margin-bottom: 25px;">Accepted Payment Methods</h4>
+                        <div class="payment-logos">
+                            <div>VISA</div>
+                            <div>MasterCard</div>
+                            <div>American Express</div>
+                            <div>Kaspi</div>
+                            <div>Apple Pay</div>
+                            <div>Google Pay</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <div id="footer-content">
+                    <div class="team-members">
+                        <h3> Team Members </h3>
+                        <p>Diasbek Amangeldiyev - Foundation & Layout</p>
+                        <p>Ernar Omarov - Navigation & Interactive </p>
+                        <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
+                        <p>Web Technologies Frontend Course - Assignment 2</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
