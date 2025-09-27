@@ -27,135 +27,106 @@
     <h1 style="text-align: center;">Our Cinema Locations</h1>
     <p style="text-align: center;">Find a cinema near you and enjoy the latest movies!</p>
     <main>
-        <section class="search-controls">
-            <div class="search-group">
-                <label for="city-search">Search By City</label>
-                <input type="text" id="city-search" placeholder="Enter city name..." style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
+        <section class="google-search">
+            <div class="search-box">
+                <input type="text" id="city-search" placeholder="Search by city...">
             </div>
-            <div class="search-group">
-                <label for="cinema-list">Cinema Types</label>
-                <select id="cinema-list" style="width: 50%; padding: 15px; border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 10px; background: rgba(15, 15, 35, 0.8); color: #ffffff; font-size: 16px;">
-                    <option value="all types">All Types</option>
+
+            <div class="search-box">
+                <select id="cinema-list">
+                    <option value="all">All Types</option>
                     <option value="Standard">Standard</option>
-                    <option value="Imax">Imax</option>
+                    <option value="IMAX">IMAX</option>
                     <option value="Premium">Premium</option>
                     <option value="Multiplex">Multiplex</option>
                 </select>
             </div>
-            <button class="search-button" style="width: 20%;">Search Locations</button>
+
+            <button type="submit" class="search-btn">Search</button>
         </section>
-        <section class="section">
-            <div>
-                <h2 style="text-align: center;">All Available Cinemas</h2>
-                <div>
-                    <h3 style="width: auto; align-content: center; ">1. Kinopark 8 IMAX Saryarka</h3>
-                    <div class="image-scroll-container">
-                        <img src="images/kinopark6.png" alt="Kinopark 8 IMAX Saryarka" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/kinopark5.png" alt="Kinopark 8 IMAX Saryarka" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/kinopark4.png" alt="Kinopark 8 IMAX Saryarka" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                    </div>
-                    <ul class="info">
-                        <li>
-                            <span class="icon">📍</span> Astana, Turan Ave. 24
-                        </li>
-                        <li>
-                            <span class="icon">📞</span> +7(701) 870-70-03
-                        </li>
-                        <li>
-                            <span class="icon">🎬</span> Standard, Imax, Multiplex
-                        </li>
-                        <li>
-                            <span class="icon">🍿</span> Snack Bar: Yes
-                        </li>
-                        <li>
-                            <span class="icon">🕒</span> Hours: 10:00 AM - 11:00 PM
-                        </li>
-                        <a href="seat-selection.html" class="btn btn-primary" style="flex: 1;text-align: center; color: white;" >Book Now</a>
-                        <a href="https://maps.app.goo.gl/ERhAmgKcCK8DR34m9" class="btn btn-secondary">View on Map</a>
-                    </ul>
+        <section class="gallery-section">
+        <h2>Our Cinema Image Gallery</h2>
+        <div class="gallery-container">
+
+            <!-- Cinema 1: Kinopark 8 IMAX Saryarka -->
+            <div class="gallery-item">
+                <img src="images/kinopark6.png" alt="Kinopark 8 IMAX Saryarka">
+                <img src="images/kinopark5.png" alt="Kinopark 8 IMAX Saryarka">
+                <img src="images/kinopark4.png" alt="Kinopark 8 IMAX Saryarka">
+                <div class="caption">Kinopark 8 IMAX Saryarka</div>
+                <ul class="info">
+                    <li>📍 Astana, Turan Ave. 24</li>
+                    <li>📞 +7(701) 870-70-03</li>
+                    <li>🎬 Standard, Imax, Multiplex</li>
+                    <li>🍿 Snack Bar: Yes</li>
+                    <li>🕒 Hours: 10:00 AM - 11:00 PM</li>
+                </ul>
+                <div class="buttons">
+                    <a href="seat-selection.html" class="btn btn-primary">Book Now</a>
+                    <a href="https://maps.app.goo.gl/ERhAmgKcCK8DR34m9" class="btn btn-secondary">View on Map</a>
                 </div>
-                <div>
-                    <h3 style="width: auto; align-content: center; ">2. Kinopark 7 (Keruen) IMAX 3D</h3>
-                    <div class="image-scroll-container">
-                        <img src="images/kinopark1.png" alt="Kinopark 7 (Keruen) IMAX 3D" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/kinopark2.png" alt="Kinopark 7 (Keruen) IMAX 3D" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/kinopark3.png" alt="Kinopark 7 (Keruen) IMAX 3D" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                    </div>
-                    <ul class="info">
-                        <li>
-                            <span class="icon">📍</span> Astana, Dostyk St. 9
-                        </li>
-                        <li>
-                            <span class="icon">📞</span> +7(775) 612-40-60
-                        </li>
-                        <li>
-                            <span class="icon">🎬</span> Premium, Imax, Multiplex
-                        </li>
-                        <li>
-                            <span class="icon">🍿</span> Snack Bar: Yes
-                        </li>
-                        <li>
-                            <span class="icon">🕒</span> Hours: 11:00 AM - 12:00 AM
-                        </li>
-                        <a href="seat-selection.html" class="btn btn-primary" style="flex: 1;text-align: center; color: white;">Book Now</a>
-                        <a href="https://maps.app.goo.gl/m2eXo6UGu4ijYKyV7" class="btn btn-secondary">View on Map</a>
-                    </ul>
-                </div>                                                                                                                                                                                                                                      
-                <div>
-                    <h3 style="width: auto; align-content: center; ">3. Chaplin MEGA Silk Way</h3>
-                    <div class="image-scroll-container">
-                        <img src="images/chaplinmega.png" alt="Chaplin MEGA Silk Way" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/chaplinmega1.png" alt="Chaplin MEGA Silk Way" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/chaplinmega2.png" alt="Chaplin MEGA Silk Way" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                    </div>
-                    <ul class="info">
-                        <li>
-                            <span class="icon">📍</span> Astana, Kabanbay Batyr Ave. 62
-                        </li>
-                        <li>
-                            <span class="icon">📞</span> +7(747) 174-25-57
-                        </li>
-                        <li>
-                            <span class="icon">🎬</span> Standard, Multiplex
-                        </li>
-                        <li>
-                            <span class="icon">🍿</span> Snack Bar: Yes
-                        </li>
-                        <li>
-                            <span class="icon">🕒</span> Hours: 09:00 AM - 10:00 PM
-                        </li>
-                        <a href="seat-selection.html" class="btn btn-primary" style="flex: 1;text-align: center; color: white;">Book Now</a>
-                        <a href="https://maps.app.goo.gl/Tnp1rWeDYccRknAC7" class="btn btn-secondary">View on Map</a>
-                    </ul>
+            </div>
+
+            <!-- Cinema 2: Kinopark 7 IMAX 3D -->
+            <div class="gallery-item">
+                <img src="images/kinopark1.png" alt="Kinopark 7 IMAX 3D">
+                <img src="images/kinopark2.png" alt="Kinopark 7 IMAX 3D">
+                <img src="images/kinopark3.png" alt="Kinopark 7 IMAX 3D">
+                <div class="caption">Kinopark 7 IMAX 3D</div>
+                <ul class="info">
+                    <li>📍 Astana, Dostyk St. 9</li>
+                    <li>📞 +7(775) 612-40-60</li>
+                    <li>🎬 Premium, Imax, Multiplex</li>
+                    <li>🍿 Snack Bar: Yes</li>
+                    <li>🕒 Hours: 11:00 AM - 12:00 AM</li>
+                </ul>
+                <div class="buttons">
+                    <a href="seat-selection.html" class="btn btn-primary">Book Now</a>
+                    <a href="https://maps.app.goo.gl/m2eXo6UGu4ijYKyV7" class="btn btn-secondary">View on Map</a>
                 </div>
-                <div>
-                    <h3 style="width: auto; align-content: center; ">4. Chaplin Khan Shatyr</h3>
-                    <div class="image-scroll-container">
-                        <img src="images/chaplinkhan.png" alt="Chaplin Khan Shatyr" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/chaplinkhan1.png" alt="Chaplin Khan Shatyr" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;">
-                        <img src="images/chaplinkhan2.png" alt="Chaplin Khan Shatyr" style="width:85%; height: 500px; object-fit: cover; border-radius: 10px;"> 
-                    </div>
-                    <ul class="info">
-                        <li>
-                            <span class="icon">📍</span> Astana, Turan Ave. 37
-                        </li>
-                        <li>
-                            <span class="icon">📞</span> +7(747) 174-25-08
-                        </li>
-                        <li>
-                            <span class="icon">🎬</span> Multiplex, Imax
-                        </li>
-                        <li>
-                            <span class="icon">🍿</span> Snack Bar: Yes
-                        </li>
-                        <li>
-                            <span class="icon">🕒</span> Hours: 12:00 PM - 01:00 AM
-                        </li>
-                        <a href="seat-selection.html" class="btn btn-primary" style="flex: 1;text-align: center; color: white;">Book Now</a>
-                        <a href="https://maps.app.goo.gl/sdzw9CieKdAaJZd3A" class="btn btn-secondary">View on Map</a>
-                    </ul>
+            </div>
+
+            <!-- Cinema 3: Chaplin MEGA Silk Way -->
+            <div class="gallery-item">
+                <img src="images/chaplinmega.png" alt="Chaplin MEGA Silk Way">
+                <img src="images/chaplinmega2.png" alt="Chaplin MEGA Silk Way">
+                <img src="images/chaplinmega3.png" alt="Chaplin MEGA Silk Way">
+                <div class="caption">Chaplin MEGA Silk Way</div>
+                <ul class="info">
+                    <li>📍 Astana, Kabanbay Batyr Ave. 62</li>
+                    <li>📞 +7(747) 174-25-57</li>
+                    <li>🎬 Standard, Multiplex</li>
+                    <li>🍿 Snack Bar: Yes</li>
+                    <li>🕒 Hours: 09:00 AM - 10:00 PM</li>
+                </ul>
+                <div class="buttons">
+                    <a href="seat-selection.html" class="btn btn-primary">Book Now</a>
+                    <a href="https://maps.app.goo.gl/Tnp1rWeDYccRknAC7" class="btn btn-secondary">View on Map</a>
                 </div>
-        </section>
+            </div>
+
+            <!-- Cinema 4: Chaplin Khan Shatyr -->
+            <div class="gallery-item">
+                <img src="images/chaplinkhan.png" alt="Chaplin Khan Shatyr">
+                <img src="images/chaplinkhan1.png" alt="Chaplin Khan Shatyr">
+                <img src="images/chaplinkhan2.png" alt="Chaplin Khan Shatyr">
+                <div class="caption">Chaplin Khan Shatyr</div>
+                <ul class="info">
+                    <li>📍 Astana, Turan Ave. 37</li>
+                    <li>📞 +7(747) 174-25-08</li>
+                    <li>🎬 Multiplex, Imax</li>
+                    <li>🍿 Snack Bar: Yes</li>
+                    <li>🕒 Hours: 12:00 PM - 01:00 AM</li>
+                </ul>
+                <div class="buttons">
+                    <a href="seat-selection.html" class="btn btn-primary">Book Now</a>
+                    <a href="https://maps.app.goo.gl/sdzw9CieKdAaJZd3A" class="btn btn-secondary">View on Map</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     </main>
     <footer>
             <div class="container">
