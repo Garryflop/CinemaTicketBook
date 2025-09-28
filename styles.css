@@ -251,6 +251,36 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
+/* Date Selector Section */
+.date-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.date-btn {
+    padding: 12px 25px;
+    background-color: #222;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.date-btn:hover {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.date-btn.active {
+    background-color: #ff69b4;
+    color: white;
+}
+
 /* Movies List Section */
 .movies-list {
     padding: 30px;
@@ -289,14 +319,12 @@ nav ul li a:hover {
 }
 
 .movie-card img {
-    
+    width: 70%;
     height: 350px;
     object-fit: cover;
     border-radius: 5px;
-    width: 70%; /* Or any specific width */
-  margin-left: auto;
+    margin-left: auto;
   margin-right: auto;
-
 }
 
 .movie-details h3 {
@@ -308,19 +336,19 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .info-box {
     background-color: transparent;
     color: #ff69b4; /* Neon text */
-    padding: 1px;
-    margin: 4px;
+    padding: 10px;
     font-size: 14px;
     text-align: center;
     flex-grow: 1;
     border: 2px solid #ff69b4;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     box-shadow: 0 0 10px #ff69b4; /* Neon glow effect */
 }
 
