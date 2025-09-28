@@ -11,22 +11,236 @@
     </head>
     <body>
         <!-- Header Section -->
-        <header class="header-section">
-            <div class="container">
-                <a href="index.html" class="logo">AbsoluteCinema</a>
-                <nav  class="nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="movie-list.html">Movies</a></li>
-                        <li><a href="cinema-locations.html">Cinemas</a></li>
-                        <li><a href="seat-selection.html">Book Seats</a></li>
-                        <li><a href="booking-form.html">Account</a></li>
-                        <li><a href="confirmation.html">My Bookings</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+<!-- UPDATE 1: Cinema Locations Page (cinema-locations.html) -->
+<!-- Replace your existing header structure -->
+<header class="header-section">
+    <div id="header">
+        <a href="index.html" class="logo">Absolute Cinema</a>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="movie-list.html">Movies</a></li>
+                <li><a href="cinema-locations.html">Cinemas</a></li>
+                <li><a href="seat-selection.html">Book Seats</a></li>
+                <li><a href="booking-form.html">Account</a></li>
+                <li><a href="confirmation.html">My Bookings</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
+
+<!-- ADD: Task 2 - Card Row for Movies/Cinemas (Add this section in your cinema-locations.html) -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Featured Cinemas</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="images/kinopark6.png" alt="Kinopark IMAX" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Kinopark 8 IMAX Saryarka</h3>
+                    <p class="card-text">Premium IMAX experience with state-of-the-art sound system and comfortable seating.</p>
+                    <a href="seat-selection.html" class="btn card-button">Book Now</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="images/kinopark1.png" alt="Kinopark Keruen" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Kinopark 7 Keruen</h3>
+                    <p class="card-text">Modern multiplex cinema with 3D capabilities and luxury seating options.</p>
+                    <a href="seat-selection.html" class="btn card-button">Book Now</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="images/chaplinmega.png" alt="Chaplin MEGA" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Chaplin MEGA Silk Way</h3>
+                    <p class="card-text">Family-friendly cinema with affordable pricing and great snack bar options.</p>
+                    <a href="seat-selection.html" class="btn card-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADD: Task 4 - Image Gallery (Add this section in your cinema-locations.html) -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Cinema Gallery</h2>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="images/kinopark6.png" alt="Kinopark Interior" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>IMAX Theater</h4>
+                    <p>Premium viewing experience</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/kinopark5.png" alt="Kinopark Lobby" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Modern Lobby</h4>
+                    <p>Spacious and comfortable</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/kinopark4.png" alt="Kinopark Screen" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Large Screen</h4>
+                    <p>Crystal clear picture quality</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/kinopark1.png" alt="Keruen Cinema" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Keruen Location</h4>
+                    <p>Multiple screening rooms</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/kinopark2.png" alt="Keruen Interior" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Luxury Seating</h4>
+                    <p>Comfortable reclining chairs</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/kinopark3.png" alt="Keruen Concessions" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Snack Bar</h4>
+                    <p>Fresh popcorn and drinks</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/chaplinmega.png" alt="Chaplin MEGA" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Chaplin MEGA</h4>
+                    <p>Family-friendly atmosphere</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/chaplinmega1.png" alt="Chaplin Interior" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Standard Theater</h4>
+                    <p>Quality at affordable prices</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/chaplinmega2.png" alt="Chaplin Lobby" class="gallery-image">
+                <div class="gallery-caption">
+                    <h4>Welcoming Entrance</h4>
+                    <p>Easy access and navigation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UPDATE 2: Booking Form Page (booking-form.html) -->
+<!-- Your existing header is already good, just ensure it has the right classes -->
+
+<!-- ADD: Task 3 - Page Layout with Grid Areas (Add this to create a demo page) -->
+<!-- Create a new section or page with this grid layout -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Page Layout Demo</h2>
+        <div class="page-layout" style="height: 600px; margin: 40px 0;">
+            <div class="grid-header">
+                <h3 style="color: #ff6b35;">Header Area</h3>
+                <p>This header spans across the top of the layout using CSS Grid.</p>
+            </div>
+            
+            <div class="grid-sidebar">
+                <h4 style="color: #ff6b35;">Sidebar</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 10px 0;">• Navigation Item 1</li>
+                    <li style="margin: 10px 0;">• Navigation Item 2</li>
+                    <li style="margin: 10px 0;">• Navigation Item 3</li>
+                    <li style="margin: 10px 0;">• Navigation Item 4</li>
+                </ul>
+            </div>
+            
+            <div class="grid-main">
+                <h4 style="color: #ff6b35;">Main Content Area</h4>
+                <p>This is the main content area where the primary information is displayed. It takes up the majority of the space and is positioned to the right of the sidebar.</p>
+                <p>Grid areas make it easy to create complex layouts with clean, semantic HTML structure.</p>
+            </div>
+            
+            <div class="grid-footer">
+                <h4 style="color: #ff6b35;">Footer Area</h4>
+                <p>Footer spans across the bottom, similar to the header.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UPDATE 3: Enhanced Security Section with Grid -->
+<!-- Replace your existing security section in booking-form.html -->
+<section class="section">
+    <div class="container">
+        <h3 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Secure & Trusted Payment</h3>
+        <div class="security-features">
+            <div class="security-item">
+                <div style="font-size: 48px; margin-bottom: 20px;">🔒</div>
+                <h4 style="color: #ffffff; margin-bottom: 15px;">SSL Encrypted</h4>
+                <p>Your payment information is protected with bank-level security encryption</p>
+            </div>
+            <div class="security-item">
+                <div style="font-size: 48px; margin-bottom: 20px;">💳</div>
+                <h4 style="color: #ffffff; margin-bottom: 15px;">PCI Compliant</h4>
+                <p>We meet the highest standards for processing card payments securely</p>
+            </div>
+            <div class="security-item">
+                <div style="font-size: 48px; margin-bottom: 20px;">🛡️</div>
+                <h4 style="color: #ffffff; margin-bottom: 15px;">Money Back Guarantee</h4>
+                <p>Full refund if technical issues prevent you from enjoying your movie</p>
+            </div>
+            <div class="security-item">
+                <div style="font-size: 48px; margin-bottom: 20px;">📞</div>
+                <h4 style="color: #ffffff; margin-bottom: 15px;">24/7 Support</h4>
+                <p>Our customer service team is always ready to help with your booking</p>
+            </div>
+        </div>
+
+        <!-- Payment Logos with Grid -->
+        <div style="text-align: center; margin-top: 50px;">
+            <h4 style="color: #ff6b35; margin-bottom: 25px;">Accepted Payment Methods</h4>
+            <div class="payment-logos">
+                <div style="background: #1a1f71; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">VISA</div>
+                <div style="background: #eb001b; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">MasterCard</div>
+                <div style="background: #006fcf; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">American Express</div>
+                <div style="background: #ff6900; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">Kaspi</div>
+                <div style="background: #000; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">Apple Pay</div>
+                <div style="background: #4285f4; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">Google Pay</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UPDATE 4: Payment Methods with Grid -->
+<!-- Replace your payment methods section in booking-form.html -->
+<div class="form-group">
+    <label>Payment Method *</label>
+    <div class="payment-methods">
+        <div class="payment-method" onclick="selectPaymentMethod(this, 'card')">
+            <div style="font-size: 24px; margin-bottom: 8px;">💳</div>
+            <p style="margin: 0; font-weight: bold;">Credit Card</p>
+        </div>
+        <div class="payment-method" onclick="selectPaymentMethod(this, 'kaspi')">
+            <div style="font-size: 24px; margin-bottom: 8px;">📱</div>
+            <p style="margin: 0; font-weight: bold;">Kaspi QR</p>
+        </div>
+        <div class="payment-method" onclick="selectPaymentMethod(this, 'applepay')">
+            <div style="font-size: 24px; margin-bottom: 8px;">🍎</div>
+            <p style="margin: 0; font-weight: bold;">Apple Pay</p>
+        </div>
+        <div class="payment-method" onclick="selectPaymentMethod(this, 'bank')">
+            <div style="font-size: 24px; margin-bottom: 8px;">🏦</div>
+            <p style="margin: 0; font-weight: bold;">Bank Transfer</p>
+        </div>
+    </div>
+</div>
         <!-- Main Content -->
         <main id="main-content">
             <!-- Progress Indicator -->

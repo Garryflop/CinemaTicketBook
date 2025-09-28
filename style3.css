@@ -65,7 +65,7 @@ header {
     background: rgba(15, 15, 35, 0.95);
     backdrop-filter: blur(10px);
     padding: 15px 0;
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -149,6 +149,15 @@ nav a {
     position: relative;
 }
 
+.nav-container {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
 nav a:hover {
     color: #ff6b35;
     background: rgba(255, 107, 53, 0.1);
@@ -223,6 +232,7 @@ main {
     background: rgba(30, 30, 60, 0.8);
     border-radius: 15px;
     padding: 20px;
+    
     border: 1px solid rgba(255, 107, 53, 0.2);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
