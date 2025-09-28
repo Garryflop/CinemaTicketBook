@@ -240,6 +240,17 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+.movies-list {
+    padding: 30px;
+    text-align: center;
+}
+
+.movies-list h2 {
+    font-size: 2rem;
+    color: #ff69b4;
+    margin-bottom: 30px;
+}
+
 /* Movies List Section */
 .movies-list {
     padding: 30px;
@@ -252,55 +263,102 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-.movie-item {
+/* Flex container for movies */
+.movies-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Movie Card */
+.movie-card {
     background-color: #222;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 30%; /* 3 cards per row */
     padding: 20px;
+    color: #fff;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.movie-item img {
-    width: 200px;
-    height: 300px;
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    
+    height: 350px;
     object-fit: cover;
     border-radius: 5px;
-    margin-right: 20px;
-}
+    width: 70%; /* Or any specific width */
+  margin-left: auto;
+  margin-right: auto;
 
-.movie-details {
-    color: #fff;
-    text-align: left;
 }
 
 .movie-details h3 {
     font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.movie-info-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.info-box {
+    background-color: transparent;
+    color: #ff69b4; /* Neon text */
+    padding: 1px;
+    margin: 4px;
+    font-size: 14px;
+    text-align: center;
+    flex-grow: 1;
+    border: 2px solid #ff69b4;
+    border-radius: 5px;
     margin-bottom: 10px;
+    box-shadow: 0 0 10px #ff69b4; /* Neon glow effect */
 }
 
 .movie-details p {
-    margin-bottom: 10px;
-    color: #ccc;
+    margin: 10px 0;
+    font-size: 14px;
 }
 
-.movie-details button {
+button {
     background-color: #ff69b4;
     color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
-.movie-details button:hover {
+button:hover {
     background-color: #ff1493;
 }
 
+.fixed-footer {
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+}
 
-
-
-
+.creator-name {
+    font-weight: normal;
+    color: #ccc; /* Lighter color for names */
+}
