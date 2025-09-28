@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
+:root{
+  --header-height: 72px;
+  --sidebar-width: 250px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -62,14 +67,15 @@ p {
 
 /* Header Styles */
 header {
-    background: rgba(15, 15, 35, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    position: sticky;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid #ff6b35;
+  grid-area: header;
+  background: rgba(15, 15, 35, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;      
+  height: var(--header-height);
+  box-sizing: border-box;
+  z-index: 1002;             
+  display: flex;
+  align-items: center;
 }
 
 #header {
@@ -133,10 +139,46 @@ header {
 }
 
 /* Navigation Styles */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;     /* вертикальные отступы контролирует header padding */
+    gap: 12px;
+    flex-wrap: wrap;  
+    border-bottom: 2px solid #ff6b35;      
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+.logo::before {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    -webkit-mask: url("images/logoAC.svg") no-repeat center;
+    -webkit-mask-size: contain;
+    mask: url("images/logoAC.svg") no-repeat center;
+    mask-size: contain;
+    background-color: white;
+}
+
 nav ul {
     display: flex;
+    gap: 20px;
     list-style: none;
-    gap: 30px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -147,15 +189,6 @@ nav a {
     border-radius: 20px;
     transition: all 0.3s ease;
     position: relative;
-}
-
-.nav-container {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
 }
 
 nav a:hover {
@@ -182,7 +215,7 @@ nav a:hover::after {
 
 /* Main Content */
 main {
-    margin-top: 80px;
+    margin-top: 0px;
     min-height: calc(100vh - 160px);
 }
 
@@ -212,6 +245,179 @@ main {
     border-radius: 2px;
 }
 
+.cards-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cards-container {
+    display: flex; /* flex container */
+    gap: 30px; /* Add consistent gaps */
+    align-items: stretch; /* equal height */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    flex: 1; /* Make cards flexible */
+    min-width: 300px;
+    max-width: 350px;
+    background: rgba(30, 30, 60, 0.9);
+    border-radius: 20px;
+    padding: 0;
+    border: 2px solid transparent;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: #ff6b35;
+    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1; /* Allow content to fill remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ff6b35;
+}
+
+.card p {
+    color: #cccccc;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Push button to bottom */
+    line-height: 1.6;
+}
+
+.card-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Align button to start */
+}
+
+.card-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.page-layout {
+    display: grid; /* Turn parent container into grid container */
+    grid-template-columns: 250px 1fr; /* Define columns: sidebar, main content */
+    grid-template-rows: auto 1fr auto; /* Define rows: header, content, footer */
+    grid-template-areas: /* Assign grid areas */
+        "header header"    /* Header spans across the top */
+        "sidebar main"     /* Sidebar on left, main content on right */
+        "footer footer";   /* Footer spans across the bottom */
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background: rgba(15, 15, 35, 0.95); 
+    backdrop-filter: blur(10px);
+    padding: 12px 0;        
+    box-sizing: border-box;
+    z-index: 1002;
+    display: block;    
+}
+
+/* SIDEBAR - placed on left */
+.sidebar {
+    grid-area: sidebar;
+    background: rgba(30, 30, 60, 0.9);
+    border-right: 2px solid rgba(255, 107, 53, 0.3);
+    padding: 30px 20px;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar h3 {
+    color: #ff6b35;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 107, 53, 0.2);
+    color: #ff6b35;
+    transform: translateX(5px);
+}
+
+/* MAIN CONTENT - placed on right */
+.main-content {
+    grid-area: main;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
 /* Grid Layouts */
 .movie-grid {
     display: grid;
@@ -232,7 +438,7 @@ main {
     background: rgba(30, 30, 60, 0.8);
     border-radius: 15px;
     padding: 20px;
-    
+
     border: 1px solid rgba(255, 107, 53, 0.2);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
@@ -335,16 +541,12 @@ main {
 }
 
 
-
-/* Footer Styles */
+/* FOOTER - spans across bottom */
 footer {
+    grid-area: footer;
     background: rgba(15, 15, 35, 0.95);
     padding: 40px 0;
     border-top: 2px solid #ff6b35;
-    margin-top: 60px;
-}
-
-#footer-content {
     text-align: center;
 }
 
@@ -369,3 +571,107 @@ footer {
     font-size: 16px;
 }
 
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.order-summary, .important-info {
+    background: rgba(30, 30, 60, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.order-summary > div {
+    margin-bottom: 25px;
+}
+
+.important-info > div {
+    margin-bottom: 25px;
+}
+
+.cinema-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.next-steps {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.next-steps > div {
+    flex: 1;
+    background: rgba(30, 30, 60, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 250px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1110px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    aside{
+        display: none;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-container nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .next-steps {
+        flex-direction: column;
+    }
+}

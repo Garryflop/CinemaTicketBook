@@ -8,543 +8,673 @@
         <title>Complete Your Booking | Absolute Cinema</title>
         <link rel="stylesheet" href="style3.css">
         <link rel="icon" type="image/x-icon" href="images/logoAC.svg">
+        <style>
+            /* Image Gallery Styles */
+            .gallery-section {
+                padding: 80px 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .gallery-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 250px);
+                gap: 20px;
+                margin-top: 40px;
+            }
+
+            .gallery-item {
+                position: relative;
+                border-radius: 15px;
+                overflow: hidden;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                background: rgba(30, 30, 60, 0.8);
+                border: 2px solid transparent;
+            }
+
+            .gallery-item:hover {
+                transform: translateY(-5px) scale(1.03);
+                border-color: #ff6b35;
+                box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.1);
+            }
+
+            .gallery-caption {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+                color: white;
+                padding: 20px;
+                transform: translateY(100%);
+                transition: transform 0.4s ease;
+            }
+
+            .gallery-item:hover .gallery-caption {
+                transform: translateY(0);
+            }
+
+            .gallery-caption h4 {
+                color: #ff6b35;
+                margin-bottom: 5px;
+                font-size: 18px;
+            }
+
+            .gallery-caption p {
+                font-size: 14px;
+                color: #cccccc;
+            }
+
+            /* Box styling consistency */
+            .box-example-1, .box-example-3 {
+                background: rgba(30, 30, 60, 0.9);
+                border-radius: 20px;
+                padding: 40px;
+                margin: 20px 0;
+                border: 1px solid rgba(255, 107, 53, 0.3);
+                backdrop-filter: blur(15px);
+            }
+
+            .box-example-3 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                padding: 0;
+                background: transparent;
+                border: none;
+            }
+
+            #booking-summary {
+                background: rgba(30, 30, 60, 0.9);
+                border-radius: 20px;
+                padding: 40px;
+                border: 1px solid rgba(255, 107, 53, 0.3);
+                backdrop-filter: blur(15px);
+                margin: 20px 0;
+            }
+
+            .accent-border {
+                color: #ff6b35;
+                border-bottom: 3px solid #ff6b35;
+                padding-bottom: 10px;
+                margin-bottom: 25px;
+            }
+
+            /* Payment method selection */
+            .payment-methods {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin: 15px 0;
+            }
+
+            .payment-method {
+                background: rgba(15, 15, 35, 0.8);
+                border: 2px solid rgba(255, 107, 53, 0.3);
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .payment-method:hover,
+            .payment-method.selected {
+                border-color: #ff6b35;
+                background: rgba(255, 107, 53, 0.1);
+                transform: translateY(-2px);
+            }
+
+            .payment-method div:first-child {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            /* Alternative payment forms */
+            .alt-payment-form {
+                background: rgba(15, 15, 35, 0.8);
+                border-radius: 15px;
+                padding: 30px;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .alt-payment-form h3 {
+                color: #ff6b35;
+                margin: 15px 0;
+            }
+
+            .qr-placeholder {
+                width: 150px;
+                height: 150px;
+                background: #333;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                margin: 20px auto;
+                font-size: 12px;
+            }
+
+            .bank-details {
+                background: rgba(30, 30, 60, 0.5);
+                border-radius: 10px;
+                padding: 20px;
+                margin: 20px 0;
+                text-align: left;
+            }
+
+            .promo-input {
+                display: flex;
+                gap: 10px;
+                align-items: flex-end;
+            }
+
+            .promo-input input {
+                flex: 1;
+            }
+
+            .total-display {
+                background: rgba(15, 15, 35, 0.8);
+                border-radius: 15px;
+                padding: 25px;
+                margin: 25px 0;
+                border: 2px solid #ff6b35;
+            }
+
+            .total-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .total-left h3 {
+                color: #ff6b35;
+                margin-bottom: 5px;
+            }
+
+            .total-right {
+                text-align: right;
+            }
+
+            .total-right p:first-child {
+                font-size: 28px;
+                font-weight: bold;
+                color: #ff6b35;
+                margin-bottom: 5px;
+            }
+
+            .action-buttons {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            /* Security features */
+            .security-features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+                margin: 40px 0;
+            }
+
+            .security-item {
+                background: rgba(30, 30, 60, 0.8);
+                border-radius: 15px;
+                padding: 25px;
+                text-align: center;
+                border: 1px solid rgba(255, 107, 53, 0.2);
+                transition: all 0.3s ease;
+            }
+
+            .security-item:hover {
+                transform: translateY(-5px);
+                border-color: #ff6b35;
+                box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+            }
+
+            .security-item div:first-child {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .security-item h4 {
+                color: #ff6b35;
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+
+            .payment-logos {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .payment-logos div {
+                background: rgba(30, 30, 60, 0.8);
+                padding: 10px 20px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 107, 53, 0.3);
+                font-weight: bold;
+                color: #cccccc;
+            }
+
+            @media (max-width: 768px) {
+                .gallery-container {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(5, 200px);
+                }
+                
+                .box-example-3 {
+                    grid-template-columns: 1fr;
+                }
+
+                .payment-methods {
+                    grid-template-columns: 1fr;
+                }
+
+                .action-buttons {
+                    flex-direction: column;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .gallery-container {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(9, 180px);
+                }
+            }
+        </style>
     </head>
     <body>
-        <!-- Header Section -->
-<!-- UPDATE 1: Cinema Locations Page (cinema-locations.html) -->
-<!-- Replace your existing header structure -->
-<header class="header-section">
-    <div id="header">
-        <a href="index.html" class="logo">Absolute Cinema</a>
-        <nav class="nav">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="movie-list.html">Movies</a></li>
-                <li><a href="cinema-locations.html">Cinemas</a></li>
-                <li><a href="seat-selection.html">Book Seats</a></li>
-                <li><a href="booking-form.html">Account</a></li>
-                <li><a href="confirmation.html">My Bookings</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        <div class="page-layout">
+            <!-- Header Section -->
+            <header>
+                <div class="container">
+                    <div class="nav-container">
+                        <a href="index.html" class="logo">Absolute Cinema</a>
+                        <nav>
+                            <ul>
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="movie-list.html">Movies</a></li>
+                                <li><a href="cinema-locations.html">Cinemas</a></li>
+                                <li><a href="seat-selection.html">Book Seats</a></li>
+                                <li><a href="booking-form.html">Account</a></li>
+                                <li><a href="confirmation.html">My Bookings</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
 
-
-<!-- ADD: Task 2 - Card Row for Movies/Cinemas (Add this section in your cinema-locations.html) -->
-<section class="section">
-    <div class="container">
-        <h2 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Featured Cinemas</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="images/kinopark6.png" alt="Kinopark IMAX" class="card-image">
-                <div class="card-content">
-                    <h3 class="card-title">Kinopark 8 IMAX Saryarka</h3>
-                    <p class="card-text">Premium IMAX experience with state-of-the-art sound system and comfortable seating.</p>
-                    <a href="seat-selection.html" class="btn card-button">Book Now</a>
-                </div>
-            </div>
-            
-            <div class="card">
-                <img src="images/kinopark1.png" alt="Kinopark Keruen" class="card-image">
-                <div class="card-content">
-                    <h3 class="card-title">Kinopark 7 Keruen</h3>
-                    <p class="card-text">Modern multiplex cinema with 3D capabilities and luxury seating options.</p>
-                    <a href="seat-selection.html" class="btn card-button">Book Now</a>
-                </div>
-            </div>
-            
-            <div class="card">
-                <img src="images/chaplinmega.png" alt="Chaplin MEGA" class="card-image">
-                <div class="card-content">
-                    <h3 class="card-title">Chaplin MEGA Silk Way</h3>
-                    <p class="card-text">Family-friendly cinema with affordable pricing and great snack bar options.</p>
-                    <a href="seat-selection.html" class="btn card-button">Book Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ADD: Task 4 - Image Gallery (Add this section in your cinema-locations.html) -->
-<section class="section">
-    <div class="container">
-        <h2 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Cinema Gallery</h2>
-        <div class="image-gallery">
-            <div class="gallery-item">
-                <img src="images/kinopark6.png" alt="Kinopark Interior" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>IMAX Theater</h4>
-                    <p>Premium viewing experience</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/kinopark5.png" alt="Kinopark Lobby" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Modern Lobby</h4>
-                    <p>Spacious and comfortable</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/kinopark4.png" alt="Kinopark Screen" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Large Screen</h4>
-                    <p>Crystal clear picture quality</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/kinopark1.png" alt="Keruen Cinema" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Keruen Location</h4>
-                    <p>Multiple screening rooms</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/kinopark2.png" alt="Keruen Interior" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Luxury Seating</h4>
-                    <p>Comfortable reclining chairs</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/kinopark3.png" alt="Keruen Concessions" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Snack Bar</h4>
-                    <p>Fresh popcorn and drinks</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/chaplinmega.png" alt="Chaplin MEGA" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Chaplin MEGA</h4>
-                    <p>Family-friendly atmosphere</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/chaplinmega1.png" alt="Chaplin Interior" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Standard Theater</h4>
-                    <p>Quality at affordable prices</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/chaplinmega2.png" alt="Chaplin Lobby" class="gallery-image">
-                <div class="gallery-caption">
-                    <h4>Welcoming Entrance</h4>
-                    <p>Easy access and navigation</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- UPDATE 2: Booking Form Page (booking-form.html) -->
-<!-- Your existing header is already good, just ensure it has the right classes -->
-
-<!-- ADD: Task 3 - Page Layout with Grid Areas (Add this to create a demo page) -->
-<!-- Create a new section or page with this grid layout -->
-<section class="section">
-    <div class="container">
-        <h2 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Page Layout Demo</h2>
-        <div class="page-layout" style="height: 600px; margin: 40px 0;">
-            <div class="grid-header">
-                <h3 style="color: #ff6b35;">Header Area</h3>
-                <p>This header spans across the top of the layout using CSS Grid.</p>
-            </div>
-            
-            <div class="grid-sidebar">
-                <h4 style="color: #ff6b35;">Sidebar</h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin: 10px 0;">• Navigation Item 1</li>
-                    <li style="margin: 10px 0;">• Navigation Item 2</li>
-                    <li style="margin: 10px 0;">• Navigation Item 3</li>
-                    <li style="margin: 10px 0;">• Navigation Item 4</li>
+            <aside class="sidebar">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#booking-info">📋 Booking Info</a></li>
+                    <li><a href="#customer-form">👤 Customer Details</a></li>
+                    <li><a href="#payment-form">💳 Payment</a></li>
+                    <li><a href="#gallery">🖼️ Cinema Gallery</a></li>
+                    <li><a href="#security">🔒 Security</a></li>
                 </ul>
-            </div>
-            
-            <div class="grid-main">
-                <h4 style="color: #ff6b35;">Main Content Area</h4>
-                <p>This is the main content area where the primary information is displayed. It takes up the majority of the space and is positioned to the right of the sidebar.</p>
-                <p>Grid areas make it easy to create complex layouts with clean, semantic HTML structure.</p>
-            </div>
-            
-            <div class="grid-footer">
-                <h4 style="color: #ff6b35;">Footer Area</h4>
-                <p>Footer spans across the bottom, similar to the header.</p>
-            </div>
-        </div>
-    </div>
-</section>
+            </aside>
 
-<!-- UPDATE 3: Enhanced Security Section with Grid -->
-<!-- Replace your existing security section in booking-form.html -->
-<section class="section">
-    <div class="container">
-        <h3 style="text-align: center; color: #ff6b35; margin-bottom: 40px;">Secure & Trusted Payment</h3>
-        <div class="security-features">
-            <div class="security-item">
-                <div style="font-size: 48px; margin-bottom: 20px;">🔒</div>
-                <h4 style="color: #ffffff; margin-bottom: 15px;">SSL Encrypted</h4>
-                <p>Your payment information is protected with bank-level security encryption</p>
-            </div>
-            <div class="security-item">
-                <div style="font-size: 48px; margin-bottom: 20px;">💳</div>
-                <h4 style="color: #ffffff; margin-bottom: 15px;">PCI Compliant</h4>
-                <p>We meet the highest standards for processing card payments securely</p>
-            </div>
-            <div class="security-item">
-                <div style="font-size: 48px; margin-bottom: 20px;">🛡️</div>
-                <h4 style="color: #ffffff; margin-bottom: 15px;">Money Back Guarantee</h4>
-                <p>Full refund if technical issues prevent you from enjoying your movie</p>
-            </div>
-            <div class="security-item">
-                <div style="font-size: 48px; margin-bottom: 20px;">📞</div>
-                <h4 style="color: #ffffff; margin-bottom: 15px;">24/7 Support</h4>
-                <p>Our customer service team is always ready to help with your booking</p>
-            </div>
-        </div>
-
-        <!-- Payment Logos with Grid -->
-        <div style="text-align: center; margin-top: 50px;">
-            <h4 style="color: #ff6b35; margin-bottom: 25px;">Accepted Payment Methods</h4>
-            <div class="payment-logos">
-                <div style="background: #1a1f71; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">VISA</div>
-                <div style="background: #eb001b; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">MasterCard</div>
-                <div style="background: #006fcf; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">American Express</div>
-                <div style="background: #ff6900; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">Kaspi</div>
-                <div style="background: #000; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">Apple Pay</div>
-                <div style="background: #4285f4; color: white; padding: 15px; border-radius: 10px; font-weight: bold;">Google Pay</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- UPDATE 4: Payment Methods with Grid -->
-<!-- Replace your payment methods section in booking-form.html -->
-<div class="form-group">
-    <label>Payment Method *</label>
-    <div class="payment-methods">
-        <div class="payment-method" onclick="selectPaymentMethod(this, 'card')">
-            <div style="font-size: 24px; margin-bottom: 8px;">💳</div>
-            <p style="margin: 0; font-weight: bold;">Credit Card</p>
-        </div>
-        <div class="payment-method" onclick="selectPaymentMethod(this, 'kaspi')">
-            <div style="font-size: 24px; margin-bottom: 8px;">📱</div>
-            <p style="margin: 0; font-weight: bold;">Kaspi QR</p>
-        </div>
-        <div class="payment-method" onclick="selectPaymentMethod(this, 'applepay')">
-            <div style="font-size: 24px; margin-bottom: 8px;">🍎</div>
-            <p style="margin: 0; font-weight: bold;">Apple Pay</p>
-        </div>
-        <div class="payment-method" onclick="selectPaymentMethod(this, 'bank')">
-            <div style="font-size: 24px; margin-bottom: 8px;">🏦</div>
-            <p style="margin: 0; font-weight: bold;">Bank Transfer</p>
-        </div>
-    </div>
-</div>
-        <!-- Main Content -->
-        <main id="main-content">
-            <!-- Progress Indicator -->
-            <section class="section">
-                <div id="top-banner">
-                    <h1 >Complete Your Booking</h1>
-                    <p>Secure and easy ticket booking process</p>
-                </div>
-                <div class="container">
-                    <div>
-                        <div>
-                            <div>✓</div>
-                            <span>Select Movie</span>
-                        </div>
-                        <div></div>
-                        <div>
-                            <div>✓</div>
-                            <span>Select Seats</span>
-                        </div>
-                        <div></div>
-                        <div>
-                            <div>3</div>
-                            <span>Payment</span>
-                        </div>
-                        <div></div>
-                        <div>
-                            <div>4</div>
-                            <span>Confirmation</span>
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Top Banner -->
+                <section class="section">
+                    <div class="container">
+                        <div id="top-banner">
+                            <h1>Complete Your Booking</h1>
+                            <p>Secure and easy ticket booking process</p>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Booking Summary -->
-            <section class="section">
-                <div class="container">
-                    <div id="booking-summary">
-                        <h3 class="accent-border">Booking Summary</h3>
-                        <div>
+                <!-- Booking Summary -->
+                <section class="section" id="booking-info">
+                    <div class="container">
+                        <div id="booking-summary">
+                            <h3 class="accent-border">Booking Summary</h3>
                             <div>
-                                <p>Movie</p>
-                                <p>Qaitadan</p>
-                            </div>
-                            <div>
-                                <p>Date & Time</p>
-                                <p>Sep 19, 2025 - 8:00 PM</p>
-                            </div>
-                            <div>
-                                <p>Cinema</p>
-                                <p>Astana, Turan Ave. 37</p>
-                            </div>
-                            <div>
-                                <p>Seats</p>
-                                <p>Seats 4-5</p>
-                            </div>
-                            <div>
-                                <p>Total Amount</p>
-                                <p>₸1140</p>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                    <p><strong>Movie:</strong></p>
+                                    <p>Qaitadan</p>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                    <p><strong>Date & Time:</strong></p>
+                                    <p>Sep 19, 2025 - 8:00 PM</p>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                    <p><strong>Cinema:</strong></p>
+                                    <p>Astana, Turan Ave. 37</p>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                    <p><strong>Seats:</strong></p>
+                                    <p>Row B, Seats 4-5</p>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding-top: 15px; border-top: 2px solid #ff6b35;">
+                                    <p><strong>Total Amount:</strong></p>
+                                    <p style="color: #ff6b35; font-size: 20px; font-weight: bold;">₸1140</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Forms Section -->
-            <section class="section">
-                <div class="container">
-                    <div class="box-example-3">
-                        <!-- Customer Information Form -->
-                        <div class="box-example-1">
-                            <h2 class="section-title">Customer Information</h2>
-                            <form class="form-container" id="customerForm">
-                                <div class="form-group">
-                                    <label for="firstName">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="lastName">Last Name *</label>
-                                    <input type="text" id="lastName" name="lastName" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="phone">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XXXX" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="birthDate">Date of Birth</label>
-                                    <input type="date" id="birthDate" name="birthDate">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="specialRequests">Special Requests</label>
-                                    <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Any special requirements or requests..."></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <div>
-                                        <input type="checkbox" id="newsletter" name="newsletter">
-                                        <label for="newsletter">Subscribe to our newsletter for exclusive offers</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div>
-                                        <input type="checkbox" id="terms" name="terms" required>
-                                        <label for="terms">I agree to the <a href="#" class="link-style">Terms and Conditions</a> *</label>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Payment Information Form -->
-                        <div class="box-example-1">
-                            <h2 class="section-title">Payment Information</h2>
-                            <div class="form-container2">
-                                <!-- Payment Method Selection -->
-                                <div class="form-group">
-                                    <label>Payment Method *</label>
-                                    <div>
-                                        <div onclick="selectPaymentMethod(this, 'card')">
-                                            <div>💳</div>
-                                            <p>Credit Card</p>
-                                        </div>
-                                        <div onclick="selectPaymentMethod(this, 'kaspi')">
-                                            <div>📱</div>
-                                            <p>Kaspi QR</p>
-                                        </div>
-                                        <div onclick="selectPaymentMethod(this, 'applepay')">
-                                            <div>🍎</div>
-                                            <p>Apple Pay</p>
-                                        </div>
-                                        <div onclick="selectPaymentMethod(this, 'bank')">
-                                            <div>🏦</div>
-                                            <p>Bank Transfer</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Credit Card Form (Default) -->
-                                <div id="cardPaymentForm">
+                <!-- Forms Section -->
+                <section class="section">
+                    <div class="container">
+                        <div class="box-example-3">
+                            <!-- Customer Information Form -->
+                            <div class="box-example-1" id="customer-form">
+                                <h2 class="section-title">Customer Information</h2>
+                                <form class="form-container" id="customerForm">
                                     <div class="form-group">
-                                        <label for="cardNumber">Card Number *</label>
-                                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" required>
                                     </div>
 
-                                    <div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XXXX" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="birthDate">Date of Birth</label>
+                                        <input type="date" id="birthDate" name="birthDate">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="specialRequests">Special Requests</label>
+                                        <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Any special requirements or requests..."></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <input type="checkbox" id="newsletter" name="newsletter">
+                                            <label for="newsletter">Subscribe to our newsletter for exclusive offers</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <input type="checkbox" id="terms" name="terms" required>
+                                            <label for="terms">I agree to the <a href="#" style="color: #ff6b35;">Terms and Conditions</a> *</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Payment Information Form -->
+                            <div class="box-example-1" id="payment-form">
+                                <h2 class="section-title">Payment Information</h2>
+                                <div class="form-container">
+                                    <!-- Payment Method Selection -->
+                                    <div class="form-group">
+                                        <label>Payment Method *</label>
+                                        <div class="payment-methods">
+                                            <div class="payment-method selected" onclick="selectPaymentMethod(this, 'card')">
+                                                <div>💳</div>
+                                                <p>Credit Card</p>
+                                            </div>
+                                            <div class="payment-method" onclick="selectPaymentMethod(this, 'kaspi')">
+                                                <div>📱</div>
+                                                <p>Kaspi QR</p>
+                                            </div>
+                                            <div class="payment-method" onclick="selectPaymentMethod(this, 'applepay')">
+                                                <div>🍎</div>
+                                                <p>Apple Pay</p>
+                                            </div>
+                                            <div class="payment-method" onclick="selectPaymentMethod(this, 'bank')">
+                                                <div>🏦</div>
+                                                <p>Bank Transfer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Credit Card Form (Default) -->
+                                    <div id="cardPaymentForm">
                                         <div class="form-group">
-                                            <label for="expiryDate">Expiry Date *</label>
-                                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                            <label for="cardNumber">Card Number *</label>
+                                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
                                         </div>
+
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                            <div class="form-group">
+                                                <label for="expiryDate">Expiry Date *</label>
+                                                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cvv">CVV *</label>
+                                                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
-                                            <label for="cvv">CVV *</label>
-                                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                                            <label for="cardName">Cardholder Name *</label>
+                                            <input type="text" id="cardName" name="cardName" placeholder="Name as on card">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="billingAddress">Billing Address</label>
+                                            <textarea id="billingAddress" name="billingAddress" rows="3" placeholder="Enter your billing address..."></textarea>
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="cardName">Cardholder Name *</label>
-                                        <input type="text" id="cardName" name="cardName" placeholder="Name as on card">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="billingAddress">Billing Address</label>
-                                        <textarea id="billingAddress" name="billingAddress" rows="3" placeholder="Enter your billing address..."></textarea>
-                                    </div>
-                                </div>
-
-                                <!-- Alternative Payment Methods (Hidden by default) -->
-                                <div id="kaspiPaymentForm" style="display: none;">
-                                    <div>
+                                    <!-- Alternative Payment Methods -->
+                                    <div id="kaspiPaymentForm" class="alt-payment-form" style="display: none;">
                                         <div>📱</div>
                                         <h3>Kaspi QR Payment</h3>
-                                        <p>
-                                            You will be redirected to Kaspi app to complete the payment
-                                        </p>
-                                        <div>
-                                            <div>QR CODE</div>
-                                        </div>
+                                        <p>You will be redirected to Kaspi app to complete the payment</p>
+                                        <div class="qr-placeholder">QR CODE</div>
                                     </div>
-                                </div>
 
-                                <div id="applePayForm" style="display: none;">
-                                    <div>
+                                    <div id="applePayForm" class="alt-payment-form" style="display: none;">
                                         <div>🍎</div>
                                         <h3>Apple Pay</h3>
-                                        <p>
-                                            Use Touch ID or Face ID to complete your payment
-                                        </p>
-                                        <button class="btn">Pay with Apple Pay</button>
+                                        <p>Use Touch ID or Face ID to complete your payment</p>
+                                        <button class="btn" style="margin-top: 20px;">Pay with Apple Pay</button>
                                     </div>
-                                </div>
 
-                                <div id="bankTransferForm" style="display: none;">
-                                    <div>
+                                    <div id="bankTransferForm" class="alt-payment-form" style="display: none;">
                                         <div>🏦</div>
                                         <h3>Bank Transfer</h3>
-                                        <p>
-                                            Transfer payment to our bank account
-                                        </p>
-                                        <div>
+                                        <p>Transfer payment to our bank account</p>
+                                        <div class="bank-details">
                                             <p><strong>Account Name:</strong> AbsCinema Kazakhstan</p>
                                             <p><strong>Account Number:</strong> KZ86 125K ZT50 0410 0100</p>
                                             <p><strong>Bank:</strong> Kaspi Bank</p>
                                             <p><strong>Reference:</strong> BOOKING-2025-001</p>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- Discount Codes -->
-                                <div class="form-group">
-                                    <label for="promoCode">Promo Code (Optional)</label>
-                                    <div>
-                                        <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
-                                        <button type="button" class="btn btn-secondary" onclick="applyPromoCode()">Apply Code</button>
-                                    </div>
-                                    <div id="promoMessage"></div>
-                                </div>
-
-                                <!-- Final Total -->
-                                <div>
-                                    <div>
-                                        <div>
-                                            <h3>Total Amount</h3>
-                                            <p>2 tickets • Booking fee included</p>
+                                    <!-- Discount Codes -->
+                                    <div class="form-group">
+                                        <label for="promoCode">Promo Code (Optional)</label>
+                                        <div class="promo-input">
+                                            <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
+                                            <button type="button" class="btn btn-secondary" onclick="applyPromoCode()">Apply Code</button>
                                         </div>
-                                        <div>
-                                            <p id="finalTotal">₸1140</p>
-                                            <p>Secure Payment 🔒</p>
+                                        <div id="promoMessage" style="margin-top: 10px; color: #ff6b35;"></div>
+                                    </div>
+
+                                    <!-- Final Total -->
+                                    <div class="total-display">
+                                        <div class="total-row">
+                                            <div class="total-left">
+                                                <h3>Total Amount</h3>
+                                                <p>2 tickets • Booking fee included</p>
+                                            </div>
+                                            <div class="total-right">
+                                                <p id="finalTotal">₸1140</p>
+                                                <p>Secure Payment 🔒</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- Action Buttons -->
-                                <div>
-                                    <a href="seat-selection.html" class="btn btn-secondary">← Back to Seats</a>
-                                    <button type="submit" class="btn" onclick="processPayment()">Complete Payment</button>
+                                    <!-- Action Buttons -->
+                                    <div class="action-buttons">
+                                        <a href="seat-selection.html" class="btn btn-secondary">← Back to Seats</a>
+                                        <button type="submit" class="btn" onclick="processPayment()">Complete Payment</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Security & Trust Section -->
-            <section class="section">
-                <div class="container">
-                    <h3 class="decorative-heading text-center">Secure & Trusted Payment</h3>
-                    <div class="security-features">
-                        <div class="security-item hover-lift">
-                            <div>🔒</div>
-                            <h4>SSL Encrypted</h4>
-                            <p>Your payment information is protected with bank-level security encryption</p>
+                <!-- Image Gallery Section -->
+                <section class="gallery-section" id="gallery">
+                    <h2 class="section-title">Cinema Experience Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-item">
+                            <img src="images\kinopark5.png" alt="Modern Cinema Interior">
+                            <div class="gallery-caption">
+                                <h4>Premium Seating</h4>
+                                <p>Luxurious reclining seats with perfect viewing angles</p>
+                            </div>
                         </div>
-                        <div class="security-item hover-lift">
-                            <div>💳</div>
-                            <h4>PCI Compliant</h4>
-                            <p>We meet the highest standards for processing card payments securely</p>
+                        <div class="gallery-item">
+                            <img src="images\kinopark1.png" alt="IMAX Screen">
+                            <div class="gallery-caption">
+                                <h4>IMAX Experience</h4>
+                                <p>Crystal clear 4K projection with immersive surround sound</p>
+                            </div>
                         </div>
-                        <div class="security-item hover-lift">
-                            <div>🛡️</div>
-                            <h4>Money Back Guarantee</h4>
-                            <p>Full refund if technical issues prevent you from enjoying your movie</p>
+                        <div class="gallery-item">
+                            <img src="images\kinopark4.png" alt="Concession Stand">
+                            <div class="gallery-caption">
+                                <h4>Gourmet Concessions</h4>
+                                <p>Fresh popcorn, artisan snacks, and premium beverages</p>
+                            </div>
                         </div>
-                        <div class="security-item hover-lift">
-                            <div>📞</div>
-                            <h4>24/7 Support</h4>
-                            <p>Our customer service team is always ready to help with your booking</p>
+                        <div class="gallery-item">
+                            <img src="images\chaplinmega2.png" alt="VIP Lounge">
+                            <div class="gallery-caption">
+                                <h4>VIP Lounge</h4>
+                                <p>Exclusive lounge area for premium ticket holders</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images\kinopark1.png" alt="Lobby Area">
+                            <div class="gallery-caption">
+                                <h4>Grand Lobby</h4>
+                                <p>Spacious lobby with modern art and comfortable seating</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images\kinopark3.png" alt="Sound System">
+                            <div class="gallery-caption">
+                                <h4>Dolby Atmos</h4>
+                                <p>State-of-the-art 3D audio technology</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images\kinopark3.png" alt="Private Screening">
+                            <div class="gallery-caption">
+                                <h4>Private Screenings</h4>
+                                <p>Intimate theater rooms for special events</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images\chaplinmega3.png" alt="Bar Area">
+                            <div class="gallery-caption">
+                                <h4>Cinema Bar</h4>
+                                <p>Full-service bar with craft cocktails and wine</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images\chaplinmega.png" alt="Exterior View">
+                            <div class="gallery-caption">
+                                <h4>Modern Architecture</h4>
+                                <p>Stunning building design with LED displays</p>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <!-- Accepted Payment Methods -->
-                    <div class="text-center" style="margin-top: 50px;">
-                        <h4 style="color: #ff6b35; margin-bottom: 25px;">Accepted Payment Methods</h4>
-                        <div class="payment-logos">
-                            <div>VISA</div>
-                            <div>MasterCard</div>
-                            <div>American Express</div>
-                            <div>Kaspi</div>
-                            <div>Apple Pay</div>
-                            <div>Google Pay</div>
+                <!-- Security & Trust Section -->
+                <section class="section" id="security">
+                    <div class="container">
+                        <h3 class="section-title">Secure & Trusted Payment</h3>
+                        <div class="security-features">
+                            <div class="security-item">
+                                <div>🔒</div>
+                                <h4>SSL Encrypted</h4>
+                                <p>Your payment information is protected with bank-level security encryption</p>
+                            </div>
+                            <div class="security-item">
+                                <div>💳</div>
+                                <h4>PCI Compliant</h4>
+                                <p>We meet the highest standards for processing card payments securely</p>
+                            </div>
+                            <div class="security-item">
+                                <div>🛡️</div>
+                                <h4>Money Back Guarantee</h4>
+                                <p>Full refund if technical issues prevent you from enjoying your movie</p>
+                            </div>
+                            <div class="security-item">
+                                <div>📞</div>
+                                <h4>24/7 Support</h4>
+                                <p>Our customer service team is always ready to help with your booking</p>
+                            </div>
+                        </div>
+
+                        <!-- Accepted Payment Methods -->
+                        <div style="text-align: center; margin-top: 50px;">
+                            <h4 style="color: #ff6b35; margin-bottom: 25px;">Accepted Payment Methods</h4>
+                            <div class="payment-logos">
+                                <div>VISA</div>
+                                <div>MasterCard</div>
+                                <div>American Express</div>
+                                <div>Kaspi</div>
+                                <div>Apple Pay</div>
+                                <div>Google Pay</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </div>
+
         <footer>
             <div class="container">
                 <div id="footer-content">
                     <div class="team-members">
-                        <h3> Team Members </h3>
+                        <h3>Team Members</h3>
                         <p>Diasbek Amangeldiyev - Foundation & Layout</p>
-                        <p>Ernar Omarov - Navigation & Interactive </p>
+                        <p>Ernar Omarov - Navigation & Interactive</p>
                         <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
                         <p>Web Technologies Frontend Course - Assignment 2</p>
                     </div>
                 </div>
             </div>
         </footer>
-    </body>
+</body>
 </html>

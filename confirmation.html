@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- confirmation-page.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -205,6 +206,7 @@
     </style>
 </head>
 <body>
+<div class="page-layout">
     <!-- Header Section -->
     <header>
         <div class="container">
@@ -223,119 +225,128 @@
             </div>
         </div>
     </header>
-
+    
+    <aside class="sidebar">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="#urtick">🎫 Your Ticket</a></li>
+            <li><a href="#importantinfo">🎬 Important Info</a></li>
+            <li><a href="#whatsnext">🔜 What's Next?</a></li>
+            <li><a href="#recoms">⭐ Recs</a></li>
+        </ul>
+    </aside>
+    
     <!-- Main Content -->
-    <main>
+    <main class="main-content">
         <!-- Success Message -->
         <section class="section">
             <div class="container">
-                <div style="display: flexbox; justify-content: center; align-items: center;">
+                <div id="top-banner">
                     <div id="success-icon">🎉</div>
-                    <h1 >Booking Confirmed!</h1>
+                    <h1>Booking Confirmed!</h1>
                     <p>
                         Your tickets have been successfully booked. Get ready for an amazing movie experience!
                     </p>
                 </div>
             </div>
         </section>
-        <div class="two-sections">
+
         <!-- Digital Ticket -->
-        <section class="section">
+        <section class="section" id="urtick">
             <div class="container">
                 <h3 class="section-title">Your Digital Ticket</h3>
-            <div class="ticket">
-                <!-- Ticket Header -->
-                <div class="ticket__wrapper">
-                    <div class="ticket__header">
-                        <div class="cinema-logo">🎬 Absolute Cinema</div>
-                    </div>
-                </div>
-
-                <!-- Perforated Divider -->
-                <div class="ticket__divider">
-                    <div class="ticket__notch"></div>
-                    <div class="ticket__notch ticket__notch--right"></div>
-                </div>
-
-                <!-- Ticket Body -->
-                <div class="ticket__body">
-                    <!-- Movie Details -->
-                    <div class="ticket__section">
-                        <h3>Qaitadan</h3>
-                        <div style="font-size: 0.9rem; color: hsl(200, 10%, 50%); margin-bottom: 1rem;">
-                            Drama • 1h 43min • Rated PG-13
-                        </div>
-
-                        <div class="movie-info">
-                            <div class="info-item">
-                                <span class="info-label">Date</span>
-                                <span class="info-value">September 19, 2025</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Time</span>
-                                <span class="info-value">20:30</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Cinema</span>
-                                <span class="info-value">Astana, Turan Ave. 37</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Screen</span>
-                                <span class="info-value">Hall 2 IMAX</span>
-                            </div>
+                <div style="display: flex; justify-content: center; align-items: center; margin: 40px 0;">
+                    <div class="ticket">
+                    <!-- Ticket Header -->
+                    <div class="ticket__wrapper">
+                        <div class="ticket__header">
+                            <div class="cinema-logo">🎬 Absolute Cinema</div>
                         </div>
                     </div>
 
-                    <!-- Seat Information -->
-                    <div class="ticket__section">
-                        <h3>Seat Information</h3>
-                        <div class="seat-info">
-                            <div class="seat-number">Row B • Seats 4-5</div>
-                            <div style="margin-top: 0.5rem; font-size: 0.875rem; color: hsl(200, 10%, 50%);">
-                                2 Standard Tickets
-                            </div>
-                        </div>
+                    <!-- Perforated Divider -->
+                    <div class="ticket__divider">
+                        <div class="ticket__notch"></div>
+                        <div class="ticket__notch ticket__notch--right"></div>
                     </div>
 
-                    <!-- Order Details -->
-                    <div class="ticket__section">
-                        <h3>Order Details</h3>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <div class="ticket-number">Order #CH-2025-0919-001</div>
-                                <div style="font-size: 0.75rem; color: hsl(200, 10%, 50%); margin-top: 0.25rem;">
-                                    Payment: Credit Card
+                    <!-- Ticket Body -->
+                    <div class="ticket__body">
+                        <!-- Movie Details -->
+                        <div class="ticket__section">
+                            <h3>Qaitadan</h3>
+                            <div style="font-size: 0.9rem; color: hsl(200, 10%, 50%); margin-bottom: 1rem;">
+                                Drama • 1h 43min • Rated PG-13
+                            </div>
+
+                            <div class="movie-info">
+                                <div class="info-item">
+                                    <span class="info-label">Date</span>
+                                    <span class="info-value">September 19, 2025</span>
                                 </div>
-                                <div style="font-size: 0.75rem; color: hsl(0, 100%, 50%); margin-top: 0.25rem;">
-                                    Please arrive 15 minutes before showtime
+                                <div class="info-item">
+                                    <span class="info-label">Time</span>
+                                    <span class="info-value">20:30</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Cinema</span>
+                                    <span class="info-value">Astana, Turan Ave. 37</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Screen</span>
+                                    <span class="info-value">Hall 2 IMAX</span>
                                 </div>
                             </div>
-                            <div class="qr-code">
-                                <img src="images/qr-code.png" width="80px" height="80px"> </img>
+                        </div>
+
+                        <!-- Seat Information -->
+                        <div class="ticket__section">
+                            <h3>Seat Information</h3>
+                            <div class="seat-info">
+                                <div class="seat-number">Row B • Seats 4-5</div>
+                                <div style="margin-top: 0.5rem; font-size: 0.875rem; color: hsl(200, 10%, 50%);">
+                                    2 Standard Tickets
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Details -->
+                        <div class="ticket__section">
+                            <h3>Order Details</h3>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div class="ticket-number">Order #CH-2025-0919-001</div>
+                                    <div style="font-size: 0.75rem; color: hsl(200, 10%, 50%); margin-top: 0.25rem;">
+                                        Payment: Credit Card
+                                    </div>
+                                    <div style="font-size: 0.75rem; color: hsl(0, 100%, 50%); margin-top: 0.25rem;">
+                                        Please arrive 15 minutes before showtime
+                                    </div>
+                                </div>
+                                <div class="qr-code">    
+                                    <img src="images/qr-code.png" style="width: 80px; height: 80px; background: #333; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 10px;">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Ticket Footer -->
-                <div class="ticket__footer">
-                    <span>Total: ₸1140</span>
-                    <span>Valid Entry</span>
-                </div>
-            </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="actions">
-                        <button class="btn" onclick="downloadTicket()">📱 Add to Wallet</button>
-                        <button class="btn btn-secondary" onclick="printTicket()">🖨️ Print Ticket</button>
-                        <button class="btn btn-secondary" onclick="shareTicket()">📤 Share</button>
+                    <!-- Ticket Footer -->
+                    <div class="ticket__footer">
+                        <span>Total: ₸1140</span>
+                        <span>Valid Entry</span>
                     </div>
                 </div>
+                
             </div>
-            </div>
+                            <!-- Action Buttons -->
+                <div class="actions" style="display: flex; flex-direction: row;">
+                    <button class="btn" onclick="downloadTicket()">📱 Add to Wallet</button>
+                    <button class="btn btn-secondary" onclick="printTicket()">🖨️ Print Ticket</button>
+                    <button class="btn btn-secondary" onclick="shareTicket()">📤 Share</button>
+                </div>
         </section>
 
         <!-- Booking Details -->
-        <section class="section">
+        <section class="section" id="importantinfo">
             <div class="container">
                 <div class="two-columns">
                     <!-- Order Summary -->
@@ -411,9 +422,9 @@
                 </div>
             </div>
         </section>
-        </div>
+
         <!-- Next Steps & Actions -->
-        <section class="section">
+        <section class="section" id="whatsnext">
             <div class="container">
                 <h3>What's Next?</h3>
                 <div class="next-steps">
@@ -453,42 +464,43 @@
         </section>
 
         <!-- Recommendations -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">You Might Also Like</h2>
-                <div class="movie-grid">
+        <section class="cards-section" id="recoms">
+            <h2 class="section-title">You Might Also Like</h2>
+            <div class="cards-container">
                     <!-- Recommendation 1 -->
-                    <div class="movie-card">
-                        <img src="images/posters/QaitadanPoster.png" alt="Qaitadan" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
-                        <h4 class="movie-title">Qaitadan</h4>
-                        <p class="movie-info">Fiction Drama • PG-13</p>
-                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    <div class="card">
+                        <img src="images/posters/QaitadanPoster.png" alt="Qaitadan">
+                        <div class="card-content">
+                            <h4 class="movie-title">Qaitadan</h4>
+                            <p class="movie-info">Fiction Drama • PG-13</p>
+                            <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                        </div>
                     </div>
                     
                     <!-- Recommendation 2 -->
-                    <div class="movie-card">
-                        <img src="images/posters/DemonSlayerPoster.png" alt="DemonSlayer" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
-                        <h4 class="movie-title">Demon Slayer Infinity Castle</h4>
-                        <p class="movie-info">Anime Drama • PG</p>
-                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    <div class="card">
+                        <img src="images/posters/DemonSlayerPoster.png" alt="DemonSlayer">
+                        <div class="card-content">
+                            <h4 class="movie-title">Demon Slayer Infinity Castle</h4>
+                            <p class="movie-info">Anime Drama • PG</p>
+                            <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                        </div>
                     </div>
                     
                     <!-- Recommendation 3 -->
-                    <div class="movie-card">
-                        <img src="images/posters/Zaklyatya4Poster.png" alt="Zak" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
-                        <h4 class="movie-title">The Conjuring: Last Rites</h4>
-                        <p class="movie-info">Horror • R</p>
-                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    <div class="card">
+                        <img src="images/posters/Zaklyatya4Poster.png" alt="Zak">
+                        <div class="card-content">
+                            <h4 class="movie-title">The Conjuring: Last Rites</h4>
+                            <p class="movie-info">Horror • R</p>
+                            <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div>
-                    <a href="index.html" class="btn">Browse All Movies</a>
-                </div>
+                    
             </div>
         </section>
     </main>
-
+</div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -498,7 +510,7 @@
                     <p>Diasbek Amangeldiyev - Foundation & Layout</p>
                     <p>Ernar Omarov - Navigation & Interactive </p>
                     <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
-                    <p>Web Technologies Frontend Course - Assignment 2</p>
+                    <p>Web Technologies Frontend Course</p>
                 </div>
             </div>
         </div>
