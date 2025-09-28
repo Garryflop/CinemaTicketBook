@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- confirmation-page.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,141 +9,344 @@
     <title>Booking Confirmed | Absolute Cinema</title>
     <link rel="stylesheet" href="style3.css">
     <link rel="icon" type="image/x-icon" href="images/logoAC.svg">
+    <style>
+        :root {
+            --grey-light: hsl(200, 10%, 92%);
+            --grey: hsl(200, 10%, 85%);
+            --grey-dark: hsl(200, 10%, 70%);
+            --shadow: hsla(200, 20%, 20%, 0.25);
+            --red: #dc143c;
+            --bg: hsl(200, 0%, 100%);
+            --divider: hsl(200, 10%, 92%);
+            --border: hsl(200, 10%, 70%);
+            --cutout-size: 1rem;
+        }
+
+        *,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .ticket {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            max-width: 24rem;
+            width: 100%;
+        }
+
+        .ticket__header,
+        .ticket__body,
+        .ticket__footer {
+            padding: 1.25rem;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        .ticket__header {
+            font-size: 1.5rem;
+            border-top: 0.25rem solid var(--red);
+            border-bottom: none;
+            box-shadow: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .ticket__wrapper {
+            box-shadow: 0 2px 4px var(--shadow);
+            border-radius: 0.375em 0.375em 0 0;
+            overflow: hidden;
+        }
+
+        .ticket__divider {
+            position: relative;
+            height: var(--cutout-size);
+            background-color: var(--bg);
+            margin-left: calc(var(--cutout-size) / 2);
+            margin-right: calc(var(--cutout-size) / 2);
+        }
+
+        .ticket__divider::after {
+            content: '';
+            position: absolute;
+            height: 50%;
+            width: 100%;
+            top: 0;
+            border-bottom: 2px dashed var(--divider);
+        }
+
+        .ticket__notch {
+            position: absolute;
+            left: calc(var(--cutout-size) / 2 * -1);
+            width: var(--cutout-size);
+            height: var(--cutout-size);
+            overflow: hidden;
+        }
+
+        .ticket__notch::after {
+            content: '';
+            position: relative;
+            display: block;
+            width: calc(var(--cutout-size) * 2);
+            height: calc(var(--cutout-size) * 2);
+            right: 100%;
+            top: -50%;
+            border: calc(var(--cutout-size) / 2) solid var(--bg);
+            border-radius: 50%;
+            box-shadow: inset 0 2px 4px var(--shadow);
+        }
+
+        .ticket__notch--right {
+            left: auto;
+            right: calc(var(--cutout-size) / 2 * -1);
+        }
+
+        .ticket__notch--right::after {
+            right: 0;
+        }
+
+        .ticket__body {
+            border-bottom: none;
+            border-top: none;
+        }
+
+        .ticket__body > * + * {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--divider);
+        }
+
+        .ticket__section > * + * {
+            margin-top: 0.25rem;
+        }
+
+        .ticket__section > h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--red);
+        }
+
+        .ticket__header,
+        .ticket__footer {
+            font-weight: bold;
+            font-size: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ticket__footer {
+            border-top: 2px dashed var(--divider);
+            border-radius: 0 0 0.325rem 0.325rem;
+        }
+
+
+        .ticket__footer p, span{
+            color:#dc143c
+        }
+
+        /* Movie specific styles */
+        .movie-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.875rem;
+            color: hsl(200, 10%, 50%);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: hsl(200, 10%, 20%);
+        }
+
+        .seat-info {
+            background: var(--grey-light);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .seat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--red);
+        }
+
+        .qr-code {
+            width: 80px;
+            height: 80px;
+
+        }
+        .ticket-number {
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: hsl(200, 10%, 50%);
+        }
+
+        .cinema-logo {
+            font-size: 1.75rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+
+    </style>
 </head>
 <body>
+<div class="page-layout">
     <!-- Header Section -->
     <header>
         <div class="container">
-            <a href="index.html" class="logo">AbsoluteCinema</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="movie-list.html">Movies</a></li>
-                    <li><a href="cinema-locations.html">Cinemas</a></li>
-                    <li><a href="seat-selection.html">Book Seats</a></li>
-                    <li><a href="booking-form.html">Account</a></li>
-                    <li><a href="confirmation.html">My Bookings</a></li>
-                </ul>
-            </nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">AbsoluteCinema</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie-list.html">Movies</a></li>
+                        <li><a href="cinema-locations.html">Cinemas</a></li>
+                        <li><a href="seat-selection.html">Book Seats</a></li>
+                        <li><a href="booking-form.html">Account</a></li>
+                        <li><a href="confirmation.html">My Bookings</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
-
+    
+    <aside class="sidebar">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="#urtick">🎫 Your Ticket</a></li>
+            <li><a href="#importantinfo">🎬 Important Info</a></li>
+            <li><a href="#whatsnext">🔜 What's Next?</a></li>
+            <li><a href="#recoms">⭐ Recs</a></li>
+        </ul>
+    </aside>
+    
     <!-- Main Content -->
-    <main>
+    <main class="main-content">
         <!-- Success Message -->
         <section class="section">
             <div class="container">
-                <div>
+                <div id="top-banner">
                     <div id="success-icon">🎉</div>
                     <h1>Booking Confirmed!</h1>
                     <p>
                         Your tickets have been successfully booked. Get ready for an amazing movie experience!
                     </p>
-                    <a href="index.html" class="logo2"></a>
-                    <div id="booking-box">
-                        <h3>Booking Reference</h3>
-                        <p id="bookingRef">CH-2025-0919-001</p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Digital Ticket -->
-        <section class="section">
+        <section class="section" id="urtick">
             <div class="container">
-                <h2 class="section-title">Your Digital Ticket</h2>
-                <div>
-                    <!-- Ticket Design -->
+                <h3 class="section-title">Your Digital Ticket</h3>
+                <div style="display: flex; justify-content: center; align-items: center; margin: 40px 0;">
                     <div class="ticket">
-                        <!-- Ticket Header -->
-                        <div class="ticket-header">
-                            <div class="ticket-brand">
-                                <div>🎬</div>
-                                <h2>Absolute Cinema</h2>
-                            </div>
-                            <p>Premium Cinema Experience</p>
+                    <!-- Ticket Header -->
+                    <div class="ticket__wrapper">
+                        <div class="ticket__header">
+                            <div class="cinema-logo">🎬 Absolute Cinema</div>
                         </div>
-                        
-                        <!-- Ticket Body -->
-                        <div class="ticket-body">
-                            <div class="ticket-grid">
-                                <!-- Movie Info -->
-                                <div>
-                                    <div class="movie-head">
-                                        <img src="images/posters/QaitadanPoster.png" width="120px" height="160px" alt="Qaitadan">
-                                        <div>
-                                            <h3>Qaitadan</h3>
-                                            <p>PG-13 • Drama/Fiction</p>
-                                            <p>Duration: 1h 43min</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Booking Details Grid -->
-                                    <div class="details-grid">
-                                        <div>
-                                            <h4>Date & Time</h4>
-                                            <p>Sept 19, 2025</p>
-                                            <p>8:00 PM</p>
-                                        </div>
-                                        <div>
-                                            <h4>Cinema</h4>
-                                            <p>Cinema Chaplin</p>
-                                            <p></p>
-                                        </div>
-                                        <div>
-                                            <h4>Screen & Seats</h4>
-                                            <p>Screen 3</p>
-                                            <p>Seats 4-5</p>
-                                        </div>
-                                        <div>
-                                            <h4>Total Paid</h4>
-                                            <p>₸1140</p>
-                                            <p>2 Tickets</p>
-                                        </div>
-                                    </div>
+                    </div>
+
+                    <!-- Perforated Divider -->
+                    <div class="ticket__divider">
+                        <div class="ticket__notch"></div>
+                        <div class="ticket__notch ticket__notch--right"></div>
+                    </div>
+
+                    <!-- Ticket Body -->
+                    <div class="ticket__body">
+                        <!-- Movie Details -->
+                        <div class="ticket__section">
+                            <h3>Qaitadan</h3>
+                            <div style="font-size: 0.9rem; color: hsl(200, 10%, 50%); margin-bottom: 1rem;">
+                                Drama • 1h 43min • Rated PG-13
+                            </div>
+
+                            <div class="movie-info">
+                                <div class="info-item">
+                                    <span class="info-label">Date</span>
+                                    <span class="info-value">September 19, 2025</span>
                                 </div>
-                                
-                                <!-- QR Code -->
-                                <div class="qr-block">
-                                    <div class="qr-wrap">
-                                        <div class="qr-box">
-                                            <div class="qr-corner top-left"></div>
-                                            <div class="qr-corner top-right"></div>
-                                            <div class="qr-corner bottom-left"></div>
-                                            <div>SCAN<br>TO<br>ENTER</div>
-                                            <img src="images/qr-code.png" width="100px" height="100px"> </img>
-                                        </div>
-                                    </div>
-                                    <p>Show this QR code<br>at the cinema entrance</p>
+                                <div class="info-item">
+                                    <span class="info-label">Time</span>
+                                    <span class="info-value">20:30</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Cinema</span>
+                                    <span class="info-value">Astana, Turan Ave. 37</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Screen</span>
+                                    <span class="info-value">Hall 2 IMAX</span>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Ticket Footer -->
-                        <div class="ticket-footer">
-                            <div class="footer-row">
-                                <div>
-                                    <p><strong>Booking ID:</strong> CH-2025-0919-001</p>
+
+                        <!-- Seat Information -->
+                        <div class="ticket__section">
+                            <h3>Seat Information</h3>
+                            <div class="seat-info">
+                                <div class="seat-number">Row B • Seats 4-5</div>
+                                <div style="margin-top: 0.5rem; font-size: 0.875rem; color: hsl(200, 10%, 50%);">
+                                    2 Standard Tickets
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Details -->
+                        <div class="ticket__section">
+                            <h3>Order Details</h3>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
                                 <div>
-                                    <p>Please arrive 15 minutes before showtime</p>
+                                    <div class="ticket-number">Order #CH-2025-0919-001</div>
+                                    <div style="font-size: 0.75rem; color: hsl(200, 10%, 50%); margin-top: 0.25rem;">
+                                        Payment: Credit Card
+                                    </div>
+                                    <div style="font-size: 0.75rem; color: hsl(0, 100%, 50%); margin-top: 0.25rem;">
+                                        Please arrive 15 minutes before showtime
+                                    </div>
+                                </div>
+                                <div class="qr-code">    
+                                    <img src="images/qr-code.png" style="width: 80px; height: 80px; background: #333; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 10px;">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="actions">
-                        <button class="btn" onclick="downloadTicket()">📱 Add to Wallet</button>
-                        <button class="btn btn-secondary" onclick="printTicket()">🖨️ Print Ticket</button>
-                        <button class="btn btn-secondary" onclick="shareTicket()">📤 Share</button>
+                    <!-- Ticket Footer -->
+                    <div class="ticket__footer">
+                        <span>Total: ₸1140</span>
+                        <span>Valid Entry</span>
                     </div>
                 </div>
+                
             </div>
+                            <!-- Action Buttons -->
+                <div class="actions" style="display: flex; flex-direction: row;">
+                    <button class="btn" onclick="downloadTicket()">📱 Add to Wallet</button>
+                    <button class="btn btn-secondary" onclick="printTicket()">🖨️ Print Ticket</button>
+                    <button class="btn btn-secondary" onclick="shareTicket()">📤 Share</button>
+                </div>
         </section>
 
         <!-- Booking Details -->
-        <section class="section">
+        <section class="section" id="importantinfo">
             <div class="container">
                 <div class="two-columns">
                     <!-- Order Summary -->
@@ -220,7 +424,7 @@
         </section>
 
         <!-- Next Steps & Actions -->
-        <section class="section">
+        <section class="section" id="whatsnext">
             <div class="container">
                 <h3>What's Next?</h3>
                 <div class="next-steps">
@@ -260,42 +464,43 @@
         </section>
 
         <!-- Recommendations -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">You Might Also Like</h2>
-                <div class="movie-grid">
+        <section class="cards-section" id="recoms">
+            <h2 class="section-title">You Might Also Like</h2>
+            <div class="cards-container">
                     <!-- Recommendation 1 -->
-                    <div class="movie-card">
-                        <img src="images/posters/QaitadanPoster.png" alt="Qaitadan" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
-                        <h4 class="movie-title">Qaitadan</h4>
-                        <p class="movie-info">Fiction Drama • PG-13</p>
-                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    <div class="card">
+                        <img src="images/posters/QaitadanPoster.png" alt="Qaitadan">
+                        <div class="card-content">
+                            <h4 class="movie-title">Qaitadan</h4>
+                            <p class="movie-info">Fiction Drama • PG-13</p>
+                            <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                        </div>
                     </div>
                     
                     <!-- Recommendation 2 -->
-                    <div class="movie-card">
-                        <img src="images/posters/DemonSlayerPoster.png" alt="DemonSlayer" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
-                        <h4 class="movie-title">Demon Slayer Infinity Castle</h4>
-                        <p class="movie-info">Anime Drama • PG</p>
-                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    <div class="card">
+                        <img src="images/posters/DemonSlayerPoster.png" alt="DemonSlayer">
+                        <div class="card-content">
+                            <h4 class="movie-title">Demon Slayer Infinity Castle</h4>
+                            <p class="movie-info">Anime Drama • PG</p>
+                            <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                        </div>
                     </div>
                     
                     <!-- Recommendation 3 -->
-                    <div class="movie-card">
-                        <img src="images/posters/Zaklyatya4Poster.png" alt="Zak" style="width:200px;height:250px;border-radius:50%;margin-bottom:15px;">
-                        <h4 class="movie-title">The Conjuring: Last Rites</h4>
-                        <p class="movie-info">Horror • R</p>
-                        <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                    <div class="card">
+                        <img src="images/posters/Zaklyatya4Poster.png" alt="Zak">
+                        <div class="card-content">
+                            <h4 class="movie-title">The Conjuring: Last Rites</h4>
+                            <p class="movie-info">Horror • R</p>
+                            <a href="movie-details.html" class="btn btn-secondary">Book Now</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div>
-                    <a href="index.html" class="btn">Browse All Movies</a>
-                </div>
+                    
             </div>
         </section>
     </main>
-
+</div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -305,7 +510,7 @@
                     <p>Diasbek Amangeldiyev - Foundation & Layout</p>
                     <p>Ernar Omarov - Navigation & Interactive </p>
                     <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
-                    <p>Web Technologies Frontend Course - Assignment 2</p>
+                    <p>Web Technologies Frontend Course</p>
                 </div>
             </div>
         </div>
