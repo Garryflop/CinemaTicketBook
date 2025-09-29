@@ -248,3 +248,18 @@ footer {
     .gallery-container::-webkit-scrollbar { height: 8px; }
     .gallery-container::-webkit-scrollbar-thumb { background: #ff69b4; border-radius: 4px; }
 }
+@media (max-width: 900px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
+    scroll-snap-type: x mandatory;
+  }
