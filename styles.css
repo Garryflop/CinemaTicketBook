@@ -301,6 +301,73 @@ nav ul li a:hover {
     gap: 20px;
 }
 
+/* Navigation Styles */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Линия под навбаром - теперь адаптивная */
+.nav-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ff6b35;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: #ff6b35;
+    transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+
 /* Movie Card */
 .movie-card {
     background-color: #222;
@@ -365,6 +432,123 @@ button {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+.fixed-footer {
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+}
+
+.creator-name {
+    font-weight: normal;
+    color: #ccc; /* Lighter color for names */
+}
+
+@media (max-width: 390px) {
+    .movies-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.movies-list h2 {
+    font-size: 1rem;
+    color: #ff69b4;
+    margin-bottom: 15px;
+}
+
+/* Flex container for movies */
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* расстояние между карточками */
+}
+
+/* Movie Card */
+.movie-card {
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%; /* 3 cards per row */
+    padding: 10px;
+    color: #fff;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(50% - 20px); /* две карточки в ряд */
+    box-sizing: border-box;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 90%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+p.movie-description {
+        font-size: 10px;
+}
+
+.movie-details h3 {
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.movie-info-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    background-color: transparent;
+    color: #ff69b4; /* Neon text */
+    padding: 2px;
+    margin: 5px;
+    font-size: 7px;
+    text-align: center;
+    flex-grow: 1;
+    border: 2px solid #ff69b4;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 0 10px #ff69b4; /* Neon glow effect */
+}
+
+.movie-details p {
+    margin: 5px 0;
+    font-size: 10px;
+}
+
+button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
     margin-top: 10px;
@@ -390,4 +574,59 @@ button:hover {
 .creator-name {
     font-weight: normal;
     color: #ccc; /* Lighter color for names */
+}
+
+    header {
+        padding: 10px 0;
+        min-height: auto;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .nav-container::after {
+        /* Линия теперь будет подстраиваться под высоту навбара */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .nav-container nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Date Selector Section */
+.date-selector {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin: 10px 0;
+}
+
+.date-btn {
+    padding: 9px 20px;
+    background-color: #222;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.date-btn:hover {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.date-btn.active {
+    background-color: #ff69b4;
+    color: white;
+}
 }
