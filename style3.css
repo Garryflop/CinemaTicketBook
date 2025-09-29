@@ -67,21 +67,19 @@ p {
 
 /* Header Styles */
 header {
-  grid-area: header;
-  background: rgba(15, 15, 35, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 12px 0;      
-  height: var(--header-height);
-  box-sizing: border-box;
-  z-index: 1002;             
-  display: flex;
-  align-items: center;
+    grid-area: header;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-sizing: border-box;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    min-height: 72px;
 }
 
-#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header {
+    position: relative; /* Нужно для абсолютного позиционирования линии */
 }
 
 .logo {
@@ -145,10 +143,21 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;     /* вертикальные отступы контролирует header padding */
+    padding: 0 20px;
     gap: 12px;
-    flex-wrap: wrap;  
-    border-bottom: 2px solid #ff6b35;      
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Линия под навбаром - теперь адаптивная */
+.nav-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ff6b35;
 }
 
 .logo {
@@ -540,6 +549,30 @@ header {
     box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
 }
 
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #ff6b35;
+}
+
+.form-group .checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.form-group .checkbox-wrapper input[type="checkbox"] {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.form-group .checkbox-wrapper label {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+
 
 /* FOOTER - spans across bottom */
 footer {
@@ -651,9 +684,23 @@ footer {
         display: none;
     }
 
+    header {
+        padding: 10px 0;
+        min-height: auto;
+    }
+
     .nav-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .nav-container::after {
+        /* Линия теперь будет подстраиваться под высоту навбара */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
     .nav-container nav ul {
