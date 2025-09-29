@@ -100,14 +100,15 @@ nav a:hover {
 
 /* ===== Movies Gallery ===== */
 .movie-gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
 
 .movie {
     flex: 1 1 250px;
