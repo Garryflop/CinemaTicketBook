@@ -322,7 +322,7 @@ nav ul li a:hover {
     left: 0;
     right: 0;
     height: 2px;
-    background: #ff6b35;
+    background: #ff69b4;
 }
 
 nav ul {
@@ -346,7 +346,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ff6b35;
+    color: #ff69b4;
     background: rgba(255, 107, 53, 0.1);
     transform: translateY(-2px);
 }
@@ -358,7 +358,7 @@ nav a::after {
     height: 2px;
     bottom: 0;
     left: 50%;
-    background: #ff6b35;
+    background: #ff69b4;
     transition: all 0.3s ease;
 }
 
