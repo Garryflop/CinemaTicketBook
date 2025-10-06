@@ -1,0 +1,107 @@
+/* Neon Effect for Movie Cards */
+.neon-border {
+    border: 5px solid transparent;
+    border-radius: 10px;
+    background-color: #222; /* Set background color to dark */
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5), 0 0 30px rgba(255, 105, 180, 0.7);
+    transition: box-shadow 0.3s ease;
+    height: 100%; /* Set height to fill the card */
+}
+
+.neon-border:hover {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 1), 0 0 40px rgba(255, 105, 180, 0.9);
+}
+
+/* Reducing the card size */
+.card {
+    max-width: 250px; /* Control card size */
+    margin: 0 auto; /* Center the card */
+    border-radius: 10px;
+}
+
+.card-img-top {
+    height: 200px; /* Adjust the image size */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Movie Card Text and Description */
+.movie-description {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* "Book Now" Button Styling */
+.btn-pink {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-pink:hover {
+    background-color: #ff1493;
+}
+
+/* Header Navigation */
+header {
+    background-color: #111;
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.creator-name {
+    font-weight: normal;
+    color: #ccc;
+}
+
+/* Card Layout */
+.card {
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.row-cols-1 .col {
+    margin-bottom: 20px;
+}
