@@ -581,6 +581,49 @@ button:hover {
 }
 }
 
+@media (max-width: 1024px){
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background: #111;
+    text-align: center;
+    background-image: url('images/ironman.jpg');
+    background-size: cover; /* Ensures the image covers the entire section */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center;
+  background-color: rgb(80, 77, 77); /* Or any dark color */
+  background-blend-mode: multiply;
+}
+
+}
+
+@media (max-width: 2560px){
+    .welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background: #111;
+    text-align: center;
+    background-image: url('images/ironman.jpg');
+    background-size: cover; /* Ensures the image covers the entire section */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center;
+  background-color: rgb(80, 77, 77); /* Or any dark color */
+  background-blend-mode: multiply;
+}
+
+.container {
+    max-width: 1500px;
+}
+
+
+
+}
+
 /* Carousel Images */
 .carousel-inner .carousel-item {
     height: 500px; /* Set a fixed height for the carousel */
@@ -589,6 +632,25 @@ button:hover {
 .carousel-img {
     object-fit: cover;
     height: 100%; /* Ensure the image fills the height */
+}
+
+.carousel-control-prev {
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.carousel-control-prev:hover {
+    background-color: #fbd7ea00;
+}
+
+.carousel-control-next:hover {
+    background-color: #fbd7ea00;
 }
 
 /* Neon Effect for Movie Cards */
