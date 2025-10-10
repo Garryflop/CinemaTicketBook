@@ -4,103 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absolute Cinema</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Optional custom styles -->
 </head>
 <body>
-    <header>
-        <div class="logo">Absolute Cinema</div>
-        <div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="movie-list.html">Movies</a></li>
-                <li><a href="cinema-locations.html">Cinemas</a></li>
-                <li><a href="seat-selection.html">Book Seats</a></li>
-                <li><a href="booking-form.html">Account</a></li>
-                <li><a href="confirmation.html">My Bookings</a></li>
-            </ul>
-        </nav>
-    </div>
+
+    <!-- Header with Navigation -->
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo fs-3 text-pink">Absolute Cinema</div>
+            <!-- Responsive Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="movie-list.html" class="nav-link">Movies</a></li>
+                        <li class="nav-item"><a href="cinema-locations.html" class="nav-link">Cinemas</a></li>
+                        <li class="nav-item"><a href="seat-selection.html" class="nav-link">Book Seats</a></li>
+                        <li class="nav-item"><a href="booking-form.html" class="nav-link">Account</a></li>
+                        <li class="nav-item"><a href="confirmation.html" class="nav-link">My Bookings</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-            <div class="welcome-content">
-                <h1>Welcome to Absolute Cinema</h1>
-                <p>Experience the magic of movies like never before</p>
-                <button type="button" class="browse-btn"
-        onclick="location.href='movie-list.html'">
-  Browse movies
-</button>
+    <!-- Welcome Section -->
+    <section class="welcome-section bg-dark text-white py-5" style="background-image: url('images/ironman.jpg'); background-size: cover; background-position: center;">
+        <div class="container text-center">
+            <h1 class="fs-2 text-pink mb-4">Welcome to Absolute Cinema</h1>
+            <p class="fs-4 mb-4">Experience the magic of movies like never before</p>
+            <button type="button" class="btn btn-pink" onclick="location.href='movie-list.html'">Browse Movies</button>
+        </div>
+    </section>
 
-            </div>
-        </section>
-
-        <!-- Carousel and Movie Information Section -->
-        <section class="carousel">
-            <div class="carousel-container">
-                <div class="carousel-item">
-                    <img src="images/WICKED_Coverjpg.webp" alt="Movie 1">
-                    <div class="carousel-caption">
-                        <h2>Avengers: Endgame</h2>
-                        <p>Action, Adventure</p>
+    <!-- Carousel Section with 9 Images (Ensure Carousel has 9 items) -->
+    <section class="carousel py-5">
+        <div class="container">
+            <div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Add 9 carousel items as required -->
+                    <div class="carousel-item active">
+                        <img src="images/WICKED_Coverjpg.webp" class="d-block w-100 carousel-img" alt="Movie 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/tanjiroposter.jpg" class="d-block w-100 carousel-img" alt="Movie 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/avengersdoomsdaylogo.jpg" class="d-block w-100 carousel-img" alt="Movie 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/movie4.jpg" class="d-block w-100 carousel-img" alt="Movie 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/movie5.jpg" class="d-block w-100 carousel-img" alt="Movie 5">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/movie6.jpg" class="d-block w-100 carousel-img" alt="Movie 6">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/movie7.jpg" class="d-block w-100 carousel-img" alt="Movie 7">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/movie8.jpg" class="d-block w-100 carousel-img" alt="Movie 8">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/movie9.jpg" class="d-block w-100 carousel-img" alt="Movie 9">
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="images/tanjiroposter.jpg" alt="Movie 2">
-                    <div class="carousel-caption">
-                        <h2>The Lion King</h2>
-                        <p>Animation, Adventure</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/avengersdoomsdaylogo.jpg" alt="Movie 3">
-                    <div class="carousel-caption">
-                        <h2>Joker</h2>
-                        <p>Crime, Drama</p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-controls">
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-            </div>
-        </section>
-        
-
-        <!-- Now Showing Section -->
-    <section class="cinema-info">
-        <h2>Now Showing</h2>
-        <div class="cinema-details">
-            <div class="movie">
-                <img src="images/spidermannowayhome.jpeg" alt="Movie 1">
-                <h3>Spider-Man: No Way Home</h3>
-                <p>Action, Adventure, Sci-Fi</p>
-                <button>Book Now</button>
-            </div>
-            <div class="movie">
-                <img src="images/Black_Widow.jpg" alt="Movie 2">
-                <h3>Black Widow</h3>
-                <p>Action, Adventure</p>
-                <button>Book Now</button>
-            </div>
-            <div class="movie">
-                <img src="images/Dune_poster.jpg" alt="Movie 3">
-                <h3>Dune</h3>
-                <p>Adventure, Drama, Sci-Fi</p>
-                <button>Book Now</button>
+                <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
-        <a href="movie-list.html" class="all-button">All &gt;</a> 
     </section>
-    </main>
 
-    <footer class="fixed-footer">
-        <p>Created by: <span class="creator-name">Diasbek, Nurdaulet, Yernar</span></p>
+    <!-- Now Showing Section -->
+    <section class="cinema-info py-5">
+        <div class="container">
+            <h2 class="text-center text-pink mb-5">Now Showing</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Movie 1 -->
+                <div class="col">
+                    <div class="card movie neon-border p-3">
+                        <img src="images/spidermannowayhome.jpeg" class="card-img-top" alt="Spider-Man: No Way Home" style="height: 500px">
+                        <div class="card-body">
+                            <h5 class="card-title">Spider-Man: No Way Home</h5>
+                            <p class="card-text">Action, Adventure, Sci-Fi</p>
+                            <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 3 -->
+                <div class="col">
+                    <div class="card movie neon-border p-3">
+                        <img src="images/Black_Widow.jpg" class="card-img-top" alt="Black Widow" style="height: 500px">
+                        <div class="card-body">
+                            <h5 class="card-title">Black Widow</h5>
+                            <p class="card-text">Action, Adventure</p>
+                            <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 4 -->
+                <div class="col">
+                    <div class="card movie neon-border p-3">
+                        <img src="images/Dune_poster.jpg" class="card-img-top" alt="Dune" style="height: 500px">
+                        <div class="card-body">
+                            <h5 class="card-title">Dune</h5>
+                            <p class="card-text">Adventure, Drama, Sci-Fi</p>
+                            <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="fixed-footer bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>Created by: <span class="creator-name">Diasbek, Nurdaulet, Yernar</span></p>
+        </div>
     </footer>
-    
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
