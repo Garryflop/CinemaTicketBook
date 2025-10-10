@@ -14,7 +14,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    background-color: #0f0f23;
+    background-color: #1a1a1a;
     color: #ffffff;
     line-height: 1.6;
 }
@@ -280,162 +280,162 @@ main {
 }
 
 .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
 
-        .card {
-            background: rgba(30, 30, 60, 0.9);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid transparent;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            flex-direction: column;
-        }
+.card {
+    background: rgb(34 34 34);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #ff69b4;
-            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
-        }
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #ff69b4;
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+}
 
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
 
-        .card:hover img {
-            transform: scale(1.1);
-        }
+.card:hover img {
+    transform: scale(1.1);
+}
 
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
 
-        .card-info {
-            font-size: 0.875rem;
-            color: #999;
-            margin-bottom: 15px;
-        }
+.card-info {
+    font-size: 0.875rem;
+    color: #999;
+    margin-bottom: 15px;
+}
 
-        .card p {
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
+.card p {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
 
-        .card-btn {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
+.card-btn {
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
 
-        .card-btn:hover {
-            background: linear-gradient(45deg, #ff1493, #ff69b4);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
-        }
+.card-btn:hover {
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
 
-        .layout-info {
-            text-align: center;
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(30, 30, 60, 0.6);
-            border-radius: 15px;
-            max-width: 600px;
-            border: 2px solid #ff69b4;
-        }
+.layout-info {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(30, 30, 60, 0.6);
+    border-radius: 15px;
+    max-width: 600px;
+    border: 2px solid #ff69b4;
+}
 
-        .layout-info h3 {
-            margin-bottom: 15px;
-        }
+.layout-info h3 {
+    margin-bottom: 15px;
+}
 
-        /* MOBILE (Default - Stacked Vertically) */
-        .card {
-            flex: 1 1 100%;
-            min-width: 280px;
-        }
+/* MOBILE (Default - Stacked Vertically) */
+.card {
+    flex: 1 1 100%;
+    min-width: 280px;
+}
 
-        /* TABLET (min-width: 768px) - Two cards per row */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
+/* TABLET (min-width: 768px) - Two cards per row */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
 
-            h2 {
-                font-size: 2rem;
-            }
+    h2 {
+        font-size: 2rem;
+    }
 
-            h3 {
-                font-size: 1.5rem;
-            }
+    h3 {
+        font-size: 1.5rem;
+    }
 
-            p {
-                font-size: 1rem;
-            }
+    p {
+        font-size: 1rem;
+    }
 
-            .subtitle {
-                font-size: 1.1rem;
-            }
+    .subtitle {
+        font-size: 1.1rem;
+    }
 
-            .card {
-                flex: 1 1 calc(50% - 15px);
-                max-width: calc(50% - 15px);
-            }
+    .card {
+        flex: 1 1 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
 
-            .layout-info {
-                background: rgba(59, 130, 246, 0.2);
-                border-color: #3b82f6;
-            }
-        }
+    .layout-info {
+        background: rgba(59, 130, 246, 0.2);
+        border-color: #3b82f6;
+    }
+}
 
-        /* DESKTOP (min-width: 1024px) - Three cards per row */
-        @media (min-width: 1024px) {
-            h1 {
-                font-size: 3rem;
-            }
+/* DESKTOP (min-width: 1024px) - Three cards per row */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
 
-            h2 {
-                font-size: 2.5rem;
-            }
+    h2 {
+        font-size: 2.5rem;
+    }
 
-            h3 {
-                font-size: 1.75rem;
-            }
+    h3 {
+        font-size: 1.75rem;
+    }
 
-            p {
-                font-size: 1.1rem;
-            }
+    p {
+        font-size: 1.1rem;
+    }
 
-            .subtitle {
-                font-size: 1.2rem;
-            }
+    .subtitle {
+        font-size: 1.2rem;
+    }
 
-            .card {
-                flex: 1 1 calc(33.333% - 20px);
-                max-width: calc(33.333% - 20px);
-            }
+    .card {
+        flex: 1 1 calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
 
-            .layout-info {
-                background: rgba(34, 197, 94, 0.2);
-                border-color: #22c55e;
-            }
-        }
+    .layout-info {
+        background: rgba(34, 197, 94, 0.2);
+        border-color: #22c55e;
+    }
+}
 
 .page-layout {
     display: grid; /* Turn parent container into grid container */
@@ -450,7 +450,7 @@ main {
 
 header {
     grid-area: header;
-    background: rgba(15, 15, 35, 0.95); 
+    background: rgb(33 37 41); 
     backdrop-filter: blur(10px);
     padding: 12px 0;        
     box-sizing: border-box;
@@ -461,7 +461,7 @@ header {
 /* SIDEBAR - placed on left */
 .sidebar {
     grid-area: sidebar;
-    background: rgba(30, 30, 60, 0.9);
+    background: #222;
     border-right: 2px solid rgba(255, 105, 180, 0.3);
     padding: 30px 20px;
     backdrop-filter: blur(10px);
@@ -585,7 +585,7 @@ header {
 
 /* Form Styles */
 .form-container {
-    background: rgba(30, 30, 60, 0.9);
+    background: #343a4078;
     border-radius: 20px;
     padding: 40px;
     margin: 20px auto;
@@ -594,7 +594,7 @@ header {
 }
 
 .form-container2 {
-    background: rgba(30, 30, 60, 0.9);
+    background: #343a4078;
     border-radius: 20px;
     padding: 40px;
     margin: 20px auto;
@@ -621,7 +621,7 @@ header {
     padding: 15px;
     border: 2px solid rgba(255, 105, 180, 0.3);
     border-radius: 10px;
-    background: rgba(15, 15, 35, 0.8);
+    background: rgb(34 34 34);
     color: #ffffff;
     font-size: 16px;
     transition: all 0.3s ease;
@@ -663,7 +663,7 @@ header {
 /* FOOTER - spans across bottom */
 footer {
     grid-area: footer;
-    background: rgba(15, 15, 35, 0.95);
+    background: rgb(33 37 41);
     padding: 40px 0;
     border-top: 2px solid #ff69b4;
     text-align: center;
@@ -706,7 +706,7 @@ footer {
 }
 
 .order-summary, .important-info {
-    background: rgba(30, 30, 60, 0.8);
+    background: rgb(34 34 34);
     padding: 25px;
     border-radius: 15px;
     border: 1px solid rgba(255, 105, 180, 0.2);
@@ -736,7 +736,7 @@ footer {
 
 .next-steps > div {
     flex: 1;
-    background: rgba(30, 30, 60, 0.8);
+    background: rgb(34 34 34);
     padding: 25px;
     border-radius: 15px;
     text-align: center;
@@ -752,7 +752,7 @@ footer {
 }
 
 
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 
 /* ROOT VARIABLES */
 :root {
@@ -767,7 +767,7 @@ footer {
 /* TASK 1: RESPONSIVE TYPOGRAPHY */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--dark-bg);
+    background-color: #1a1a1a;
     color: #ffffff;
     line-height: 1.6;
 }
