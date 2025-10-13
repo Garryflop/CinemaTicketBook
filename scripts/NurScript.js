@@ -245,6 +245,7 @@ function getSelectedPaymentMethod() {
     const onclickAttr = selected.getAttribute('onclick');
     if (onclickAttr && onclickAttr.includes("'card'")) return 'card';
     if (onclickAttr && onclickAttr.includes("'kaspi'")) return 'kaspi';
+    
     if (onclickAttr && onclickAttr.includes("'applepay'")) return 'applepay';
     if (onclickAttr && onclickAttr.includes("'bank'")) return 'bank';
     
@@ -286,15 +287,272 @@ function selectPaymentMethod(element, method) {
 }
 
 
+function attachCustomerFormListeners() {
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const terms = document.getElementById('terms');
+    
+    if (firstName) {
+        firstName.addEventListener('blur', validateFirstName);
+        firstName.addEventListener('input', function() {
+            removeFieldError('firstName');
+        });
+    }
+    
+    if (lastName) {
+        lastName.addEventListener('blur', validateLastName);
+        lastName.addEventListener('input', function() {
+            removeFieldError('lastName');
+        });
+    }
+    
+    if (email) {
+        email.addEventListener('blur', validateEmail);
+        email.addEventListener('input', function() {
+            removeFieldError('email');
+        });
+    }
+    
+    if (phone) {
+        phone.addEventListener('blur', validatePhone);
+        phone.addEventListener('input', function() {
+            removeFieldError('phone');
+        });
+    }
+    
+    if (terms) {
+        terms.addEventListener('change', validateTerms);
+    }
+}
+
+function validateFirstName() {
+    const firstName = document.getElementById('firstName').value.trim();
+    removeFieldError('firstName');
+    
+    if (firstName === '') {
+        showFieldError('firstName', 'Please enter your first name');
+        return false;
+    }
+    
+    if (firstName.length < 2) {
+        showFieldError('firstName', 'First name must be at least 2 characters');
+        return false;
+    }
+    
+    return true;
+}
+
+function validateLastName() {
+    const lastName = document.getElementById('lastName').value.trim();
+    removeFieldError('lastName');
+    
+    if (lastName === '') {
+        showFieldError('lastName', 'Please enter your last name');
+        return false;
+    }
+    
+    if (lastName.length < 2) {
+        showFieldError('lastName', 'Last name must be at least 2 characters');
+        return false;
+    }
+    
+    return true;
+}
+
+function validateEmail() {
+    const email = document.getElementById('email').value.trim();
+    removeFieldError('email');
+    
+    if (email === '') {
+        showFieldError('email', 'Please enter your email address');
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showFieldError('email', 'Please enter a valid email (example@domain.com)');
+        return false;
+    }
+    
+    return true;
+}
+
+function validatePhone() {
+    const phone = document.getElementById('phone').value.trim();
+    removeFieldError('phone');
+    
+    if (phone === '') {
+        showFieldError('phone', 'Please enter your phone number');
+        return false;
+    }
+    
+    const phoneRegex = /^\+?7\s?\(?\d{3}\)?\s?\d{3}-?\d{4}$/;
+    if (!phoneRegex.test(phone)) {
+        showFieldError('phone', 'Format: +7 (XXX) XXX-XXXX');
+        return false;
+    }
+    
+    return true;
+}
+
+function validateTerms() {
+    const terms = document.getElementById('terms').checked;
+    removeFieldError('terms');
+    
+    if (!terms) {
+        showFieldError('terms', 'Please accept the terms and conditions');
+        return false;
+    }
+    
+    return true;
+}
+
+function attachPaymentFormListeners() {
+    const cardNumber = document.getElementById('cardNumber');
+    const expiryDate = document.getElementById('expiryDate');
+    const cvv = document.getElementById('cvv');
+    const cardName = document.getElementById('cardName');
+    
+    if (cardNumber) {
+        cardNumber.addEventListener('blur', validateCardNumber);
+        cardNumber.addEventListener('input', function() {
+            removeFieldError('cardNumber');
+        });
+    }
+    
+    if (expiryDate) {
+        expiryDate.addEventListener('blur', validateExpiryDate);
+        expiryDate.addEventListener('input', function() {
+            removeFieldError('expiryDate');
+        });
+    }
+    
+    if (cvv) {
+        cvv.addEventListener('blur', validateCVV);
+        cvv.addEventListener('input', function() {
+            removeFieldError('cvv');
+        });
+    }
+    
+    if (cardName) {
+        cardName.addEventListener('blur', validateCardName);
+        cardName.addEventListener('input', function() {
+            removeFieldError('cardName');
+        });
+    }
+}
+
+function validateCardNumber() {
+    const cardNumber = document.getElementById('cardNumber').value.trim();
+    removeFieldError('cardNumber');
+    
+    if (cardNumber === '') {
+        showFieldError('cardNumber', 'Please enter your card number');
+        return false;
+    }
+    
+    const cardRegex = /^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/;
+    if (!cardRegex.test(cardNumber)) {
+        showFieldError('cardNumber', 'Enter 16 digits (e.g., 1234 5678 9012 3456)');
+        return false;
+    }
+    
+    return true;
+}
+
+function validateExpiryDate() {
+    const expiryDate = document.getElementById('expiryDate').value.trim();
+    removeFieldError('expiryDate');
+    
+    if (expiryDate === '') {
+        showFieldError('expiryDate', 'Required');
+        return false;
+    }
+    
+    const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!expiryRegex.test(expiryDate)) {
+        showFieldError('expiryDate', 'Format: MM/YY');
+        return false;
+    }
+    
+    const parts = expiryDate.split('/');
+    const month = parseInt(parts[0]);
+    const year = 2000 + parseInt(parts[1]);
+    const now = new Date();
+    const expiry = new Date(year, month - 1);
+    
+    if (expiry < now) {
+        showFieldError('expiryDate', 'Card expired');
+        return false;
+    }
+    
+    return true;
+}
+
+function validateCVV() {
+    const cvv = document.getElementById('cvv').value.trim();
+    removeFieldError('cvv');
+    
+    if (cvv === '') {
+        showFieldError('cvv', 'Required');
+        return false;
+    }
+    
+    const cvvRegex = /^\d{3,4}$/;
+    if (!cvvRegex.test(cvv)) {
+        showFieldError('cvv', '3-4 digits');
+        return false;
+    }
+    
+    return true;
+}
+
+function validateCardName() {
+    const cardName = document.getElementById('cardName').value.trim();
+    removeFieldError('cardName');
+    
+    if (cardName === '') {
+        showFieldError('cardName', 'Enter name as on card');
+        return false;
+    }
+    
+    if (cardName.length < 3) {
+        showFieldError('cardName', 'Enter full name');
+        return false;
+    }
+    
+    return true;
+}
+
+function removeFieldError(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (!field) return;
+    
+    field.style.borderColor = '';
+    field.style.boxShadow = '';
+    
+    const errorMsg = field.parentElement.querySelector('.error-message');
+    if (errorMsg) {
+        errorMsg.remove();
+    }
+}
+
 const customerFormElement = document.getElementById('customerForm');
 if (customerFormElement) {
     customerFormElement.addEventListener('submit', validateCustomerForm);
+    attachCustomerFormListeners();
 }
-
 
 const submitButton = document.querySelector('button[onclick="processPayment()"]');
 if (submitButton) {
     submitButton.onclick = validatePaymentForm;
+}
+
+const cardPaymentForm = document.getElementById('cardPaymentForm');
+if (cardPaymentForm) {
+    attachPaymentFormListeners();
 }
 //task 2 accordion
 const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -325,11 +583,109 @@ const popup = document.getElementById('subscriptionPopup');
 function openPopup() {
     popup.classList.add('active');
     console.log('✅ Popup opened');
+    attachPopupValidationListeners();
 }
 
 function closePopup() {
     popup.classList.remove('active');
     console.log('❌ Popup closed');
+    clearAllErrors();
+}
+
+function attachPopupValidationListeners() {
+    const popupName = document.getElementById('popupName');
+    const popupEmail = document.getElementById('popupEmail');
+    const popupPhone = document.getElementById('popupPhone');
+    
+    if (popupName) {
+        popupName.removeEventListener('blur', validatePopupName);
+        popupName.removeEventListener('input', clearPopupNameError);
+        popupName.addEventListener('blur', validatePopupName);
+        popupName.addEventListener('input', clearPopupNameError);
+    }
+    
+    if (popupEmail) {
+        popupEmail.removeEventListener('blur', validatePopupEmail);
+        popupEmail.removeEventListener('input', clearPopupEmailError);
+        popupEmail.addEventListener('blur', validatePopupEmail);
+        popupEmail.addEventListener('input', clearPopupEmailError);
+    }
+    
+    if (popupPhone) {
+        popupPhone.removeEventListener('blur', validatePopupPhone);
+        popupPhone.removeEventListener('input', clearPopupPhoneError);
+        popupPhone.addEventListener('blur', validatePopupPhone);
+        popupPhone.addEventListener('input', clearPopupPhoneError);
+    }
+}
+
+function validatePopupName() {
+    const name = document.getElementById('popupName').value.trim();
+    removeFieldError('popupName');
+    
+    if (name === '') {
+        showFieldError('popupName', 'Please enter your full name');
+        return false;
+    }
+    
+    if (name.length < 3) {
+        showFieldError('popupName', 'Name must be at least 3 characters');
+        return false;
+    }
+    
+    if (!/^[a-zA-ZА-Яа-яЁё\s]+$/.test(name)) {
+        showFieldError('popupName', 'Only letters and spaces allowed');
+        return false;
+    }
+    
+    return true;
+}
+
+function validatePopupEmail() {
+    const email = document.getElementById('popupEmail').value.trim();
+    removeFieldError('popupEmail');
+    
+    if (email === '') {
+        showFieldError('popupEmail', 'Please enter your email address');
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showFieldError('popupEmail', 'Please enter a valid email (example@domain.com)');
+        return false;
+    }
+    
+    return true;
+}
+
+function validatePopupPhone() {
+    const phone = document.getElementById('popupPhone').value.trim();
+    removeFieldError('popupPhone');
+    
+    if (phone === '' || phone === undefined) {
+        return true;
+    }
+    
+    const phoneRegex = /^\+?7\s?\(?\d{3}\)?\s?\d{3}-?\d{4}$/;
+    if (!phoneRegex.test(phone)) {
+        showFieldError('popupPhone', 'Format: +7 (XXX) XXX-XXXX');
+        return false;
+    }
+    
+    return true;
+}
+
+function clearPopupNameError() {
+    removeFieldError('popupName');
+}
+
+function clearPopupEmailError() {
+    removeFieldError('popupEmail');
+}
+
+function clearPopupPhoneError() {
+    removeFieldError('popupPhone');
 }
 
 popup.addEventListener('click', function(event) {// Close when clicking outside the form
@@ -348,59 +704,25 @@ document.addEventListener('keydown', function(event) {// Close on Escape key
 
 function handleSubscription(event) {
     event.preventDefault();
-
-    clearAllErrors();
     
-    let isValid = true;
-    let errorMessages = [];
+    const isNameValid = validatePopupName();
+    const isEmailValid = validatePopupEmail();
+    const isPhoneValid = validatePopupPhone();
     
-    const name = document.getElementById('popupName').value.trim();
-    const email = document.getElementById('popupEmail').value.trim();
-    const phone = document.getElementById('popupPhone').value.trim();
-    
-    if (name === '') {
-        isValid = false;
-        errorMessages.push('Name is required');
-        showFieldError('popupName', 'Please enter your full name');
-    } else if (name.length < 3) {
-        isValid = false;
-        errorMessages.push('Name must be at least 3 characters');
-        showFieldError('popupName', 'Name must be at least 3 characters');
-    } else if (!/^[a-zA-Z\s]+$/.test(name)) {
-        isValid = false;
-        errorMessages.push('Name can only contain letters');
-        showFieldError('popupName', 'Only letters and spaces allowed');
-    }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email === '') {
-        isValid = false;
-        errorMessages.push('Email is required');
-        showFieldError('popupEmail', 'Please enter your email address');
-    } else if (!emailRegex.test(email)) {
-        isValid = false;
-        errorMessages.push('Invalid email format');
-        showFieldError('popupEmail', 'Please enter a valid email (example@domain.com)');
-    }
-    
-
-    if (phone !== '') {
-        const phoneRegex = /^\+?7\s?\(?\d{3}\)?\s?\d{3}-?\d{4}$/;
-        if (!phoneRegex.test(phone)) {
-            isValid = false;
-            errorMessages.push('Invalid phone format');
-            showFieldError('popupPhone', 'Format: +7 (XXX) XXX-XXXX');
-        }
-    }
+    const isValid = isNameValid && isEmailValid && isPhoneValid;
     
     if (isValid) {
+        const name = document.getElementById('popupName').value.trim();
+        const email = document.getElementById('popupEmail').value.trim();
+        const phone = document.getElementById('popupPhone').value.trim();
+        
         alert('✅ Thank you for subscribing, ' + name + '!\n\nWe will send updates to: ' + email);
         document.getElementById('subscriptionForm').reset();
-        
         closePopup();
-        console.log('Subscription data:', { name: name, email: email, phone: phone });
+        
+        console.log('✅ Subscription successful:', { name: name, email: email, phone: phone });
     } else {
-        console.log('❌ Validation errors:', errorMessages);
+        console.log('❌ Please correct the errors in the form');
     }
 }
 
