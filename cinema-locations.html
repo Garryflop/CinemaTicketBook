@@ -6,33 +6,54 @@
   <title>Cinema Locations | Absolute Cinema</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <script src="ernar.js"></script>
+  <script src="ernar.js" defer></script>
+  <style>
+    .gate-blur { filter: blur(3px); pointer-events: none; user-select: none; }
+    .text-pink { color: #ff69b4 !important; }
+    .border-pink { border-color: #ff69b4 !important; }
+    .btn-outline-pink { color:#ff69b4; border:1px solid #ff69b4; }
+    .btn-outline-pink:hover { background:#ff69b4; color:#000; }
+  </style>
 </head>
 
 <body>
-  <!-- ===== Header ===== -->
-  <header class="bg-dark border-bottom border-pink py-3">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center">
-      <a href="index.html" class="logo text-decoration-none text-pink fs-3 fw-bold">Absolute Cinema</a>
-      <nav>
-        <ul class="nav gap-3 flex-wrap">
-          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="movie-list.html">Movies</a></li>
-          <li class="nav-item"><a class="nav-link text-white active" href="cinema-locations.html">Cinemas</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="seat-selection.html">Book Seats</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="booking-form.html">Account</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="confirmation.html">My Bookings</a></li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-pink">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-pink" href="index.html">Absolute Cinema</a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="movie-list.html">Movies</a></li>
+          <li class="nav-item"><a class="nav-link active" href="cinema-locations.html">Cinemas</a></li>
+          <li class="nav-item"><a class="nav-link" href="seat-selection.html">Book Seats</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking-form.html">Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="confirmation.html">My Bookings</a></li>
         </ul>
-      </nav>
+      </div>
+      <div class="d-flex gap-2 ms-lg-3 mt-lg-0 justify-content-lg-end">
+      <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signup-pane">
+        Sign Up
+      </button>
+      <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signin-pane">
+        Sign In
+      </button>
+      </div>
+
     </div>
-  </header>
+  </nav>
 
   <!-- ===== Main ===== -->
-  <main class="container my-5">
+  <main class="container my-5" id="appContent">
     <h1 class="text-center text-pink mb-4">Our Cinema Locations</h1>
     <p class="text-center mb-5">Find a cinema near you and enjoy the latest movies!</p>
 
-    <!-- ===== Task 3 Grid Example ===== -->
+    <!-- ===== Grid Example: two columns on md+ ===== -->
     <section class="row g-4 mb-5">
       <div class="col-12 col-md-6">
         <div class="p-3 bg-dark text-white rounded">
@@ -49,7 +70,7 @@
     </section>
 
     <!-- ===== Search Bar (Bootstrap form) ===== -->
-    <section class="google-search row g-3 justify-content-center mb-5">
+    <section class="row g-3 justify-content-center mb-5">
       <div class="col-12 col-md-5 col-lg-4">
         <input type="text" class="form-control" placeholder="Search by city..." />
       </div>
@@ -67,71 +88,152 @@
       </div>
     </section>
 
-    <!-- ===== Task 2 + 4: Card Group (4 cinemas) ===== -->
+    <!-- ===== Four Cinemas (cards) ===== -->
     <section class="gallery-section">
       <h2 class="text-center text-pink mb-4">Our Cinemas</h2>
       <div class="row g-4">
-        <!-- 1 -->
+        <!-- Card 1 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card bg-dark text-white p-3 h-100">
             <img src="images/kinopark6.png" class="card-img-top rounded mb-2" alt="Kinopark 8 IMAX Saryarka" />
             <div class="card-body">
               <h5 class="card-title text-pink">Kinopark 8 IMAX Saryarka</h5>
-              <p>📍 Astana, Turan Ave. 24<br>🎬 Standard, IMAX, Multiplex</p>
+              <p class="mb-3">📍 Astana, Turan Ave. 24<br>🎬 Standard, IMAX, Multiplex</p>
               <div class="btn-group w-100">
                 <a href="seat-selection.html" class="btn btn-primary btn-sm">Book</a>
-                <a href="https://maps.app.goo.gl/ERhAmgKcCK8DR34m9" class="btn btn-outline-light btn-sm">Map</a>
+                <a href="https://maps.app.goo.gl/ERhAmgKcCK8DR34m9" class="btn btn-outline-light btn-sm" target="_blank">Map</a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- 2 -->
+        <!-- Card 2 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card bg-dark text-white p-3 h-100">
             <img src="images/kinopark1.png" class="card-img-top rounded mb-2" alt="Kinopark 7 IMAX 3D" />
             <div class="card-body">
               <h5 class="card-title text-pink">Kinopark 7 IMAX 3D</h5>
-              <p>📍 Astana, Dostyk St. 9<br>🎬 Premium, IMAX, Multiplex</p>
+              <p class="mb-3">📍 Astana, Dostyk St. 9<br>🎬 Premium, IMAX, Multiplex</p>
               <div class="btn-group w-100">
                 <a href="seat-selection.html" class="btn btn-primary btn-sm">Book</a>
-                <a href="https://maps.app.goo.gl/m2eXo6UGu4ijYKyV7" class="btn btn-outline-light btn-sm">Map</a>
+                <a href="https://maps.app.goo.gl/m2eXo6UGu4ijYKyV7" class="btn btn-outline-light btn-sm" target="_blank">Map</a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- 3 -->
+        <!-- Card 3 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card bg-dark text-white p-3 h-100">
             <img src="images/chaplinmega.png" class="card-img-top rounded mb-2" alt="Chaplin MEGA Silk Way" />
             <div class="card-body">
               <h5 class="card-title text-pink">Chaplin MEGA Silk Way</h5>
-              <p>📍 Astana, Kabanbay Batyr Ave. 62<br>🎬 Standard, Multiplex</p>
+              <p class="mb-3">📍 Astana, Kabanbay Batyr Ave. 62<br>🎬 Standard, Multiplex</p>
               <div class="btn-group w-100">
                 <a href="seat-selection.html" class="btn btn-primary btn-sm">Book</a>
-                <a href="https://maps.app.goo.gl/Tnp1rWeDYccRknAC7" class="btn btn-outline-light btn-sm">Map</a>
+                <a href="https://maps.app.goo.gl/Tnp1rWeDYccRknAC7" class="btn btn-outline-light btn-sm" target="_blank">Map</a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- 4 -->
+        <!-- Card 4 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card bg-dark text-white p-3 h-100">
             <img src="images/chaplinkhan.png" class="card-img-top rounded mb-2" alt="Chaplin Khan Shatyr" />
             <div class="card-body">
               <h5 class="card-title text-pink">Chaplin Khan Shatyr</h5>
-              <p>📍 Astana, Turan Ave. 37<br>🎬 Multiplex, IMAX</p>
+              <p class="mb-3">📍 Astana, Turan Ave. 37<br>🎬 Multiplex, IMAX</p>
               <div class="btn-group w-100">
                 <a href="seat-selection.html" class="btn btn-primary btn-sm">Book</a>
-                <a href="https://maps.app.goo.gl/sdzw9CieKdAaJZd3A" class="btn btn-outline-light btn-sm">Map</a>
+                <a href="https://maps.app.goo.gl/sdzw9CieKdAaJZd3A" class="btn btn-outline-light btn-sm" target="_blank">Map</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> <!-- row -->
     </section>
+    <section class="faq-section container my-5">
+    <h2 class="text-center text-pink mb-4">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3 class="faq-question">🎟 How can I book a ticket?</h3>
+      <div class="faq-answer">
+        <p>You can book tickets directly through our “Book Seats” page by selecting your preferred movie and seat.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">🍿 Can I cancel or change my booking?</h3>
+      <div class="faq-answer">
+        <p>Yes, you can modify or cancel your booking within 24 hours before the showtime through your account page.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">💳 What payment methods do you accept?</h3>
+      <div class="faq-answer">
+        <p>We accept major credit cards, debit cards, and mobile payments such as Apple Pay and Samsung Pay.</p>
+      </div>
+    </div>
+    </section>
+    <div class="d-flex gap-2 justify-content-end my-3">
+  <button id="openSubscribe" class="btn btn-outline-pink btn-sm">Subscribe</button>
+  <button id="openContact" class="btn btn-primary btn-sm">Contact Us</button>
+</div>
+
+<!-- ===== Modal: Subscribe ===== -->
+<div class="modal-overlay" id="modalSubscribe" aria-hidden="true">
+  <div class="popup" role="dialog" aria-modal="true" aria-labelledby="subscribeTitle">
+    <button class="popup-close" aria-label="Close">&times;</button>
+    <h3 id="subscribeTitle" class="text-pink mb-3">Subscribe to Updates</h3>
+
+    <form id="subscribeForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="subEmail">Email</label>
+        <input id="subEmail" type="email" class="form-control" placeholder="name@example.com" required>
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===== Modal: Contact ===== -->
+<div class="modal-overlay" id="modalContact" aria-hidden="true">
+  <div class="popup" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="popup-close" aria-label="Close">&times;</button>
+    <h3 id="contactTitle" class="text-pink mb-3">Contact Support</h3>
+
+    <form id="contactForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="contactName">Full Name</label>
+        <input id="contactName" type="text" class="form-control" placeholder="John Doe" required>
+        <div class="invalid-feedback">Please enter your name.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="contactEmail">Email</label>
+        <input id="contactEmail" type="email" class="form-control" placeholder="name@example.com" required>
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="contactMsg">Message</label>
+        <textarea id="contactMsg" class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
+        <div class="invalid-feedback">Please enter your message.</div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+<button id="themeSwitcher" class="btn btn-outline-pink position-fixed end-0 bottom-0 m-3">🌓 Change Theme</button>
+
   </main>
 
   <!-- ===== Footer ===== -->
@@ -143,127 +245,104 @@
     <p class="small">Web Technologies Frontend Course – Assignment 2</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Bootstrap CSS (include once site-wide) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ===== Entry Gate Modal (ONE time, at the end) ===== -->
+  <div class="modal fade" id="entryGateModal" tabindex="-1" aria-labelledby="entryGateTitle" aria-hidden="true"
+       data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border border-2" style="border-color:#ff69b4 !important;">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-pink" id="entryGateTitle">Welcome to Absolute Cinema</h5>
+        </div>
 
-<!-- Optional: blur effect when gate is active -->
-<style>
-  .gate-blur {
-    filter: blur(3px);
-    pointer-events: none;
-    user-select: none;
-  }
-  .text-pink { color: #ff69b4 !important; }
-  .btn-outline-pink {
-    color: #ff69b4;
-    border: 1px solid #ff69b4;
-  }
-  .btn-outline-pink:hover {
-    background:#ff69b4; color:#000;
-  }
-</style>
+        <div class="modal-body">
+          <!-- Tabs -->
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="signup-tab" data-bs-toggle="pill" data-bs-target="#signup-pane" type="button" role="tab" aria-controls="signup-pane" aria-selected="true">
+                Sign Up
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="signin-tab" data-bs-toggle="pill" data-bs-target="#signin-pane" type="button" role="tab" aria-controls="signin-pane" aria-selected="false">
+                Sign In
+              </button>
+            </li>
+          </ul>
 
-<!-- Your main app content -->
-<div id="appContent">
-  <!-- ... your whole site content here (header, carousel, movies, etc.) ... -->
-</div>
+          <div class="tab-content">
+            <!-- Sign Up -->
+            <div class="tab-pane fade show active" id="signup-pane" role="tabpanel" aria-labelledby="signup-tab">
+              <form id="gateSignupForm" novalidate>
+                <div class="mb-3">
+                  <label class="form-label" for="gateFullName">Full Name</label>
+                  <input id="gateFullName" type="text" class="form-control" placeholder="John Doe" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
 
-<!-- ===== Entry Gate Modal ===== -->
-<div class="modal fade" id="entryGateModal" tabindex="-1" aria-labelledby="entryGateTitle" aria-hidden="true"
-     data-bs-backdrop="static" data-bs-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark text-white border border-2" style="border-color:#ff69b4 !important;">
-      <div class="modal-header border-0">
-        <h5 class="modal-title text-pink" id="entryGateTitle">Welcome to Absolute Cinema</h5>
-      </div>
+                <div class="mb-3">
+                  <label class="form-label" for="gateEmail">Email</label>
+                  <input id="gateEmail" type="email" class="form-control" placeholder="name@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email (e.g., name@example.com).</div>
+                </div>
 
-      <div class="modal-body">
-        <!-- Tabs -->
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="signup-tab" data-bs-toggle="pill" data-bs-target="#signup-pane" type="button" role="tab" aria-controls="signup-pane" aria-selected="true">
-              Sign Up
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="signin-tab" data-bs-toggle="pill" data-bs-target="#signin-pane" type="button" role="tab" aria-controls="signin-pane" aria-selected="false">
-              Sign In
-            </button>
-          </li>
-        </ul>
+                <div class="mb-3">
+                  <label class="form-label" for="gatePassword">Password (min 6)</label>
+                  <input id="gatePassword" type="password" class="form-control" minlength="6" required>
+                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                </div>
 
-        <div class="tab-content">
-          <!-- Sign Up -->
-          <div class="tab-pane fade show active" id="signup-pane" role="tabpanel" aria-labelledby="signup-tab">
-            <form id="gateSignupForm" novalidate>
-              <div class="mb-3">
-                <label class="form-label" for="gateFullName">Full Name</label>
-                <input id="gateFullName" type="text" class="form-control" placeholder="John Doe" required>
-                <div class="invalid-feedback">Please enter your full name.</div>
-              </div>
+                <div class="mb-3">
+                  <label class="form-label" for="gateConfirm">Confirm Password</label>
+                  <input id="gateConfirm" type="password" class="form-control" required>
+                  <div class="invalid-feedback">Passwords do not match.</div>
+                </div>
 
-              <div class="mb-3">
-                <label class="form-label" for="gateEmail">Email</label>
-                <input id="gateEmail" type="email" class="form-control" placeholder="name@example.com" required>
-                <div class="invalid-feedback">Please enter a valid email (e.g., name@example.com).</div>
-              </div>
+                <div class="form-check mb-3">
+                  <input id="gateTerms" type="checkbox" class="form-check-input" required>
+                  <label class="form-check-label" for="gateTerms">I accept the Terms & Conditions</label>
+                  <div class="invalid-feedback">You must accept the terms to continue.</div>
+                </div>
 
-              <div class="mb-3">
-                <label class="form-label" for="gatePassword">Password (min 6)</label>
-                <input id="gatePassword" type="password" class="form-control" minlength="6" required>
-                <div class="invalid-feedback">Password must be at least 6 characters.</div>
-              </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary">Create Account</button>
+                  <button type="button" class="btn btn-outline-pink" id="continueGuestBtn">Continue as Guest</button>
+                </div>
+              </form>
+            </div>
 
-              <div class="mb-3">
-                <label class="form-label" for="gateConfirm">Confirm Password</label>
-                <input id="gateConfirm" type="password" class="form-control" required>
-                <div class="invalid-feedback">Passwords do not match.</div>
-              </div>
-
-              <div class="form-check mb-3">
-                <input id="gateTerms" type="checkbox" class="form-check-input" required>
-                <label class="form-check-label" for="gateTerms">I accept the Terms & Conditions</label>
-                <div class="invalid-feedback">You must accept the terms to continue.</div>
-              </div>
-
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Create Account</button>
-                <button type="button" class="btn btn-outline-pink" id="continueGuestBtn">Continue as Guest</button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Sign In -->
-          <div class="tab-pane fade" id="signin-pane" role="tabpanel" aria-labelledby="signin-tab">
-            <form id="gateSigninForm" novalidate>
-              <div class="mb-3">
-                <label for="gateLoginEmail" class="form-label">Email</label>
-                <input id="gateLoginEmail" type="email" class="form-control" required>
-                <div class="invalid-feedback">Enter a valid email.</div>
-              </div>
-              <div class="mb-3">
-                <label for="gateLoginPassword" class="form-label">Password</label>
-                <input id="gateLoginPassword" type="password" class="form-control" required>
-                <div class="invalid-feedback">Password is required.</div>
-              </div>
-              <div class="d-grid gap-2">
-                <button class="btn btn-secondary" type="submit">Sign In</button>
-                <button type="button" class="btn btn-outline-pink" id="continueGuestBtn2">Continue as Guest</button>
-              </div>
-            </form>
+            <!-- Sign In -->
+            <div class="tab-pane fade" id="signin-pane" role="tabpanel" aria-labelledby="signin-tab">
+              <form id="gateSigninForm" novalidate>
+                <div class="mb-3">
+                  <label for="gateLoginEmail" class="form-label">Email</label>
+                  <input id="gateLoginEmail" type="email" class="form-control" required>
+                  <div class="invalid-feedback">Enter a valid email.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="gateLoginPassword" class="form-label">Password</label>
+                  <input id="gateLoginPassword" type="password" class="form-control" required>
+                  <div class="invalid-feedback">Password is required.</div>
+                </div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-secondary" type="submit">Sign In</button>
+                  <button type="button" class="btn btn-outline-pink" id="continueGuestBtn2">Continue as Guest</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="modal-footer border-0">
-        <small class="text-muted">You can change your account details later in <em>Account</em>.</small>
+        <div class="modal-footer border-0">
+          <small class="text-muted">You can change your account details later in <em>Account</em>.</small>
+        </div>
+        
       </div>
     </div>
   </div>
-</div>
 
-<!-- Bootstrap JS Bundle (include once site-wide) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS (once) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>
