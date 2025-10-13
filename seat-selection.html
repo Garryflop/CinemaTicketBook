@@ -1,306 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style1.css">
-    <title>Seat Selection</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seat Selection | Absolute Cinema</title>
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Theme -->
+  <link rel="stylesheet" href="style1.css">
 </head>
+
 <body>
-    <div class="layout">
-    <header>
-        <div class="container">
-            <div id="header">
-                <a href="index.html" class="logo">Absolute Cinema</a>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="movie-list.html">Movies</a></li>
-                        <li><a href="cinema-locations.html">Cinemas</a></li>
-                        <li><a href="seat-selection.html">Book Seats</a></li>
-                        <li><a href="booking-form.html">Account</a></li>
-                        <li><a href="confirmation.html">My Bookings</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <main>
-        <h1 style="text-align: center;">Booking Place</h1>
-        <div class="search-bar">
-            <input type="text" id="film-search" placeholder="Enter film title...">
-            <button class="search-button">🔍</button>
-        </div>
-    
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-pink">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold text-pink" href="index.html">Absolute Cinema</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <h2 style="text-align: center;">Popular Films</h2>
-        <div class="movie-gallery">
-            <div class="movie">
-                <img src="images/film1.png" alt="Somnia: The House of Nightmares">
-                <p>Somnia: The House of Nightmares</p>
-                <details>
-                    <summary>🎟 Book Now</summary>
-                    <div class="booking-box">
-                        <label for="cinema1">Choose Cinema:</label>
-                        <select id="cinema1">
-                            <option>Kinopark 8</option>
-                            <option>Chaplin Khan Shatyr</option>
-                            <option>Keruen Cinema</option>
-                            <option>Kinopark 16</option>
-                        </select>
-                        <label for="date1">Select Date:</label>
-                        <input type="date" id="date1">
-                        <label for="time1">Select Time:</label>
-                        <select id="time1">
-                            <option>12:00</option>
-                            <option>15:00</option>
-                            <option>18:00</option>
-                            <option>21:00</option>
-                        </select>
-                        <h4>Choose Seats</h4>
-                        <div class="seats">
-                            <input type="checkbox" id="A1"><label for="A1">A1</label>
-                            <input type="checkbox" id="A2"><label for="A2">A2</label>
-                            <input type="checkbox" id="A3"><label for="A3">A3</label>
-                            <input type="checkbox" id="A4"><label for="A4">A4</label>
-                        </div>
-                        <p>
-                            <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>
-                        </p>    
-                        <label for="ticket-type">Ticket Type:</label>
-                        <select id="ticket-type">
-                            <option value="adult">Adult ($10)</option>
-                            <option value="student">Student ($8)</option>
-                            <option value="child">Child ($6)</option>
-                        </select>
-                        <button id="payment-btn">Proceed to Payment</button>
-                    </div>
-                </details>
-            </div>
-
-            <div class="movie">
-                <img src="images/film2.png" alt="Demon Slayer: Kimetsu no Yaiba - To the Swordsmith Village">
-                <p>Demon Slayer: Kimetsu no Yaiba</p>
-                <details>
-                    <summary>🎟 Book Now</summary>
-                    <div class="booking-box">
-                        <label for="cinema2">Choose Cinema:</label>
-                        <select id="cinema2">
-                            <option>Kinopark 8</option>
-                            <option>Chaplin Khan Shatyr</option>
-                            <option>Keruen Cinema</option>
-                            <option>Kinopark 16</option>
-                        </select>
-                        <label for="date2">Select Date:</label>
-                        <input type="date" id="date2">
-                        <label for="time2">Select Time:</label>
-                        <select id="time2">
-                            <option>12:00</option>
-                            <option>15:00</option>
-                            <option>18:00</option>
-                            <option>21:00</option>
-                        </select>
-                        <h4>Choose Seats</h4>
-                        <div class="seats">
-                            <input type="checkbox" id="B1"><label for="B1">B1</label>
-                            <input type="checkbox" id="B2"><label for="B2">B2</label>
-                            <input type="checkbox" id="B3"><label for="B3">B3</label>
-                            <input type="checkbox" id="B4"><label for="B4">B4</label>
-                        </div>
-                        <p>
-                            <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>   
-                        </p>
-                        <label for="ticket-type">Ticket Type:</label>       
-                        <select id="ticket-type">
-                            <option value="adult">Adult ($10)</option>
-                            <option value="student">Student ($8)</option>
-                            <option value="child">Child ($6)</option>   
-                        </select>       
-                        <button id="payment-btn">Proceed to Payment</button>
-                    </div>
-                </details>
-            </div>
-
-            <div class="movie">
-                <img src="images/film3.png" alt="Ghost Train">
-                <p>Ghost Train</p>
-                <details>
-                    <summary>🎟 Book Now</summary>
-                    <div class="booking-box">
-                        <label for="cinema3">Choose Cinema:</label>
-                        <select id="cinema3">
-                            <option>Kinopark 8</option>
-                            <option>Chaplin Khan Shatyr</option>
-                            <option>Keruen Cinema</option>
-                            <option>Kinopark 16</option>
-                        </select>
-                        <label for="date3">Select Date:</label>
-                        <input type="date" id="date3">
-                        <label for="time3">Select Time:</label>
-                        <select id="time3">
-                            <option>12:00</option>
-                            <option>15:00</option>
-                            <option>18:00</option>
-                            <option>21:00</option>
-                        </select>
-                        <h4>Choose Seats</h4>
-                        <div class="seats">
-                            <input type="checkbox" id="C1"><label for="C1">C1</label>
-                            <input type="checkbox" id="C2"><label for="C2">C2</label>
-                            <input type="checkbox" id="C3"><label for="C3">C3</label>
-                            <input type="checkbox" id="C4"><label for="C4">C4</label>
-                        </div>  
-                        <p>
-                            <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>
-                        </p>                
-                        <label for="ticket-type">Ticket Type:</label>               
-                        <select id="ticket-type">
-                            <option value="adult">Adult ($10)</option>
-                            <option value="student">Student ($8)</option>
-                            <option value="child">Child ($6)</option>   
-                        </select>
-                        <button id="payment-btn">Proceed to Payment</button>
-                    </div>
-                </details>
-            </div>
-
-            <div class="movie">
-                <img src="images/film4.png" alt="Final Destination: Deadly Game">
-                <p>Final Destination: Deadly Game</p>
-                <details>
-                    <summary>🎟 Book Now</summary>
-                    <div class="booking-box">
-                        <label for="cinema4">Choose Cinema:</label>
-                        <select id="cinema4">
-                            <option>Kinopark 8</option>
-                            <option>Chaplin Khan Shatyr</option>
-                            <option>Keruen Cinema</option>
-                            <option>Kinopark 16</option>
-                        </select>
-                        <label for="date4">Select Date:</label>
-                        <input type="date" id="date4">
-                        <label for="time4">Select Time:</label>
-                        <select id="time4">
-                            <option>12:00</option>
-                            <option>15:00</option>
-                            <option>18:00</option>
-                            <option>21:00</option>
-                        </select>
-                        <h4>Choose Seats</h4>
-                        <div class="seats">
-                            <input type="checkbox" id="D1"><label for="D1">D1</label>
-                            <input type="checkbox" id="D2"><label for="D2">D2</label>
-                            <input type="checkbox" id="D3"><label for="D3">D3</label>
-                            <input type="checkbox" id="D4"><label for="D4">D4</label>
-                        </div>
-                        <p>
-                            <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>   
-                        </p>                
-                        <label for="ticket-type">Ticket Type:</label>
-                        <select id="ticket-type">
-                            <option value="adult">Adult ($10)</option>
-                            <option value="student">Student ($8)</option>
-                            <option value="child">Child ($6)</option>       
-                        </select>
-                        <button id="payment-btn">Proceed to Payment</button>
-                    </div>
-                </details>
-            </div>
-
-            <div class="movie">
-                <img src="images/film5.png" alt="Caught Red-Handed"> 
-                <p>Caught Red-Handed</p>
-                <details>
-                    <summary>🎟 Book Now</summary>
-                    <div class="booking-box">
-                        <label for="cinema5">Choose Cinema:</label>
-                        <select id="cinema5">
-                            <option>Kinopark 8</option>
-                            <option>Chaplin Khan Shatyr</option>
-                            <option>Keruen Cinema</option>
-                            <option>Kinopark 16</option>
-                        </select>
-                        <label for="date5">Select Date:</label>
-                        <input type="date" id="date5">
-                        <label for="time5">Select Time:</label>
-                        <select id="time5">
-                            <option>12:00</option>
-                            <option>15:00</option>
-                            <option>18:00</option>
-                            <option>21:00</option>
-                        </select>
-                        <h4>Choose Seats</h4>
-                        <div class="seats">
-                            <input type="checkbox" id="E1"><label for="E1">E1</label>
-                            <input type="checkbox" id="E2"><label for="E2">E2</label>
-                            <input type="checkbox" id="E3"><label for="E3">E3</label>
-                            <input type="checkbox" id="E4"><label for="E4">E4</label>
-                        </div>
-                        <p>
-                            <small>Please note: Child tickets are for ages 12 and under. You may be asked for proof of age at the cinema.</small>
-                        </p>
-                        <label for="ticket-type1">Ticket Type:</label>
-                        <select id="ticket-type1">
-                            <option value="adult">Adult ($10)</option>
-                            <option value="child">Child ($6)</option>
-                        </select>
-                        <button id="payment-btn">Proceed to Payment</button>
-                    </div>
-                </details>
-            </div>
-        </div>
-        <input type="checkbox" id="sidebar-toggle" hidden>
-        <label for="sidebar-toggle" class="toggle-btn">☰</label>
-
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <h3>🎬 Watchlist</h3>
-                <ul class="watchlist">
-                    <li>Avatar 2</li>
-                    <li>Oppenheimer</li>
-                    <li>Dune: Part Two</li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>🌐 Language</h3>
-                <select>
-                    <option>English</option>
-                    <option>Русский</option>
-                    <option>Қазақша</option>
-                </select>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>♿ Accessibility</h3>
-                <button class="access-btn">A+</button>
-                <button class="access-btn">A-</button>
-                <button class="access-btn">🌙</button>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>❓ Help</h3>
-                <a href="support.html" class="help-link">Contact Support</a>
-                <a href="faq.html" class="help-link">FAQ</a>
-            </div>
-        </aside>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="movie-list.html">Movies</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="cinema-locations.html">Cinemas</a></li>
+          <li class="nav-item"><a class="nav-link text-white active" href="seat-selection.html">Book Seats</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="booking-form.html">Account</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="confirmation.html">My Bookings</a></li>
+        </ul>
+      </div>
     </div>
-    </main>
+  </nav>
 
+  <!-- Main -->
+  <main class="container py-5">
+    <h1 class="text-center mb-4 text-pink">Booking Place</h1>
 
-    <footer>
-            <div class="container">
-                <div id="footer-content">
-                    <div class="team-members">
-                        <h3> Team Members </h3>
-                        <p>Diasbek Amangeldiyev - Foundation & Layout</p>
-                        <p>Ernar Omarov - Navigation & Interactive </p>
-                        <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
-                        <p>Web Technologies Frontend Course - Assignment 2</p>
-                    </div>
-                </div>
+    <!-- Search -->
+    <div class="input-group justify-content-center mb-5">
+      <input type="text" class="form-control w-50" placeholder="Enter film title..." aria-label="Search film title">
+      <button class="btn btn-primary">🔍</button>
+    </div>
+
+    <!-- Carousel -->
+    <section class="mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+          <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
             </div>
-    </footer>
+
+            <div class="carousel-inner rounded">
+              <div class="carousel-item active"><img src="images/film1.png" class="d-block w-100" alt="Somnia"></div>
+              <div class="carousel-item"><img src="images/film2.png" class="d-block w-100" alt="Demon Slayer"></div>
+              <div class="carousel-item"><img src="images/film3.png" class="d-block w-100" alt="Ghost Train"></div>
+              <div class="carousel-item"><img src="images/film4.png" class="d-block w-100" alt="Final Destination"></div>
+              <div class="carousel-item"><img src="images/film5.png" class="d-block w-100" alt="Caught Red-Handed"></div>
+              <div class="carousel-item"><img src="images/kinopark6.png" class="d-block w-100" alt="Kinopark 8"></div>
+              <div class="carousel-item"><img src="images/kinopark1.png" class="d-block w-100" alt="Kinopark 7"></div>
+              <div class="carousel-item"><img src="images/chaplinmega.png" class="d-block w-100" alt="Chaplin Mega"></div>
+              <div class="carousel-item"><img src="images/chaplinkhan.png" class="d-block w-100" alt="Chaplin Khan Shatyr"></div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Cards -->
+    <section class="mb-5">
+      <h2 class="text-center text-pink mb-4">Featured Picks</h2>
+      <div class="card-group">
+        <div class="card bg-dark text-white m-2">
+          <img src="images/film1.png" class="card-img-top" alt="Somnia Poster">
+          <div class="card-body"><h5 class="card-title">Somnia</h5><p class="card-text">A chilling tale that blurs nightmares and reality.</p></div>
+        </div>
+        <div class="card bg-dark text-white m-2">
+          <img src="images/film2.png" class="card-img-top" alt="Demon Slayer Poster">
+          <div class="card-body"><h5 class="card-title">Demon Slayer</h5><p class="card-text">Tanjiro’s next chapter with heart-thumping action.</p></div>
+        </div>
+        <div class="card bg-dark text-white m-2">
+          <img src="images/film3.png" class="card-img-top" alt="Ghost Train Poster">
+          <div class="card-body"><h5 class="card-title">Ghost Train</h5><p class="card-text">Disappearances on a midnight line. Hop aboard?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Films (BOOKING COLLAPSED BY DEFAULT) -->
+    <h2 class="text-center text-pink mb-4">Popular Films</h2>
+    <div class="movie-gallery d-flex flex-wrap justify-content-center gap-4">
+
+      <!-- Movie 1 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film1.png" class="card-img-top rounded mb-2" alt="Somnia: The House of Nightmares">
+        <h5 class="card-title">Somnia: The House of Nightmares</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookSomnia" aria-expanded="false" aria-controls="bookSomnia">
+          🎟 Book Now
+        </button>
+
+        <div id="bookSomnia" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row A">
+              <input type="checkbox" class="btn-check" id="A1"><label class="btn btn-outline-pink btn-sm" for="A1">A1</label>
+              <input type="checkbox" class="btn-check" id="A2"><label class="btn btn-outline-pink btn-sm" for="A2">A2</label>
+              <input type="checkbox" class="btn-check" id="A3"><label class="btn btn-outline-pink btn-sm" for="A3">A3</label>
+              <input type="checkbox" class="btn-check" id="A4"><label class="btn btn-outline-pink btn-sm" for="A4">A4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie 2 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film2.png" class="card-img-top rounded mb-2" alt="Demon Slayer">
+        <h5 class="card-title">Demon Slayer: Kimetsu no Yaiba</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookDemon" aria-expanded="false" aria-controls="bookDemon">
+          🎟 Book Now
+        </button>
+
+        <div id="bookDemon" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row B">
+              <input type="checkbox" class="btn-check" id="B1"><label class="btn btn-outline-pink btn-sm" for="B1">B1</label>
+              <input type="checkbox" class="btn-check" id="B2"><label class="btn btn-outline-pink btn-sm" for="B2">B2</label>
+              <input type="checkbox" class="btn-check" id="B3"><label class="btn btn-outline-pink btn-sm" for="B3">B3</label>
+              <input type="checkbox" class="btn-check" id="B4"><label class="btn btn-outline-pink btn-sm" for="B4">B4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie 3 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film3.png" class="card-img-top rounded mb-2" alt="Ghost Train">
+        <h5 class="card-title">Ghost Train</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookGhost" aria-expanded="false" aria-controls="bookGhost">
+          🎟 Book Now
+        </button>
+
+        <div id="bookGhost" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row C">
+              <input type="checkbox" class="btn-check" id="C1"><label class="btn btn-outline-pink btn-sm" for="C1">C1</label>
+              <input type="checkbox" class="btn-check" id="C2"><label class="btn btn-outline-pink btn-sm" for="C2">C2</label>
+              <input type="checkbox" class="btn-check" id="C3"><label class="btn btn-outline-pink btn-sm" for="C3">C3</label>
+              <input type="checkbox" class="btn-check" id="C4"><label class="btn btn-outline-pink btn-sm" for="C4">C4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie 4 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film4.png" class="card-img-top rounded mb-2" alt="Final Destination: Deadly Game">
+        <h5 class="card-title">Final Destination: Deadly Game</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookFinal" aria-expanded="false" aria-controls="bookFinal">
+          🎟 Book Now
+        </button>
+
+        <div id="bookFinal" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row D">
+              <input type="checkbox" class="btn-check" id="D1"><label class="btn btn-outline-pink btn-sm" for="D1">D1</label>
+              <input type="checkbox" class="btn-check" id="D2"><label class="btn btn-outline-pink btn-sm" for="D2">D2</label>
+              <input type="checkbox" class="btn-check" id="D3"><label class="btn btn-outline-pink btn-sm" for="D3">D3</label>
+              <input type="checkbox" class="btn-check" id="D4"><label class="btn btn-outline-pink btn-sm" for="D4">D4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie 5 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film5.png" class="card-img-top rounded mb-2" alt="Caught Red-Handed">
+        <h5 class="card-title">Caught Red-Handed</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookCaught" aria-expanded="false" aria-controls="bookCaught">
+          🎟 Book Now
+        </button>
+
+        <div id="bookCaught" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row E">
+              <input type="checkbox" class="btn-check" id="E1"><label class="btn btn-outline-pink btn-sm" for="E1">E1</label>
+              <input type="checkbox" class="btn-check" id="E2"><label class="btn btn-outline-pink btn-sm" for="E2">E2</label>
+              <input type="checkbox" class="btn-check" id="E3"><label class="btn btn-outline-pink btn-sm" for="E3">E3</label>
+              <input type="checkbox" class="btn-check" id="E4"><label class="btn btn-outline-pink btn-sm" for="E4">E4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /movie-gallery -->
+
+    <!-- Sidebar -->
+     <aside class="col-lg-3">
+      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
+        <h3 class="text-center text-pink">🎬 Watchlist</h3>
+        <ul class="list-unstyled">
+          <li>Avatar 2</li>
+          <li>Oppenheimer</li>
+          <li>Dune 2</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
+        <h3>🌐 Language</h3>
+        <select class="form-select">
+          <option>English</option>
+          <option>Русский</option>
+          <option>Қазақша</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
+        <h3>♿ Accessibility</h3>
+        <div class="btn-group" role="group">
+          <button class="btn btn-outline-light btn-sm">A+</button>
+          <button class="btn btn-outline-light btn-sm">A-</button>
+          <button class="btn btn-outline-light btn-sm">🌙</button>
+        </div>
+      </div>
+
+      <div class="sidebar-section text-white p-3 bg-dark rounded">
+        <h3>❓ Help</h3>
+        <a href="support.html" class="btn btn-secondary w-100 mb-2 btn-sm">Contact Support</a>
+        <a href="faq.html" class="btn btn-secondary w-100 btn-sm">FAQ</a>
+      </div>
+    </aside>
+  </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-center text-white py-4 border-top border-pink">
+    <h5 class="text-pink">Team Members</h5>
+    <p>Diasbek Amangeldiyev – Foundation & Layout</p>
+    <p>Ernar Omarov – Navigation & Interactive</p>
+    <p>Nurdaulet Saparbekov – Forms & Advanced Features</p>
+    <p class="small mt-2">Web Technologies Frontend Course – Assignment 2</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
