@@ -485,22 +485,22 @@
                                 <form class="form-container" id="customerForm">
                                     <div class="form-group">
                                         <label for="firstName">First Name *</label>
-                                        <input type="text" id="firstName" name="firstName" required onchange="handleChange()">
+                                        <input type="text" id="firstName" name="firstName" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="lastName">Last Name *</label>
-                                        <input type="text" id="lastName" name="lastName" required onchange="handleChange()">
+                                        <input type="text" id="lastName" name="lastName" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Email Address *</label>
-                                        <input type="email" id="email" name="email" required onchange="handleChange()">
+                                        <input type="email" id="email" name="email" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phone">Phone Number *</label>
-                                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XXXX" required onchange="handleChange()">
+                                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XXXX" required>
                                     </div>
 
                                     <div class="form-group">
@@ -815,6 +815,31 @@
                         </div>
                     </div>
                 </section>
+                <!-- Current Date and Time Section -->
+        <section class="section" id="datetime-section">
+            <div class="container">
+                <h2 class="section-title">Current Date & Time</h2>
+                <div class="datetime-display-box">
+                    <div class="datetime-icon">🕐</div>
+                    
+                    <div id="currentDate" class="date-display">
+                        Loading date...
+                    </div>
+                    
+                    <div id="currentTime" class="time-display">
+                        Loading time...
+                    </div>
+                    
+                    <div id="currentDay" class="day-display">
+                        Loading day...
+                    </div>
+                    
+                    <div class="timezone-info">
+                        <span id="timezone">Timezone: Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
                         <!-- FAQ Accordion Section -->
         <section class="section" id="faq-section">
             <div class="container">
@@ -890,31 +915,7 @@
                 </div>
             </div>
         </section>
-        <!-- Current Date and Time Section -->
-        <section class="section" id="datetime-section">
-            <div class="container">
-                <h2 class="section-title">Current Date & Time</h2>
-                <div class="datetime-display-box">
-                    <div class="datetime-icon">🕐</div>
-                    
-                    <div id="currentDate" class="date-display">
-                        Loading date...
-                    </div>
-                    
-                    <div id="currentTime" class="time-display">
-                        Loading time...
-                    </div>
-                    
-                    <div id="currentDay" class="day-display">
-                        Loading day...
-                    </div>
-                    
-                    <div class="timezone-info">
-                        <span id="timezone">Timezone: Loading...</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+
             <!-- Popup Subscription Form -->
     <div id="subscriptionPopup" class="popup-overlay">
         <div class="popup-container">
