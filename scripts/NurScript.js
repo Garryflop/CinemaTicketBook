@@ -345,22 +345,65 @@ document.addEventListener('keydown', function(event) {// Close on Escape key
     }
 });
 
+
 function handleSubscription(event) {
     event.preventDefault();
+
+    clearAllErrors();
     
-    // Get form values
+    let isValid = true;
+    let errorMessages = [];
+    
     const name = document.getElementById('popupName').value.trim();
     const email = document.getElementById('popupEmail').value.trim();
     const phone = document.getElementById('popupPhone').value.trim();
     
-    alert('✅ Thank you for subscribing, ' + name + '!\n\nWe will send updates to: ' + email);
+    if (name === '') {
+        isValid = false;
+        errorMessages.push('Name is required');
+        showFieldError('popupName', 'Please enter your full name');
+    } else if (name.length < 3) {
+        isValid = false;
+        errorMessages.push('Name must be at least 3 characters');
+        showFieldError('popupName', 'Name must be at least 3 characters');
+    } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+        isValid = false;
+        errorMessages.push('Name can only contain letters');
+        showFieldError('popupName', 'Only letters and spaces allowed');
+    }
     
-    document.getElementById('subscriptionForm').reset();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '') {
+        isValid = false;
+        errorMessages.push('Email is required');
+        showFieldError('popupEmail', 'Please enter your email address');
+    } else if (!emailRegex.test(email)) {
+        isValid = false;
+        errorMessages.push('Invalid email format');
+        showFieldError('popupEmail', 'Please enter a valid email (example@domain.com)');
+    }
     
-    closePopup();
+
+    if (phone !== '') {
+        const phoneRegex = /^\+?7\s?\(?\d{3}\)?\s?\d{3}-?\d{4}$/;
+        if (!phoneRegex.test(phone)) {
+            isValid = false;
+            errorMessages.push('Invalid phone format');
+            showFieldError('popupPhone', 'Format: +7 (XXX) XXX-XXXX');
+        }
+    }
     
-    console.log('Subscription data:', { name: name, email: email, phone: phone });
+    if (isValid) {
+        alert('✅ Thank you for subscribing, ' + name + '!\n\nWe will send updates to: ' + email);
+        document.getElementById('subscriptionForm').reset();
+        
+        closePopup();
+        console.log('Subscription data:', { name: name, email: email, phone: phone });
+    } else {
+        console.log('❌ Validation errors:', errorMessages);
+    }
 }
+
 
 //task 4 color changer
 const backgroundColors = [

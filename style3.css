@@ -662,7 +662,7 @@ header {
    TASK 2: ACCORDION FAQ STYLES
    ============================================================================= */
 
-.accordion-container {
+.accordion-container {  
     min-height: 800px;
     max-width: 900px;
     margin: 0 auto;
@@ -886,6 +886,16 @@ header {
     margin-top: 10px;
 }
 
+.popup-form input.error {
+    border-color: #dc3545 !important;
+}
+
+.popup-form .error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
 /* Floating Subscribe Button */
 .floating-subscribe-btn {
     position: fixed;
