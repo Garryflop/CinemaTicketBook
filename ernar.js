@@ -195,4 +195,130 @@
         localStorage.setItem("theme", "neon-theme");
       }
     });
-});
+    const seatPrice = 2000;
+      const seatRows = ['A','B','C','D','E','F'];
+      const seatCols = 12;
+      const modalEl = document.getElementById('bookTicketModal');
+      const modal = new bootstrap.Modal(modalEl);
+      let selectedMovie = '';
+      let selectedSeats = new Set();
+
+      const elMovie = document.getElementById('modalMovieName');
+      const elCinema = document.getElementById('modalCinema');
+      const elDate = document.getElementById('modalDate');
+      const elTime = document.getElementById('modalTime');
+      const seatMap = document.getElementById('seatMap');
+      const selSeatsText = document.getElementById('selectedSeatsText');
+      const totalPrice = document.getElementById('totalPrice');
+
+      const sumMovie = document.getElementById('sumMovie');
+      const sumCinema = document.getElementById('sumCinema');
+      const sumDateTime = document.getElementById('sumDateTime');
+      const sumSeats = document.getElementById('sumSeats');
+      const sumTotal = document.getElementById('sumTotal');
+
+      // Open modal with movie name
+      document.querySelectorAll('.book-open').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedMovie = btn.dataset.movie || '—';
+          elMovie.value = selectedMovie;
+          selectedSeats.clear();
+          updateSeatSummary();
+          buildSeatMap();
+          // Default date today
+          elDate.value = new Date().toISOString().split('T')[0];
+          // Go to step 1
+          new bootstrap.Tab(document.querySelector('[data-bs-target="#stepDetails"]')).show();
+          modal.show();
+        });
+      });
+
+      function buildSeatMap() {
+        seatMap.innerHTML = '';
+        seatRows.forEach(row => {
+          for (let col = 1; col <= seatCols; col++) {
+            const seatId = `${row}${col}`;
+            const div = document.createElement('div');
+            div.className = 'seat';
+            div.dataset.seat = seatId;
+            // Randomly mark some as occupied
+            if (Math.random() < 0.12) div.classList.add('occupied');
+            div.addEventListener('click', () => {
+              if (div.classList.contains('occupied')) return;
+              if (selectedSeats.has(seatId)) {
+                selectedSeats.delete(seatId);
+                div.classList.remove('selected');
+              } else {
+                selectedSeats.add(seatId);
+                div.classList.add('selected');
+              }
+              updateSeatSummary();
+            });
+            seatMap.appendChild(div);
+          }
+        });
+      }
+
+      function updateSeatSummary() {
+        const list = [...selectedSeats].sort((a,b) => {
+          if (a[0] === b[0]) return parseInt(a.slice(1)) - parseInt(b.slice(1));
+          return a[0].localeCompare(b[0]);
+        });
+        selSeatsText.textContent = list.length ? list.join(', ') : '—';
+        totalPrice.textContent = (list.length * seatPrice) + ' ₸';
+      }
+
+      // Step navigation
+      document.getElementById('goSeats').addEventListener('click', () => {
+        new bootstrap.Tab(document.querySelector('[data-bs-target="#stepSeats"]')).show();
+      });
+      document.getElementById('backDetails').addEventListener('click', () => {
+        new bootstrap.Tab(document.querySelector('[data-bs-target="#stepDetails"]')).show();
+      });
+      document.getElementById('goPayment').addEventListener('click', () => {
+        if (selectedSeats.size === 0) {
+          alert('Please select at least one seat.');
+          return;
+        }
+        // Fill summary
+        sumMovie.textContent = selectedMovie || '—';
+        sumCinema.textContent = elCinema.value || '—';
+        sumDateTime.textContent = `${elDate.value || '—'} ${elTime.value || ''}`;
+        sumSeats.textContent = [...selectedSeats].join(', ');
+        sumTotal.textContent = (selectedSeats.size * seatPrice) + ' ₸';
+
+        new bootstrap.Tab(document.querySelector('[data-bs-target="#stepPayment"]')).show();
+      });
+      document.getElementById('backSeats').addEventListener('click', () => {
+        new bootstrap.Tab(document.querySelector('[data-bs-target="#stepSeats"]')).show();
+      });
+
+      // Payment handling
+      document.getElementById('confirmPay').addEventListener('click', () => {
+        const name  = document.getElementById('payName').value.trim();
+        const num   = document.getElementById('payNumber').value.trim();
+        const exp   = document.getElementById('payExpiry').value.trim();
+        const cvv   = document.getElementById('payCVV').value.trim();
+
+        if (!name || !num || !exp || !cvv) {
+          alert('Please fill all payment fields.');
+          return;
+        }
+        alert('✅ Payment successful! Your booking is confirmed.');
+        modal.hide();
+      });
+
+      // Format card number
+      document.getElementById('payNumber').addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '').slice(0,16);
+        val = val.replace(/(.{4})/g, '$1 ').trim();
+        e.target.value = val;
+      });
+      document.getElementById('payExpiry').addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '').slice(0,4);
+        if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+        e.target.value = v;
+      });
+    });     
+  
+    
