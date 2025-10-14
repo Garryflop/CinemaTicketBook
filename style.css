@@ -201,6 +201,7 @@ nav a:hover::after { transform: scaleX(1); }
   transform: scale(1.15);
   filter: brightness(1.08);
 }
+.info .icon { color: var(--accent); }
 
 /* Caption overlay */
 .caption {
@@ -283,6 +284,7 @@ nav a:hover::after { transform: scaleX(1); }
   color: var(--accent);
   box-shadow: 0 8px 20px rgba(255,105,180,.25);
 }
+.modal-overlay.show { display: flex; }
 
 /* ===== Footer ===== */
 footer {
@@ -292,6 +294,7 @@ footer {
   text-align: center;
   color: var(--white);
 }
+.popup-close:hover { color: var(--accent); }
 
 /* ===== Reduced Motion (accessibility) ===== */
 @media (prefers-reduced-motion: reduce) {
