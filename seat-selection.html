@@ -7,58 +7,86 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Theme -->
+  <!-- Shared Theme (now identical to cinemas page) -->
   <link rel="stylesheet" href="style1.css">
+
+  <!-- Helper styles consistent with cinemas -->
+  <style>
+    .text-pink { color: var(--accent) !important; }
+    .border-pink { border-color: var(--accent) !important; }
+    .btn-outline-pink { color: var(--accent); border: 1px solid var(--accent); }
+    .btn-outline-pink:hover { background: var(--accent); color: #000; }
+
+    /* Smaller carousel override */
+    .carousel-item img {
+      max-height: 320px;      /* smaller than before for Seat Selection */
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .gate-blur { filter: blur(3px); pointer-events: none; user-select: none; }
+  </style>
 </head>
 
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (IDENTICAL structure/style to Cinema Locations) -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-pink">
-    <div class="container-fluid px-4">
+    <div class="container">
       <a class="navbar-brand fw-bold text-pink" href="index.html">Absolute Cinema</a>
+
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav text-center">
-          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="movie-list.html">Movies</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="cinema-locations.html">Cinemas</a></li>
-          <li class="nav-item"><a class="nav-link text-white active" href="seat-selection.html">Book Seats</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="booking-form.html">Account</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="confirmation.html">My Bookings</a></li>
+        <ul class="navbar-nav gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="movie-list.html">Movies</a></li>
+          <li class="nav-item"><a class="nav-link" href="cinema-locations.html">Cinemas</a></li>
+          <li class="nav-item"><a class="nav-link active" href="seat-selection.html">Book Seats</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking-form.html">Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="confirmation.html">My Bookings</a></li>
         </ul>
+
+        <!-- Right action buttons identical across pages -->
+        <div class="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
+          <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signup-pane">
+            Sign Up
+          </button>
+          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signin-pane">
+            Sign In
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- Main -->
-  <main class="container py-5">
+  <main class="container py-5" id="appContent">
     <h1 class="text-center mb-4 text-pink">Booking Place</h1>
 
-    <!-- Search -->
+    <!-- Search (matching Cinema page structure) -->
     <div class="input-group justify-content-center mb-5">
       <input type="text" class="form-control w-50" placeholder="Enter film title..." aria-label="Search film title">
       <button class="btn btn-primary">🔍</button>
     </div>
 
-    <!-- Carousel -->
+    <!-- Carousel (smaller height) -->
     <section class="mb-5">
       <div class="row justify-content-center">
         <div class="col-lg-10 col-xl-9">
           <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="6"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="7"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="8"></button>
             </div>
 
             <div class="carousel-inner rounded">
@@ -74,11 +102,11 @@
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="carousel-control-prev-icon"></span>
               <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="carousel-control-next-icon"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
@@ -105,19 +133,14 @@
       </div>
     </section>
 
-    <!-- Popular Films (BOOKING COLLAPSED BY DEFAULT) -->
+    <!-- Popular Films -->
     <h2 class="text-center text-pink mb-4">Popular Films</h2>
     <div class="movie-gallery d-flex flex-wrap justify-content-center gap-4">
-
       <!-- Movie 1 -->
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film1.png" class="card-img-top rounded mb-2" alt="Somnia: The House of Nightmares">
         <h5 class="card-title">Somnia: The House of Nightmares</h5>
-
-        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
-                data-bs-target="#bookSomnia" aria-expanded="false" aria-controls="bookSomnia">
-          🎟 Book Now
-        </button>
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#bookSomnia">🎟 Book Now</button>
 
         <div id="bookSomnia" class="collapse">
           <div class="booking-box mt-2">
@@ -136,7 +159,7 @@
             </select>
 
             <h6 class="mt-2">Choose Seats</h6>
-            <div class="btn-group mb-2" role="group" aria-label="Seat row A">
+            <div class="btn-group mb-2" role="group">
               <input type="checkbox" class="btn-check" id="A1"><label class="btn btn-outline-pink btn-sm" for="A1">A1</label>
               <input type="checkbox" class="btn-check" id="A2"><label class="btn btn-outline-pink btn-sm" for="A2">A2</label>
               <input type="checkbox" class="btn-check" id="A3"><label class="btn btn-outline-pink btn-sm" for="A3">A3</label>
@@ -160,11 +183,7 @@
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film2.png" class="card-img-top rounded mb-2" alt="Demon Slayer">
         <h5 class="card-title">Demon Slayer: Kimetsu no Yaiba</h5>
-
-        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
-                data-bs-target="#bookDemon" aria-expanded="false" aria-controls="bookDemon">
-          🎟 Book Now
-        </button>
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#bookDemon">🎟 Book Now</button>
 
         <div id="bookDemon" class="collapse">
           <div class="booking-box mt-2">
@@ -183,7 +202,7 @@
             </select>
 
             <h6 class="mt-2">Choose Seats</h6>
-            <div class="btn-group mb-2" role="group" aria-label="Seat row B">
+            <div class="btn-group mb-2" role="group">
               <input type="checkbox" class="btn-check" id="B1"><label class="btn btn-outline-pink btn-sm" for="B1">B1</label>
               <input type="checkbox" class="btn-check" id="B2"><label class="btn btn-outline-pink btn-sm" for="B2">B2</label>
               <input type="checkbox" class="btn-check" id="B3"><label class="btn btn-outline-pink btn-sm" for="B3">B3</label>
@@ -207,11 +226,7 @@
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film3.png" class="card-img-top rounded mb-2" alt="Ghost Train">
         <h5 class="card-title">Ghost Train</h5>
-
-        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
-                data-bs-target="#bookGhost" aria-expanded="false" aria-controls="bookGhost">
-          🎟 Book Now
-        </button>
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#bookGhost">🎟 Book Now</button>
 
         <div id="bookGhost" class="collapse">
           <div class="booking-box mt-2">
@@ -230,7 +245,7 @@
             </select>
 
             <h6 class="mt-2">Choose Seats</h6>
-            <div class="btn-group mb-2" role="group" aria-label="Seat row C">
+            <div class="btn-group mb-2" role="group">
               <input type="checkbox" class="btn-check" id="C1"><label class="btn btn-outline-pink btn-sm" for="C1">C1</label>
               <input type="checkbox" class="btn-check" id="C2"><label class="btn btn-outline-pink btn-sm" for="C2">C2</label>
               <input type="checkbox" class="btn-check" id="C3"><label class="btn btn-outline-pink btn-sm" for="C3">C3</label>
@@ -254,11 +269,7 @@
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film4.png" class="card-img-top rounded mb-2" alt="Final Destination: Deadly Game">
         <h5 class="card-title">Final Destination: Deadly Game</h5>
-
-        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
-                data-bs-target="#bookFinal" aria-expanded="false" aria-controls="bookFinal">
-          🎟 Book Now
-        </button>
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#bookFinal">🎟 Book Now</button>
 
         <div id="bookFinal" class="collapse">
           <div class="booking-box mt-2">
@@ -277,7 +288,7 @@
             </select>
 
             <h6 class="mt-2">Choose Seats</h6>
-            <div class="btn-group mb-2" role="group" aria-label="Seat row D">
+            <div class="btn-group mb-2" role="group">
               <input type="checkbox" class="btn-check" id="D1"><label class="btn btn-outline-pink btn-sm" for="D1">D1</label>
               <input type="checkbox" class="btn-check" id="D2"><label class="btn btn-outline-pink btn-sm" for="D2">D2</label>
               <input type="checkbox" class="btn-check" id="D3"><label class="btn btn-outline-pink btn-sm" for="D3">D3</label>
@@ -301,11 +312,7 @@
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film5.png" class="card-img-top rounded mb-2" alt="Caught Red-Handed">
         <h5 class="card-title">Caught Red-Handed</h5>
-
-        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
-                data-bs-target="#bookCaught" aria-expanded="false" aria-controls="bookCaught">
-          🎟 Book Now
-        </button>
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#bookCaught">🎟 Book Now</button>
 
         <div id="bookCaught" class="collapse">
           <div class="booking-box mt-2">
@@ -324,7 +331,7 @@
             </select>
 
             <h6 class="mt-2">Choose Seats</h6>
-            <div class="btn-group mb-2" role="group" aria-label="Seat row E">
+            <div class="btn-group mb-2" role="group">
               <input type="checkbox" class="btn-check" id="E1"><label class="btn btn-outline-pink btn-sm" for="E1">E1</label>
               <input type="checkbox" class="btn-check" id="E2"><label class="btn btn-outline-pink btn-sm" for="E2">E2</label>
               <input type="checkbox" class="btn-check" id="E3"><label class="btn btn-outline-pink btn-sm" for="E3">E3</label>
@@ -343,48 +350,148 @@
           </div>
         </div>
       </div>
-
     </div> <!-- /movie-gallery -->
 
-    <!-- Sidebar -->
-     <aside class="col-lg-3">
-      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
-        <h3 class="text-center text-pink">🎬 Watchlist</h3>
-        <ul class="list-unstyled">
-          <li>Avatar 2</li>
-          <li>Oppenheimer</li>
-          <li>Dune 2</li>
-        </ul>
-      </div>
+    <!-- Subscribe/Contact Openers (floating buttons or top or bottom) -->
+    <div class="d-flex gap-2 justify-content-end my-4">
+      <button id="openSubscribe" class="btn btn-outline-pink btn-sm">Subscribe</button>
+      <button id="openContact" class="btn btn-primary btn-sm">Contact Us</button>
+    </div>
 
-      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
-        <h3>🌐 Language</h3>
-        <select class="form-select">
-          <option>English</option>
-          <option>Русский</option>
-          <option>Қазақша</option>
-        </select>
-      </div>
-
-      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
-        <h3>♿ Accessibility</h3>
-        <div class="btn-group" role="group">
-          <button class="btn btn-outline-light btn-sm">A+</button>
-          <button class="btn btn-outline-light btn-sm">A-</button>
-          <button class="btn btn-outline-light btn-sm">🌙</button>
-        </div>
-      </div>
-
-      <div class="sidebar-section text-white p-3 bg-dark rounded">
-        <h3>❓ Help</h3>
-        <a href="support.html" class="btn btn-secondary w-100 mb-2 btn-sm">Contact Support</a>
-        <a href="faq.html" class="btn btn-secondary w-100 btn-sm">FAQ</a>
-      </div>
-    </aside>
-  </div>
   </main>
 
-  <!-- Footer -->
+
+ 
+
+  <!-- ===== Subscribe Popup ===== -->
+  <div class="modal-overlay" id="modalSubscribe" aria-hidden="true">
+    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="subscribeTitle">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h3 id="subscribeTitle" class="text-pink mb-3">Subscribe to Updates</h3>
+      <form id="subscribeForm" novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="subEmail">Email</label>
+          <input id="subEmail" type="email" class="form-control" placeholder="name@example.com" required>
+          <div class="invalid-feedback">Please enter a valid email.</div>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+          <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Contact Popup ===== -->
+  <div class="modal-overlay" id="modalContact" aria-hidden="true">
+    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h3 id="contactTitle" class="text-pink mb-3">Contact Support</h3>
+      <form id="contactForm" novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="contactName">Full Name</label>
+          <input id="contactName" type="text" class="form-control" placeholder="John Doe" required>
+          <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="contactEmail">Email</label>
+          <input id="contactEmail" type="email" class="form-control" placeholder="name@example.com" required>
+          <div class="invalid-feedback">Please enter a valid email.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="contactMsg">Message</label>
+          <textarea id="contactMsg" class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
+          <div class="invalid-feedback">Please enter your message.</div>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Theme switcher that works (shared with Cinema page) -->
+  <button id="themeSwitcher" class="btn btn-outline-pink position-fixed end-0 bottom-0 m-3">
+    🌓 Change Theme
+  </button>
+
+  <!-- Entry Gate Modal (Sign Up / Sign In same as other pages) -->
+  <div class="modal fade" id="entryGateModal" tabindex="-1" aria-labelledby="entryGateTitle" aria-hidden="true"
+       data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border border-2" style="border-color: var(--accent) !important;">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-pink" id="entryGateTitle">Welcome to Absolute Cinema</h5>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-pills mb-3">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#signup-pane">Sign Up</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#signin-pane">Sign In</button></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="signup-pane">
+              <form id="gateSignupForm" novalidate>
+                <div class="mb-3">
+                  <label class="form-label" for="gateFullName">Full Name</label>
+                  <input id="gateFullName" type="text" class="form-control" placeholder="John Doe" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="gateEmail">Email</label>
+                  <input id="gateEmail" type="email" class="form-control" placeholder="name@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="gatePassword">Password (min 6)</label>
+                  <input id="gatePassword" type="password" class="form-control" minlength="6" required>
+                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="gateConfirm">Confirm Password</label>
+                  <input id="gateConfirm" type="password" class="form-control" required>
+                  <div class="invalid-feedback">Passwords do not match.</div>
+                </div>
+                <div class="form-check mb-3">
+                  <input id="gateTerms" type="checkbox" class="form-check-input" required>
+                  <label class="form-check-label" for="gateTerms">I accept the Terms & Conditions</label>
+                  <div class="invalid-feedback">You must accept the terms to continue.</div>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary">Create Account</button>
+                  <button type="button" class="btn btn-outline-pink" id="continueGuestBtn">Continue as Guest</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="signin-pane">
+              <form id="gateSigninForm" novalidate>
+                <div class="mb-3">
+                  <label for="gateLoginEmail" class="form-label">Email</label>
+                  <input id="gateLoginEmail" type="email" class="form-control" required>
+                  <div class="invalid-feedback">Enter a valid email.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="gateLoginPassword" class="form-label">Password</label>
+                  <input id="gateLoginPassword" type="password" class="form-control" required>
+                  <div class="invalid-feedback">Password is required.</div>
+                </div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-secondary" type="submit">Sign In</button>
+                  <button type="button" class="btn btn-outline-pink" id="continueGuestBtn2">Continue as Guest</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <small class="text-muted">You can change your account details later in <em>Account</em>.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ <!-- Footer -->
   <footer class="bg-dark text-center text-white py-4 border-top border-pink">
     <h5 class="text-pink">Team Members</h5>
     <p>Diasbek Amangeldiyev – Foundation & Layout</p>
@@ -392,8 +499,8 @@
     <p>Nurdaulet Saparbekov – Forms & Advanced Features</p>
     <p class="small mt-2">Web Technologies Frontend Course – Assignment 2</p>
   </footer>
-
-  <!-- Bootstrap JS -->
+  <!-- Include Bootstrap and JS for theme & modals -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="ernar.js" defer></script>
 </body>
 </html>
