@@ -132,6 +132,7 @@
                 document.body.style.backgroundColor = '#f8f9fa';
                 document.body.style.color = '#333';
                 darkModeIcon.src = "https://img.icons8.com/ios/452/sun.png"; // Sun icon for light mode
+                //document.body.getElementById('modal-content').style.backgroundColor = #333;
             } else {
                 // Switch to dark mode
                 document.body.style.backgroundColor = '#121212';
