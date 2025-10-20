@@ -11,218 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style3.css">
     <link rel="icon" type="image/x-icon" href="images/logoAC.svg">
-    <style>
-        :root {
-            --grey-light: hsl(200, 10%, 92%);
-            --grey: hsl(200, 10%, 85%);
-            --grey-dark: hsl(200, 10%, 70%);
-            --shadow: hsla(200, 20%, 20%, 0.25);
-            --red: #dc143c;
-            --bg: hsl(200, 0%, 100%);
-            --divider: hsl(200, 10%, 92%);
-            --border: hsl(200, 10%, 70%);
-            --cutout-size: 1rem;
-        }
-
-        *,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-        }
-
-        .ticket {
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            max-width: 24rem;
-            width: 100%;
-        }
-
-        .ticket__header,
-        .ticket__body,
-        .ticket__footer {
-            padding: 1.25rem;
-            background-color: var(--bg);
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 4px var(--shadow);
-        }
-
-        .ticket__header {
-            font-size: 1.5rem;
-            border-top: 0.25rem solid var(--red);
-            border-bottom: none;
-            box-shadow: none;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .ticket__wrapper {
-            box-shadow: 0 2px 4px var(--shadow);
-            border-radius: 0.375em 0.375em 0 0;
-            overflow: hidden;
-        }
-
-        .ticket__divider {
-            position: relative;
-            height: var(--cutout-size);
-            background-color: var(--bg);
-            margin-left: calc(var(--cutout-size) / 2);
-            margin-right: calc(var(--cutout-size) / 2);
-        }
-
-        .ticket__divider::after {
-            content: '';
-            position: absolute;
-            height: 50%;
-            width: 100%;
-            top: 0;
-            border-bottom: 2px dashed var(--divider);
-        }
-
-        .ticket__notch {
-            position: absolute;
-            left: calc(var(--cutout-size) / 2 * -1);
-            width: var(--cutout-size);
-            height: var(--cutout-size);
-            overflow: hidden;
-        }
-
-        .ticket__notch::after {
-            content: '';
-            position: relative;
-            display: block;
-            width: calc(var(--cutout-size) * 2);
-            height: calc(var(--cutout-size) * 2);
-            right: 100%;
-            top: -50%;
-            border: calc(var(--cutout-size) / 2) solid var(--bg);
-            border-radius: 50%;
-            box-shadow: inset 0 2px 4px var(--shadow);
-        }
-
-        .ticket__notch--right {
-            left: auto;
-            right: calc(var(--cutout-size) / 2 * -1);
-        }
-
-        .ticket__notch--right::after {
-            right: 0;
-        }
-
-        .ticket__body {
-            border-bottom: none;
-            border-top: none;
-        }
-
-        .ticket__body > * + * {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--divider);
-        }
-
-        .ticket__section > * + * {
-            margin-top: 0.25rem;
-        }
-
-        .ticket__section > h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-            color: var(--red);
-        }
-
-        .ticket__header,
-        .ticket__footer {
-            font-weight: bold;
-            font-size: 1.25rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .ticket__footer {
-            border-top: 2px dashed var(--divider);
-            border-radius: 0 0 0.325rem 0.325rem;
-        }
-
-
-        .ticket__footer p, span{
-            color:#dc143c
-        }
-
-        /* Movie specific styles */
-        .movie-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .info-label {
-            font-size: 0.875rem;
-            color: hsl(200, 10%, 50%);
-            margin-bottom: 0.25rem;
-        }
-
-        .info-value {
-            font-weight: 600;
-            color: hsl(200, 10%, 20%);
-        }
-
-        .seat-info {
-            background: var(--grey-light);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-        }
-
-        .seat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--red);
-        }
-
-        .qr-code {
-            width: 80px;
-            height: 80px;
-
-        }
-        .ticket-number {
-            font-family: monospace;
-            font-size: 0.875rem;
-            color: hsl(200, 10%, 50%);
-        }
-
-        .cinema-logo {
-            font-size: 1.75rem;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: bold;
-        }
-            
-            .navbar-brand {
-                color: var(--primary-pink) !important;
-                font-weight: bold;
-                font-size: 1.5rem;
-            }
-            
-            .nav-link {
-                color: #ffffff !important;
-                transition: all 0.3s ease;
-                border-radius: 20px;
-            }
-            
-            .nav-link:hover {
-                color: var(--primary-pink) !important;
-                background: rgba(255, 105, 180, 0.1);
-                transform: translateY(-2px);
-            }
-
-    </style>
 </head>
 <body>
 <div class="page-layout">
@@ -626,10 +414,74 @@
         </div> <!-- /.row -->
     </div> <!-- /.container -->
     </section>
+    <!-- Background Color Changer Section -->
+
     </main>
 </div>
+    <!-- Popup Subscription Form -->
+    <div id="subscriptionPopup" class="popup-overlay">
+        <div class="popup-container">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive movie deals, updates, and special offers!</p>
+            
+            <form id="subscriptionForm" class="popup-form" onsubmit="handleSubscription(event)">
+                <div class="form-group">
+                    <label for="popupName">Full Name *</label>
+                    <input type="text" id="popupName" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupEmail">Email Address *</label>
+                    <input type="email" id="popupEmail" placeholder="example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupPhone">Phone Number</label>
+                    <input type="tel" id="popupPhone" placeholder="+7 (XXX) XXX-XXXX">
+                </div>
+                
+                <button type="submit" class="btn">Subscribe Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Subscribe Button -->
+    <button id="openPopupBtn" class="floating-subscribe-btn" onclick="openPopup()">
+        📬 Subscribe
+    </button>
+
+    
     <!-- Footer -->
     <footer>
+        <section class="section" id="color-changer-section">
+            <div class="container">
+                <h2 class="section-title">Background Color Changer</h2>
+                <div class="color-changer-box">
+                    <p class="color-description">
+                        Click the button below to change the page background color!
+                    </p>
+                    
+                    <button class="color-change-btn" onclick="changeBackgroundColor()">
+                        🎨 Change Background Color
+                    </button>
+                    
+                    <p id="currentColorDisplay" class="current-color-text">
+                        Current Background: Default Dark
+                    </p>
+                    
+                    <!-- Color Preview Boxes (Optional) -->
+                    <div class="color-preview-container">
+                        <div class="color-preview" style="background: #1a1a2e;" title="Dark Blue"></div>
+                        <div class="color-preview" style="background: #16213e;" title="Deep Purple"></div>
+                        <div class="color-preview" style="background: #1a2e1a;" title="Dark Green"></div>
+                        <div class="color-preview" style="background: #2e1a1a;" title="Burgundy"></div>
+                        <div class="color-preview" style="background: #1a2e2e;" title="Dark Teal"></div>
+                        <div class="color-preview" style="background: #1a1a1a;" title="Charcoal"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="container">
             <div id="footer-content">
                 <div class="team-members">
@@ -641,9 +493,8 @@
                 </div>
             </div>
         </div>
-
     </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="NurScript.js"></script>
+<script src="scripts/NurScript.js"></script>
 </body>
 </html>

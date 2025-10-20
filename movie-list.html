@@ -8,7 +8,84 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="movies-style.css">
+    
+
+    
 </head>
+<style>
+    body {
+            background-color: #121212; /* Dark background color */
+            color: #f8f9fa; /* Light text color */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .faq-section {
+            background-color: #1c1c1c;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            width: 100%;
+        }
+
+        .faq-section h2 {
+            color: #ff69b4; /* Pink color for the title */
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        /* Style the question (accordion button) */
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff69b4;
+            background-color: #333;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        /* Hover effect for the question button */
+        .faq-question:hover {
+            background-color: #555;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Style the answer (accordion body) */
+        .faq-answer {
+            display: none; /* Initially hidden */
+            background-color: #444;
+            color: #dcdcdc;
+            padding: 15px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: justify;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.show {
+            display: block; /* Show answer when toggled */
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            
+        }
+
+    </style>
 <body>
 
     <!-- Header with Navigation -->
@@ -17,22 +94,62 @@
             <div class="logo fs-3 text-pink">Absolute Cinema</div>
             <nav>
                 <ul class="d-flex gap-3 mb-0">
+                    <li>
+                        <button class="btn dark-mode-btn" id="darkModeBtn">
+                            <img src="https://img.icons8.com/ios/452/moon.png" alt="Moon Icon" class="dark-mode-icon" id="darkModeIcon">
+                        </button>
+                    </li>
+                    <li><button class="bttn" id="signUpBtn">Sign Up</button></li>
                     <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
                     <li><a href="movie-list.html" class="text-white text-decoration-none">Movies</a></li>
                     <li><a href="cinema-locations.html" class="text-white text-decoration-none">Cinemas</a></li>
                     <li><a href="seat-selection.html" class="text-white text-decoration-none">Book Seats</a></li>
                     <li><a href="booking-form.html" class="text-white text-decoration-none">Account</a></li>
                     <li><a href="confirmation.html" class="text-white text-decoration-none">My Bookings</a></li>
+                     
                 </ul>
             </nav>
         </div>
     </header>
 
+    <div id="signUpModal" class="sign-up-modal">
+        <div class="modal-content">
+            <button id="closeContactForm" class="btn-close" aria-label="Close"></button>
+            <h2 class="text-center">Sign Up</h2>
+            <form id="signUpForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <span id="emailError" class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    <span id="passwordError" class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    <span id="confirmPasswordError" class="error-message"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
     <!-- Date Selector Bar -->
     <section class="date-selector text-center my-4">
         <button class="btn text-muted border-light btn-outline-pink active">Today</button>
         <button class="btn text-muted border-light btn-outline-pink">Tomorrow</button>
         <button class="btn text-muted border-light btn-outline-pink" onclick="location.href='seat-selection.html'">Choose day</button>
+        <div id="clock" class="text-muted border-light btn-outline-pink pt-3"></div>
+<script>
+function tick(){
+  const o = { month:'long', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit' };
+  clock.textContent = new Date().toLocaleString(undefined, o);
+}
+tick(); setInterval(tick, 1000);
+</script>
+
     </section>
 
     <!-- Movies List Section -->
@@ -94,12 +211,64 @@
         </section>
     </main>
 
+<div class="container">
+        <div class="faq-section">
+            <h2 class="text-center text-pink mb-4">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer('answer1')">What is Absolute Cinema?</div>
+                <div class="faq-answer" id="answer1">
+                    Absolute Cinema is your ultimate movie destination, offering a wide range of films for all tastes.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer('answer2')">How do I book tickets?</div>
+                <div class="faq-answer" id="answer2">
+                    To book tickets, simply select a movie, choose your desired showtime, and select your seats.
+                </div>
+            </div>
+
+            <!-- Add more FAQ items here as needed -->
+        </div>
+    </div>
+
+
+       <!-- Button to Open the Contact Form -->
+    <button id="openContactForm" class="btnn my3">Contact Us</button>
+
+    <!-- The Contact Form Modal (Initially Hidden) -->
+    <div id="contactFormModal" class="contact-form-modal">
+        <div class="modal-content">
+            <button id="closeContactForm" class="btn-close" aria-label="Close"></button>
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="btnn mt-3">Send Message</button>
+            </form>
+        </div>
+    </div> 
+
+    
+
     <footer class="fixed-footer bg-dark text-white py-3">
         <div class="container text-center">
             <p>Created by: <span class="creator-name">Diasbek, Nurdaulet, Yernar</span></p>
         </div>
     </footer>
 
+<script src="scripts/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
