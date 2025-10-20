@@ -65,7 +65,6 @@ function validateCustomerForm(event) {
         showPaymentInfo();
         return true;
     } else {
-        // alert('❌ Please correct the following errors:\n\n• ' + errorMessages.join('\n• '));
         return false;
     }
 }
@@ -108,13 +107,11 @@ function validatePaymentForm(event) {
     }
     
     if (isValid) {
-        // alert('✅ Payment Information validated successfully!\n\nProcessing your payment...');
         setTimeout(function() {
             window.location.href = 'confirmation.html';
         }, 1500);
         return true;
     } else {
-        // alert('❌ Please correct the following errors:\n\n• ' + errorMessages.join('\n• '));
         return false;
     }
 }
