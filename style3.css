@@ -98,6 +98,35 @@ header {
     box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
 }
 
+#top-banner #greeting {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: slideInDown 0.8s ease-out;
+    transition: transform 0.3s ease;
+}
+
+#top-banner #greeting:hover {
+    transform: scale(1.05);
+}
+
+#top-banner h1 {
+    margin-top: 10px;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .logo::before {
     content: "";
     display: inline-block;
@@ -1771,22 +1800,331 @@ p { font-size: 0.95rem; }
     color: #cccccc;
 }
 
+/* Navbar Container - Fixed Height & Horizontal Layout */
+.navbar {
+    min-height: 72px !important;
+    padding: 0.5rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+    position: relative;
+    z-index: 1030;
+}
+
+/* Desktop: Fixed height */
+@media (min-width: 992px) {
+    .navbar {
+        max-height: 72px !important;
+    }
+}
+
+.navbar-collapse {
+    flex-grow: 1;
+    overflow: visible !important;
+}
+
+/* Desktop: Horizontal navbar */
+@media (min-width: 992px) {
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.3rem;
+        flex-wrap: nowrap !important;
+        overflow: visible !important;
+    }
+}
+
+/* Mobile: Vertical navbar (Bootstrap default) */
+@media (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .navbar-collapse {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(26, 26, 26, 1) !important;
+        backdrop-filter: blur(10px);
+        z-index: 1040;
+        overflow-y: auto;
+        padding: 1.5rem;
+        margin: 0;
+        border-radius: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        opacity: 0;
+    }
+    
+    .navbar-collapse.show {
+        display: block !important;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .navbar-collapse.collapsing {
+        display: block !important;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+}
+
 .navbar-brand {
     color: var(--primary-pink) !important;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 1rem;
 }
 
 .nav-link {
     color: #ffffff !important;
     transition: all 0.3s ease;
     border-radius: 20px;
+    padding: 0.3rem 0.6rem !important;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    display: inline-block !important;
+    line-height: 1.5;
 }
 
 .nav-link:hover {
     color: var(--primary-pink) !important;
     background: rgba(255, 105, 180, 0.1);
     transform: translateY(-2px);
+}
+
+/* Prevent navbar from growing vertically */
+.navbar .container-fluid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    height: 100%;
+}
+
+.nav-item {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Language dropdown in navbar */
+.navbar .dropdown {
+    margin-left: 0.3rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.navbar .dropdown-toggle {
+    padding: 0.3rem 0.6rem !important;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Ensure expanded state stays horizontal on desktop */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto !important;
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row !important;
+    }
+}
+
+/* Mobile: dropdown menu positioning */
+@media (max-width: 991px) {
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: 100%;
+        margin: 0.5rem 0;
+        background: rgba(50, 50, 50, 1) !important;
+        border: 1px solid rgba(255, 105, 180, 0.3);
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem !important;
+        border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+        display: block !important;
+        font-size: 1.1rem;
+        color: #ffffff !important;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .navbar .dropdown-toggle {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem !important;
+        color: #ffffff !important;
+        font-weight: bold;
+    }
+    
+    .dropdown-item {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        color: #ffffff !important;
+    }
+}
+
+/* Bootstrap override for nav items */
+.navbar-nav .nav-item {
+    position: relative;
+}
+
+/* Desktop: inline nav items */
+@media (min-width: 992px) {
+    .navbar-nav .nav-item {
+        display: inline-block !important;
+    }
+}
+
+/* Desktop: absolute dropdown positioning */
+@media (min-width: 992px) {
+    .navbar-nav .dropdown-menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: auto !important;
+        right: 0 !important;
+        z-index: 1050 !important;
+        margin-top: 0.5rem !important;
+    }
+}
+
+/* Fix dropdown visibility */
+.navbar .dropdown.show .dropdown-menu {
+    display: block !important;
+}
+
+/* Mobile burger button styling */
+.navbar-toggler {
+    border: 2px solid rgba(255, 105, 180, 0.5) !important;
+    padding: 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 105, 180, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Language Selector Dropdown Styles */
+.dropdown-menu {
+    background: rgba(50, 50, 50, 0.98);
+    border: 2px solid rgba(255, 105, 180, 0.3);
+    border-radius: 15px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(45deg, #ff69b4, #ff1493) !important;
+    color: white !important;
+    transform: translateX(5px);
+}
+
+#current-language {
+    font-weight: bold;
+    color: #ff69b4;
+}
+
+.dropdown-toggle::after {
+    margin-left: 8px;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem !important;
+    }
+    
+    .navbar-nav {
+        gap: 0.2rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.4rem !important;
+    }
+    
+    .navbar-nav {
+        gap: 0.1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar .dropdown-toggle {
+        padding: 0.25rem 0.4rem !important;
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile screens - vertical layout */
+@media (max-width: 991px) {
+    .navbar {
+        min-height: auto !important;
+        max-height: none !important;
+        position: sticky;
+        top: 0;
+        background: rgba(26, 26, 26, 0.98) !important;
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem !important;
+        font-size: 1rem;
+    }
+    
+    .navbar .dropdown-toggle {
+        padding: 0.5rem 1rem !important;
+    }
+    
+    /* Close button for mobile menu */
+    .navbar-collapse::before {
+        content: "✕ Close Menu";
+        display: block;
+        text-align: right;
+        padding: 1rem;
+        color: #ff69b4;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        border-bottom: 2px solid rgba(255, 105, 180, 0.3);
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1829,6 +2167,59 @@ p { font-size: 0.95rem; }
         grid-template-columns: 1fr;
         grid-template-rows: repeat(9, 180px);
     }
+}
+
+/* =============================================================================
+   TASK 1: Dynamic Greeting Banner
+   ============================================================================= */
+
+#greeting-banner {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+}
+
+#greeting {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    opacity: 0.7;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+/* Entrance animation */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Booking Summary Styles */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.summary-row.summary-total {
+    padding-top: 15px;
+    border-top: 2px solid #ff6b35;
+}
+
+.summary-row .total-price {
+    color: #ff6b35;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* =============================================================================
