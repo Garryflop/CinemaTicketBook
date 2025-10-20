@@ -368,6 +368,77 @@ nav a:hover::after { transform: scaleX(1); }
     .legend .selected { background: var(--accent); border-color: var(--accent); }
     .legend .occupied { background: #555; border-color: #666; }
     .legend .available { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.rating .star {
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  margin-right: 4px;
+  transition: color .2s ease, transform .2s ease;
+}
+.rating .star:hover {
+  transform: scale(1.15);
+}
+#greeting {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent, #ff4da6);
+  text-shadow: 0 0 8px rgba(255, 77, 166, 0.6);
+  animation: fadeInGreeting 1s ease-in-out;
+}
+
+@keyframes fadeInGreeting {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === Task 3 Section === */
+.extra-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 50px auto;
+  color: #fff;
+  max-width: 700px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+.movie-card, .cinema-section {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+#cinemaList {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+#cinemaList li {
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.anim-box {
+  width: 100px;
+  height: 100px;
+  background: var(--accent);
+  margin: 20px auto;
+  border-radius: 12px;
+  transition: transform 0.8s ease, background 0.8s ease;
+}
+.anim-box.move {
+  transform: translateY(-30px) rotate(360deg);
+  background: #ff4081;
+}
+
 /* ===== Footer ===== */
 footer {
   background-color: var(--nav);
