@@ -112,7 +112,7 @@
         </div>
     </header>
 
-    <h2 class="text-center text-pink mb-5">All Movies</h2>
+    <h2 class="text-center text-pink mb-5 allmovies">All Movies</h2>
 
 <!-- ⬇️ Genre Filter Toolbar -->
 <div class="container mb-4">
@@ -159,41 +159,37 @@
         </div>
     </div>
     <!-- Date Selector Bar -->
-    <section class="date-selector text-center my-4">
-        <button class="btn text-muted border-light btn-outline-pink active">Today</button>
-        <button class="btn text-muted border-light btn-outline-pink">Tomorrow</button>
-        <button class="btn text-muted border-light btn-outline-pink" onclick="location.href='seat-selection.html'">Choose day</button>
-        <div id="clock" class="text-muted border-light btn-outline-pink pt-3"></div>
-<script>
-function tick(){
-  const o = { month:'long', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit' };
-  clock.textContent = new Date().toLocaleString(undefined, o);
-}
-tick(); setInterval(tick, 1000);
-</script>
+    <section class="date-selector text-center my-4 d-flex flex-column align-items-center">
+       
+<!-- place this INSIDE your existing .date-selector section -->
+<div id="dateWizard" class="container mt-3">
+  <!-- Step 1: date -->
+  <div class="row g-2 align-items-center justify-content-center mt-2">
+  
+    <div class="col-auto"><strong>Select a date</strong></div>
+    <div class="col-auto">
+      <input id="customDate" type="date" class="form-control form-control-sm" style="min-width: 180px;" />
+    </div>
+  </div>
+
+  <!-- Step 2: time (auto-populated) -->
+  <div class="row g-2 align-items-center justify-content-center mt-2" id="timeStep" hidden>
+   
+    <div class="col-auto"><strong>Pick a time</strong></div>
+    <div class="col-auto" id="timeButtons"></div>
+  </div>
+
+  <!-- Step 3: summary -->
+  <div class="row g-2 align-items-center justify-content-center mt-2" id="summaryStep" hidden>
+    
+    <div class="col"><span id="selectionSummary" class="badge bg-secondary"></span></div>
+  </div>
+</div>
+
 
     </section>
 
-    <section class="container mb-4" id="featuredPanel" aria-live="polite">
-  <div class="card bg-dark border-0 shadow-sm featured-wrap">
-    <div class="row g-0 align-items-center">
-      <div class="col-md-3">
-        <img id="featPoster" src="images/spidermannowayhome.jpeg" alt="Featured Poster" class="img-fluid rounded-start">
-      </div>
-      <div class="col-md-9">
-        <div class="card movie-card"
-       data-title="Spider-Man: No Way Home"
-       data-genres="Action, Adventure, Sci-Fi"
-       data-poster="images/spidermannowayhome.jpeg"
-       data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open.">
-          <h3 id="featTitle" class="card-title mb-2">Spider-Man: No Way Home</h3>
-          <p id="featGenres" class="text-muted mb-2">Action, Adventure, Sci-Fi</p>
-          <p id="featDesc" class="mb-0">Hover a movie card to preview its details here.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    
     <!-- Movies List Section -->
     <main>
         <section class="movies-list py-5">
@@ -202,17 +198,23 @@ tick(); setInterval(tick, 1000);
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <!-- Movie 1 -->
+
 <!-- Movie 1 -->
 <div class="col">
   <div class="card movie-card"
        data-title="Spider-Man: No Way Home"
        data-genres="Action, Adventure, Sci-Fi"
        data-poster="images/spidermannowayhome.jpeg"
-       data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open.">
+       data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open."
+       data-hover-title="Spider-Man: Multiverse Mayhem"
+       data-hover-genres="Action • Sci-Fi • Multiverse"
+       data-hover-poster="images/spidermannowayhome.jpeg"
+       data-hover-desc="Preview: portals open, classic villains return, and choices have consequences.">
     <img src="images/spidermannowayhome.jpeg" class="card-img-top" alt="Spider-Man: No Way Home">
     <div class="card-body">
       <h5 class="card-title">Spider-Man: No Way Home</h5>
       <p class="card-text">Action, Adventure, Sci-Fi</p>
+      <p class="card-desc small text-muted">Peter Parker seeks help from Doctor Strange, causing the multiverse to break open.</p>
       <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
     </div>
   </div>
@@ -224,11 +226,15 @@ tick(); setInterval(tick, 1000);
        data-title="Jujutsu Kaisen S3"
        data-genres="Anime, Adventure, Drama"
        data-poster="images/20250901_jjkS3_poster.jpg.webp"
-       data-desc="Sorcerers face new threats while uncovering secrets of cursed energy.">
+       data-desc="Sorcerers face new threats while uncovering secrets of cursed energy."
+       data-hover-title="JJK S3 — New Arc"
+       data-hover-genres="Anime • Drama • Battles"
+       data-hover-desc="Hover preview: intense duels, deeper lore, higher stakes.">
     <img src="images/20250901_jjkS3_poster.jpg.webp" class="card-img-top" alt="Jujutsu Kaisen S3">
     <div class="card-body">
       <h5 class="card-title">Jujutsu Kaisen S3</h5>
       <p class="card-text">Anime, Adventure, Drama</p>
+      <p class="card-desc small text-muted">Sorcerers face new threats while uncovering secrets of cursed energy.</p>
       <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
     </div>
   </div>
@@ -236,11 +242,16 @@ tick(); setInterval(tick, 1000);
 
 <!-- Movie 3 -->
 <div class="col">
-  <div class="card movie-card" data-genres="Action, Adventure">
+  <div class="card movie-card"
+       data-title="Black Widow"
+       data-genres="Action, Adventure"
+       data-poster="images/Black_Widow.jpg"
+       data-desc="Natasha confronts her past while on the run after Civil War.">
     <img src="images/Black_Widow.jpg" class="card-img-top" alt="Black Widow">
     <div class="card-body">
       <h5 class="card-title">Black Widow</h5>
       <p class="card-text">Action, Adventure</p>
+      <p class="card-desc small text-muted">Natasha confronts her past while on the run after Civil War.</p>
       <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
     </div>
   </div>
@@ -248,11 +259,17 @@ tick(); setInterval(tick, 1000);
 
 <!-- Movie 4 -->
 <div class="col">
-  <div class="card movie-card" data-genres="Adventure, Drama, Sci-Fi">
+  <div class="card movie-card"
+       data-title="Dune"
+       data-genres="Adventure, Drama, Sci-Fi"
+       data-poster="images/Dune_poster.jpg"
+       data-desc="Paul Atreides travels to Arrakis where destiny and spice collide."
+       data-hover-desc="Hover preview: sandworms, prophecy, and power on Arrakis.">
     <img src="images/Dune_poster.jpg" class="card-img-top" alt="Dune">
     <div class="card-body">
       <h5 class="card-title">Dune</h5>
       <p class="card-text">Adventure, Drama, Sci-Fi</p>
+      <p class="card-desc small text-muted">Paul Atreides travels to Arrakis where destiny and spice collide.</p>
       <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
     </div>
   </div>
@@ -260,6 +277,10 @@ tick(); setInterval(tick, 1000);
 
                 </div>
             </div>
+            <div class="text-center mt-2">
+  <button id="loadMoreBtn" class="btn btn-outline-light">Load More Movies</button>
+</div>
+
         </section>
     </main>
 
