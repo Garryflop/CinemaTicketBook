@@ -23,14 +23,15 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav gap-lg-2">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="movie-list.html">Movies</a></li>
-          <li class="nav-item"><a class="nav-link" href="cinema-locations.html">Cinemas</a></li>
-          <li class="nav-item"><a class="nav-link active" href="seat-selection.html">Book Seats</a></li>
-          <li class="nav-item"><a class="nav-link" href="booking-form.html">Account</a></li>
-          <li class="nav-item"><a class="nav-link" href="confirmation.html">My Bookings</a></li>
-        </ul>
+       <ul class="navbar-nav gap-lg-2" id="mainMenu" role="menubar">
+          <li class="nav-item" role="none"><a class="nav-link" href="index.html" role="menuitem" tabindex="0">Home</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="movie-list.html" role="menuitem" tabindex="-1">Movies</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="cinema-locations.html" role="menuitem" tabindex="-1">Cinemas</a></li>
+          <li class="nav-item" role="none"><a class="nav-link active" href="seat-selection.html" role="menuitem" tabindex="-1">Book Seats</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="booking-form.html" role="menuitem" tabindex="-1">Account</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="confirmation.html" role="menuitem" tabindex="-1">My Bookings</a></li>
+       </ul>
+
 
         <div class="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
           <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signup-pane">Sign Up</button>
@@ -42,7 +43,10 @@
 
   <!-- Main -->
   <main class="container py-5" id="appContent">
+    <p id="greeting"></p>
     <h1 class="text-center mb-4 text-pink">Booking Place</h1>
+    
+
 
     <!-- Search -->
     <div class="input-group justify-content-center mb-5">
@@ -118,30 +122,74 @@
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film1.png" class="card-img-top rounded mb-2" alt="Somnia">
         <h5 class="card-title">Somnia: The House of Nightmares</h5>
+      
+
+  <!-- ⭐ Rating -->
+        <div class="rating my-2" data-movie="Somnia">
+          <span class="star" aria-label="1 star">★</span>
+          <span class="star" aria-label="2 stars">★</span>
+          <span class="star" aria-label="3 stars">★</span>
+          <span class="star" aria-label="4 stars">★</span>
+          <span class="star" aria-label="5 stars">★</span>
+        </div>
+        <small class="text-muted d-block rating-result">Rate this movie!</small>
         <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Somnia: The House of Nightmares">🎟 Book Now</button>
-      </div>
+    </div>
       <!-- Card 2 -->
-      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+    <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film2.png" class="card-img-top rounded mb-2" alt="Demon Slayer">
         <h5 class="card-title">Demon Slayer: Kimetsu no Yaiba</h5>
+        <div class="rating my-2" data-movie="Demon Slayer: Kimetsu no Yaiba"> 
+          <span class="star" aria-label="1 star">★</span>
+          <span class="star" aria -label="2 stars">★</span>
+          <span class="star" aria-label="3 stars">★</span>       
+          <span class="star" aria-label="4 stars">★</span>
+          <span class="star" aria-label="5 stars">★</span>
+        </div>
+        <small class="text-muted d-block rating-result">Rate this movie!</small>
         <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Demon Slayer: Kimetsu no Yaiba">🎟 Book Now</button>
-      </div>
+    </div>
       <!-- Card 3 -->
-      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+    <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film3.png" class="card-img-top rounded mb-2" alt="Ghost Train">
         <h5 class="card-title">Ghost Train</h5>
+        <div class="rating my-2" data-movie="Ghost Train"> 
+          <span class="star" aria-label="1 star">★</span>
+          <span class="star" aria -label="2 stars">★</span>
+          <span class="star" aria-label="3 stars">★</span>     
+          <span class="star" aria-label="4 stars">★</span>
+          <span class="star" aria-label="5 stars">★</span>
+        </div>
+        <small class="text-muted d-block rating-result">Rate this movie!</small>
         <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Ghost Train">🎟 Book Now</button>
-      </div>
+    </div>
       <!-- Card 4 -->
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film4.png" class="card-img-top rounded mb-2" alt="Final Destination">
         <h5 class="card-title">Final Destination: Deadly Game</h5>
+        <div class="rating my-2" data-movie="Final Destination: Deadly Game"> 
+          <span class="star" aria -label="1 star">★</span>
+          <span class="star" aria -label="2 stars">★</span>  
+          <span class="star" aria -label="3 stars">★</span>
+          <span class="star" aria -label="4 stars">★</span>
+          <span class="star" aria -label="5 stars">★</span>
+        </div>    
+        <small class="text-muted d-block rating-result">Rate this movie!</small>
+
         <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Final Destination: Deadly Game">🎟 Book Now</button>
       </div>
       <!-- Card 5 -->
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film5.png" class="card-img-top rounded mb-2" alt="Caught Red-Handed">
         <h5 class="card-title">Caught Red-Handed</h5>
+        <div class="rating my-2" data-movie="Caught Red-Handed"> 
+          <span class="star" aria -label="1 star">★</span>
+          <span class="star" aria -label="2 stars">★</span>  
+          <span class="star" aria -label="3 stars">★</span>
+          <span class="star" aria -label="4 stars">★</span>
+          <span class="star" aria -label="5 stars">★</span>    
+        </div>
+        <small class="text-muted d-block rating-result">Rate this movie!</small>
         <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Caught Red-Handed">🎟 Book Now</button>
       </div>
     </div>
@@ -151,6 +199,9 @@
       <button id="openSubscribe" class="btn btn-outline-pink btn-sm">Subscribe</button>
       <button id="openContact" class="btn btn-primary btn-sm">Contact Us</button>
     </div>
+    <button id="showTimeBtn" class="btn btn-primary">Show Current Time</button>
+    <p id="timeDisplay"></p>
+
   </main>
 
   <!-- ===== Book Ticket Modal (NEW) ===== -->
@@ -404,6 +455,29 @@
       </div>
     </div>
   </div>
+  <!-- ===== Advanced JS Features (Task 3) ===== -->
+<section class="extra-section text-center my-5">
+  <h2 id="greeting" class="mb-3">👋 Welcome!</h2>
+
+  <div class="movie-card mb-3">
+    <h4>🎬 Featured Movie</h4>
+    <p id="movieDetails"></p>
+  </div>
+
+  <div class="cinema-section mb-4">
+    <h4>🏙️ Cinemas</h4>
+    <ul id="cinemaList"></ul>
+  </div>
+
+  <div class="interactive-controls">
+    <button id="soundBtn" class="btn btn-warning me-2">🔊 Play Sound</button>
+    <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_93b6e4f7c2.mp3?filename=click-124467.mp3"></audio>
+
+    <button id="animateBtn" class="btn btn-success ms-2">✨ Animate Box</button>
+    <div id="animBox" class="anim-box mt-3"></div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-dark text-center text-white py-4 border-top border-pink">
