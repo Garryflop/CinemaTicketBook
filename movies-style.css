@@ -156,3 +156,31 @@
             height: 24px;
             cursor: pointer;
         }
+
+        /* Genre filter spacing on dark theme */
+#genreFilter {
+  background-color: #1c1c1c;
+  color: #f8f9fa;
+  border-color: #333;
+  width: 50%;
+}
+#genreFilter:focus {
+  box-shadow: none;
+  border-color: #ff69b4;
+}
+
+/* Stars */
+.star-wrap { display:flex; gap:6px; cursor:pointer; user-select:none; }
+.star { font-size:1.1rem; line-height:1; transition: transform .1s ease; color:#6b7280; } /* gray-500 */
+.star.gold { color:#fbbf24; } /* amber-400 */
+.star:hover { transform: scale(1.15); }
+
+/* Featured panel */
+.featured-wrap { background:#1c1c1c; }
+body.light .featured-wrap { background:#ffffff; }
+
+/* Theme helpers */
+body.light { background:#f7f7f9; color:#0b0d10; }
+body.light .bg-dark { background:#ffffff!important; }
+body.light .text-white { color:#0b0d10!important; }
+

@@ -112,6 +112,28 @@
         </div>
     </header>
 
+    <h2 class="text-center text-pink mb-5">All Movies</h2>
+
+<!-- ⬇️ Genre Filter Toolbar -->
+<div class="container mb-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <label for="genreFilter" class="form-label text-muted">Filter by genre</label>
+      <select id="genreFilter" class="form-select">
+        <option value="all">All</option>
+        <option value="action">Action</option>
+        <option value="adventure">Adventure</option>
+        <option value="drama">Drama</option>
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="anime">Anime</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+
+
     <div id="signUpModal" class="sign-up-modal">
         <div class="modal-content">
             <button id="closeContactForm" class="btn-close" aria-label="Close"></button>
@@ -152,6 +174,26 @@ tick(); setInterval(tick, 1000);
 
     </section>
 
+    <section class="container mb-4" id="featuredPanel" aria-live="polite">
+  <div class="card bg-dark border-0 shadow-sm featured-wrap">
+    <div class="row g-0 align-items-center">
+      <div class="col-md-3">
+        <img id="featPoster" src="images/spidermannowayhome.jpeg" alt="Featured Poster" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-9">
+        <div class="card movie-card"
+       data-title="Spider-Man: No Way Home"
+       data-genres="Action, Adventure, Sci-Fi"
+       data-poster="images/spidermannowayhome.jpeg"
+       data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open.">
+          <h3 id="featTitle" class="card-title mb-2">Spider-Man: No Way Home</h3>
+          <p id="featGenres" class="text-muted mb-2">Action, Adventure, Sci-Fi</p>
+          <p id="featDesc" class="mb-0">Hover a movie card to preview its details here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Movies List Section -->
     <main>
         <section class="movies-list py-5">
@@ -160,52 +202,62 @@ tick(); setInterval(tick, 1000);
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <!-- Movie 1 -->
-                    <div class="col">
-                        <div class="card movie-card">
-                            <img src="images/spidermannowayhome.jpeg" class="card-img-top" alt="Spider-Man: No Way Home">
-                            <div class="card-body">
-                                <h5 class="card-title">Spider-Man: No Way Home</h5>
-                                <p class="card-text">Action, Adventure, Sci-Fi</p>
-                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+<!-- Movie 1 -->
+<div class="col">
+  <div class="card movie-card"
+       data-title="Spider-Man: No Way Home"
+       data-genres="Action, Adventure, Sci-Fi"
+       data-poster="images/spidermannowayhome.jpeg"
+       data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open.">
+    <img src="images/spidermannowayhome.jpeg" class="card-img-top" alt="Spider-Man: No Way Home">
+    <div class="card-body">
+      <h5 class="card-title">Spider-Man: No Way Home</h5>
+      <p class="card-text">Action, Adventure, Sci-Fi</p>
+      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+    </div>
+  </div>
+</div>
 
-                    <!-- Movie 2 -->
-                    <div class="col">
-                        <div class="card movie-card">
-                            <img src="images/20250901_jjkS3_poster.jpg.webp" class="card-img-top" alt="Jujutsu Kaisen S3">
-                            <div class="card-body">
-                                <h5 class="card-title">Jujutsu Kaisen S3</h5>
-                                <p class="card-text">Anime, Adventure, Drama, Jujutsu</p>
-                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+<!-- Movie 2 -->
+<div class="col">
+  <div class="card movie-card"
+       data-title="Jujutsu Kaisen S3"
+       data-genres="Anime, Adventure, Drama"
+       data-poster="images/20250901_jjkS3_poster.jpg.webp"
+       data-desc="Sorcerers face new threats while uncovering secrets of cursed energy.">
+    <img src="images/20250901_jjkS3_poster.jpg.webp" class="card-img-top" alt="Jujutsu Kaisen S3">
+    <div class="card-body">
+      <h5 class="card-title">Jujutsu Kaisen S3</h5>
+      <p class="card-text">Anime, Adventure, Drama</p>
+      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+    </div>
+  </div>
+</div>
 
-                    <!-- Movie 3 -->
-                    <div class="col">
-                        <div class="card movie-card">
-                            <img src="images/Black_Widow.jpg" class="card-img-top" alt="Black Widow">
-                            <div class="card-body">
-                                <h5 class="card-title">Black Widow</h5>
-                                <p class="card-text">Action, Adventure</p>
-                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+<!-- Movie 3 -->
+<div class="col">
+  <div class="card movie-card" data-genres="Action, Adventure">
+    <img src="images/Black_Widow.jpg" class="card-img-top" alt="Black Widow">
+    <div class="card-body">
+      <h5 class="card-title">Black Widow</h5>
+      <p class="card-text">Action, Adventure</p>
+      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+    </div>
+  </div>
+</div>
 
-                    <!-- Movie 4 -->
-                    <div class="col">
-                        <div class="card movie-card">
-                            <img src="images/Dune_poster.jpg" class="card-img-top" alt="Dune">
-                            <div class="card-body">
-                                <h5 class="card-title">Dune</h5>
-                                <p class="card-text">Adventure, Drama, Sci-Fi</p>
-                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+<!-- Movie 4 -->
+<div class="col">
+  <div class="card movie-card" data-genres="Adventure, Drama, Sci-Fi">
+    <img src="images/Dune_poster.jpg" class="card-img-top" alt="Dune">
+    <div class="card-body">
+      <h5 class="card-title">Dune</h5>
+      <p class="card-text">Adventure, Drama, Sci-Fi</p>
+      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+    </div>
+  </div>
+</div>
+
                 </div>
             </div>
         </section>
@@ -268,7 +320,7 @@ tick(); setInterval(tick, 1000);
         </div>
     </footer>
 
-<script src="scripts/scripts.js"></script>
+<script src="scripts/scriptDiasbek.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
