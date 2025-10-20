@@ -156,3 +156,67 @@
             height: 24px;
             cursor: pointer;
         }
+
+        /* Genre filter spacing on dark theme */
+#genreFilter {
+  background-color: #1c1c1c;
+  color: #f8f9fa;
+  border-color: #333;
+  width: 50%;
+}
+#genreFilter:focus {
+  box-shadow: none;
+  border-color: #ff69b4;
+}
+
+/* Stars */
+
+
+.star-wrap { display:flex; gap:6px; cursor:pointer; user-select:none; }
+.star { font-size:1.1rem; line-height:1; transition: transform .1s ease; color:#6b7280; }
+.star.gold { color:#fbbf24; }
+.star:hover { transform: scale(1.15); }
+
+.movie-card .card-desc { transition: opacity .15s ease; }
+.movie-card:hover .card-desc { opacity: .95; }
+
+body.light { background:#f7f7f9; color:#ffffff; }
+body.light .bg-dark { background:#ffffff!important; }
+body.light .text-white { color:#0b0d10!important; }
+
+/* Dark (default) */
+.card.movie-card{
+  background:#1c1c1c; color:#f8f9fa; border:1px solid #2a2a2a;
+}
+/* Light */
+body.light .card.movie-card{
+  background:#fff; color:#0b0d10; border:1px solid #e6e9f2;
+}
+body.light .card.movie-card .card-text,
+body.light .card.movie-card .card-desc{ color:#586174; }
+body.light #genreFilter{
+    background:#fff; color:#0b0d10;
+}
+body.light .faq-section{
+    background:#fff; color:#0b0d10;
+}
+body.light .allmovies{
+     color:#0b0d10;
+}
+body.light .faq-question{
+    background:#fff; color:#0b0d10;
+}
+/* Focus highlight for keyboard navigation */
+.card.movie-card { transition: box-shadow .15s ease, transform .08s ease; outline: none; }
+.card.movie-card.card-focus { box-shadow: 0 0 0 3px #ff69b4; transform: translateY(-2px); }
+
+/* Showtimes chips inside cards */
+.showtimes { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.showtime-chip { padding:2px 8px; border-radius:12px; border:1px solid #444; font-size:.8rem; }
+body.light .showtime-chip { border-color:#e6e9f2; }
+
+/* Reveal-on-scroll animation */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .45s ease, transform .45s ease; }
+.reveal-visible { opacity: 1; transform: translateY(0); }
+
+
