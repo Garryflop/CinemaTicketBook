@@ -1,91 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies List | Absolute Cinema</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="movies-style.css">
-    
 
-    
+
+
 </head>
 <style>
     body {
-            background-color: #121212; /* Dark background color */
-            color: #f8f9fa; /* Light text color */
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        background-color: #121212;
+        /* Dark background color */
+        color: #f8f9fa;
+        /* Light text color */
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        .faq-section {
-            background-color: #1c1c1c;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px;
-            width: 100%;
-        }
+    .faq-section {
+        background-color: #1c1c1c;
+        border-radius: 8px;
+        padding: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 20px;
+        width: 100%;
+    }
 
-        .faq-section h2 {
-            color: #ff69b4; /* Pink color for the title */
-            margin-bottom: 30px;
-            font-size: 2rem;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-        }
+    .faq-section h2 {
+        color: #ff69b4;
+        /* Pink color for the title */
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 100%;
+    }
 
-        /* Style the question (accordion button) */
-        .faq-question {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #ff69b4;
-            background-color: #333;
-            padding: 15px 20px;
-            border-radius: 5px;
-            margin: 10px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
+    /* Style the question (accordion button) */
+    .faq-question {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #ff69b4;
+        background-color: #333;
+        padding: 15px 20px;
+        border-radius: 5px;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
 
-        /* Hover effect for the question button */
-        .faq-question:hover {
-            background-color: #555;
-            color: #fff;
-            transform: scale(1.05);
-        }
+    /* Hover effect for the question button */
+    .faq-question:hover {
+        background-color: #555;
+        color: #fff;
+        transform: scale(1.05);
+    }
 
-        /* Style the answer (accordion body) */
-        .faq-answer {
-            display: none; /* Initially hidden */
-            background-color: #444;
-            color: #dcdcdc;
-            padding: 15px 20px;
-            margin-top: 10px;
-            border-radius: 5px;
-            font-size: 1rem;
-            text-align: justify;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
+    /* Style the answer (accordion body) */
+    .faq-answer {
+        display: none;
+        /* Initially hidden */
+        background-color: #444;
+        color: #dcdcdc;
+        padding: 15px 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-size: 1rem;
+        text-align: justify;
+        line-height: 1.6;
+        transition: all 0.3s ease;
+    }
 
-        .faq-answer.show {
-            display: block; /* Show answer when toggled */
-        }
+    .faq-answer.show {
+        display: block;
+        /* Show answer when toggled */
+    }
 
-        .faq-item {
-            margin-bottom: 10px;
-            
-        }
+    .faq-item {
+        margin-bottom: 10px;
 
-    </style>
+    }
+</style>
+
 <body>
 
     <!-- Header with Navigation -->
@@ -96,7 +102,8 @@
                 <ul class="d-flex gap-3 mb-0">
                     <li>
                         <button class="btn dark-mode-btn" id="darkModeBtn">
-                            <img src="https://img.icons8.com/ios/452/moon.png" alt="Moon Icon" class="dark-mode-icon" id="darkModeIcon">
+                            <img src="https://img.icons8.com/ios/452/moon.png" alt="Moon Icon" class="dark-mode-icon"
+                                id="darkModeIcon">
                         </button>
                     </li>
                     <li><button class="bttn" id="signUpBtn">Sign Up</button></li>
@@ -106,7 +113,7 @@
                     <li><a href="seat-selection.html" class="text-white text-decoration-none">Book Seats</a></li>
                     <li><a href="booking-form.html" class="text-white text-decoration-none">Account</a></li>
                     <li><a href="confirmation.html" class="text-white text-decoration-none">My Bookings</a></li>
-                     
+
                 </ul>
             </nav>
         </div>
@@ -114,23 +121,34 @@
 
     <h2 class="text-center text-pink mb-5 allmovies">All Movies</h2>
 
-<!-- ⬇️ Genre Filter Toolbar -->
-<div class="container mb-4">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <label for="genreFilter" class="form-label text-muted">Filter by genre</label>
-      <select id="genreFilter" class="form-select">
-        <option value="all">All</option>
-        <option value="action">Action</option>
-        <option value="adventure">Adventure</option>
-        <option value="drama">Drama</option>
-        <option value="sci-fi">Sci-Fi</option>
-        <option value="anime">Anime</option>
-      </select>
+    <!-- ⬇️ Genre Filter Toolbar -->
+    <div class="container mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <label for="genreFilter" class="form-label text-muted">Filter by genre</label>
+                <select id="genreFilter" class="form-select">
+                    <option value="all">All</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="drama">Drama</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="anime">Anime</option>
+                </select>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
+    <!-- Global Search (Movies + FAQ) -->
+    <div class="container mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 position-relative">
+                <label for="siteSearch" class="form-label text-muted">Search movies & FAQs</label>
+                <input id="siteSearch" type="text" class="form-control" placeholder="Type to search...">
+                <ul id="searchSuggest" class="list-group position-absolute w-100"
+                    style="display:none; z-index:2000; top:100%; left:0;"></ul>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -146,12 +164,14 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password"
+                        required>
                     <span id="passwordError" class="error-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password"
+                        required>
                     <span id="confirmPasswordError" class="error-message"></span>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
@@ -160,36 +180,36 @@
     </div>
     <!-- Date Selector Bar -->
     <section class="date-selector text-center my-4 d-flex flex-column align-items-center">
-       
-<!-- place this INSIDE your existing .date-selector section -->
-<div id="dateWizard" class="container mt-3">
-  <!-- Step 1: date -->
-  <div class="row g-2 align-items-center justify-content-center mt-2">
-  
-    <div class="col-auto"><strong>Select a date</strong></div>
-    <div class="col-auto">
-      <input id="customDate" type="date" class="form-control form-control-sm" style="min-width: 180px;" />
-    </div>
-  </div>
 
-  <!-- Step 2: time (auto-populated) -->
-  <div class="row g-2 align-items-center justify-content-center mt-2" id="timeStep" hidden>
-   
-    <div class="col-auto"><strong>Pick a time</strong></div>
-    <div class="col-auto" id="timeButtons"></div>
-  </div>
+        <!-- place this INSIDE your existing .date-selector section -->
+        <div id="dateWizard" class="container mt-3">
+            <!-- Step 1: date -->
+            <div class="row g-2 align-items-center justify-content-center mt-2">
 
-  <!-- Step 3: summary -->
-  <div class="row g-2 align-items-center justify-content-center mt-2" id="summaryStep" hidden>
-    
-    <div class="col"><span id="selectionSummary" class="badge bg-secondary"></span></div>
-  </div>
-</div>
+                <div class="col-auto"><strong>Select a date</strong></div>
+                <div class="col-auto">
+                    <input id="customDate" type="date" class="form-control form-control-sm" style="min-width: 180px;" />
+                </div>
+            </div>
+
+            <!-- Step 2: time (auto-populated) -->
+            <div class="row g-2 align-items-center justify-content-center mt-2" id="timeStep" hidden>
+
+                <div class="col-auto"><strong>Pick a time</strong></div>
+                <div class="col-auto" id="timeButtons"></div>
+            </div>
+
+            <!-- Step 3: summary -->
+            <div class="row g-2 align-items-center justify-content-center mt-2" id="summaryStep" hidden>
+
+                <div class="col"><span id="selectionSummary" class="badge bg-secondary"></span></div>
+            </div>
+        </div>
 
 
     </section>
 
-    
+
     <!-- Movies List Section -->
     <main>
         <section class="movies-list py-5">
@@ -199,92 +219,89 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <!-- Movie 1 -->
 
-<!-- Movie 1 -->
-<div class="col">
-  <div class="card movie-card"
-       data-title="Spider-Man: No Way Home"
-       data-genres="Action, Adventure, Sci-Fi"
-       data-poster="images/spidermannowayhome.jpeg"
-       data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open."
-       data-hover-title="Spider-Man: Multiverse Mayhem"
-       data-hover-genres="Action • Sci-Fi • Multiverse"
-       data-hover-poster="images/spidermannowayhome.jpeg"
-       data-hover-desc="Preview: portals open, classic villains return, and choices have consequences.">
-    <img src="images/spidermannowayhome.jpeg" class="card-img-top" alt="Spider-Man: No Way Home">
-    <div class="card-body">
-      <h5 class="card-title">Spider-Man: No Way Home</h5>
-      <p class="card-text">Action, Adventure, Sci-Fi</p>
-      <p class="card-desc small text-muted">Peter Parker seeks help from Doctor Strange, causing the multiverse to break open.</p>
-      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-    </div>
-  </div>
-</div>
+                    <!-- Movie 1 -->
+                    <div class="col">
+                        <div class="card movie-card" data-title="Spider-Man: No Way Home"
+                            data-genres="Action, Adventure, Sci-Fi" data-poster="images/spidermannowayhome.jpeg"
+                            data-desc="Peter Parker seeks help from Doctor Strange, causing the multiverse to break open."
+                            data-hover-title="Spider-Man: Multiverse Mayhem"
+                            data-hover-genres="Action • Sci-Fi • Multiverse"
+                            data-hover-poster="images/spidermannowayhome.jpeg"
+                            data-hover-desc="Preview: portals open, classic villains return, and choices have consequences.">
+                            <img src="images/spidermannowayhome.jpeg" class="card-img-top"
+                                alt="Spider-Man: No Way Home">
+                            <div class="card-body">
+                                <h5 class="card-title">Spider-Man: No Way Home</h5>
+                                <p class="card-text">Action, Adventure, Sci-Fi</p>
+                                <p class="card-desc small text-muted">Peter Parker seeks help from Doctor Strange,
+                                    causing the multiverse to break open.</p>
+                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Movie 2 -->
-<div class="col">
-  <div class="card movie-card"
-       data-title="Jujutsu Kaisen S3"
-       data-genres="Anime, Adventure, Drama"
-       data-poster="images/20250901_jjkS3_poster.jpg.webp"
-       data-desc="Sorcerers face new threats while uncovering secrets of cursed energy."
-       data-hover-title="JJK S3 — New Arc"
-       data-hover-genres="Anime • Drama • Battles"
-       data-hover-desc="Hover preview: intense duels, deeper lore, higher stakes.">
-    <img src="images/20250901_jjkS3_poster.jpg.webp" class="card-img-top" alt="Jujutsu Kaisen S3">
-    <div class="card-body">
-      <h5 class="card-title">Jujutsu Kaisen S3</h5>
-      <p class="card-text">Anime, Adventure, Drama</p>
-      <p class="card-desc small text-muted">Sorcerers face new threats while uncovering secrets of cursed energy.</p>
-      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-    </div>
-  </div>
-</div>
+                    <!-- Movie 2 -->
+                    <div class="col">
+                        <div class="card movie-card" data-title="Jujutsu Kaisen S3"
+                            data-genres="Anime, Adventure, Drama" data-poster="images/20250901_jjkS3_poster.jpg.webp"
+                            data-desc="Sorcerers face new threats while uncovering secrets of cursed energy."
+                            data-hover-title="JJK S3 — New Arc" data-hover-genres="Anime • Drama • Battles"
+                            data-hover-desc="Hover preview: intense duels, deeper lore, higher stakes.">
+                            <img src="images/20250901_jjkS3_poster.jpg.webp" class="card-img-top"
+                                alt="Jujutsu Kaisen S3">
+                            <div class="card-body">
+                                <h5 class="card-title">Jujutsu Kaisen S3</h5>
+                                <p class="card-text">Anime, Adventure, Drama</p>
+                                <p class="card-desc small text-muted">Sorcerers face new threats while uncovering
+                                    secrets of cursed energy.</p>
+                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Movie 3 -->
-<div class="col">
-  <div class="card movie-card"
-       data-title="Black Widow"
-       data-genres="Action, Adventure"
-       data-poster="images/Black_Widow.jpg"
-       data-desc="Natasha confronts her past while on the run after Civil War.">
-    <img src="images/Black_Widow.jpg" class="card-img-top" alt="Black Widow">
-    <div class="card-body">
-      <h5 class="card-title">Black Widow</h5>
-      <p class="card-text">Action, Adventure</p>
-      <p class="card-desc small text-muted">Natasha confronts her past while on the run after Civil War.</p>
-      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-    </div>
-  </div>
-</div>
+                    <!-- Movie 3 -->
+                    <div class="col">
+                        <div class="card movie-card" data-title="Black Widow" data-genres="Action, Adventure"
+                            data-poster="images/Black_Widow.jpg"
+                            data-desc="Natasha confronts her past while on the run after Civil War.">
+                            <img src="images/Black_Widow.jpg" class="card-img-top" alt="Black Widow">
+                            <div class="card-body">
+                                <h5 class="card-title">Black Widow</h5>
+                                <p class="card-text">Action, Adventure</p>
+                                <p class="card-desc small text-muted">Natasha confronts her past while on the run after
+                                    Civil War.</p>
+                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Movie 4 -->
-<div class="col">
-  <div class="card movie-card"
-       data-title="Dune"
-       data-genres="Adventure, Drama, Sci-Fi"
-       data-poster="images/Dune_poster.jpg"
-       data-desc="Paul Atreides travels to Arrakis where destiny and spice collide."
-       data-hover-desc="Hover preview: sandworms, prophecy, and power on Arrakis.">
-    <img src="images/Dune_poster.jpg" class="card-img-top" alt="Dune">
-    <div class="card-body">
-      <h5 class="card-title">Dune</h5>
-      <p class="card-text">Adventure, Drama, Sci-Fi</p>
-      <p class="card-desc small text-muted">Paul Atreides travels to Arrakis where destiny and spice collide.</p>
-      <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
-    </div>
-  </div>
-</div>
+                    <!-- Movie 4 -->
+                    <div class="col">
+                        <div class="card movie-card" data-title="Dune" data-genres="Adventure, Drama, Sci-Fi"
+                            data-poster="images/Dune_poster.jpg"
+                            data-desc="Paul Atreides travels to Arrakis where destiny and spice collide."
+                            data-hover-desc="Hover preview: sandworms, prophecy, and power on Arrakis.">
+                            <img src="images/Dune_poster.jpg" class="card-img-top" alt="Dune">
+                            <div class="card-body">
+                                <h5 class="card-title">Dune</h5>
+                                <p class="card-text">Adventure, Drama, Sci-Fi</p>
+                                <p class="card-desc small text-muted">Paul Atreides travels to Arrakis where destiny and
+                                    spice collide.</p>
+                                <a href="seat-selection.html" class="btn btn-pink">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
             <div class="text-center mt-2">
-  <button id="loadMoreBtn" class="btn btn-outline-light">Load More Movies</button>
-</div>
+                <button id="loadMoreBtn" class="btn btn-outline-light">Load More Movies</button>
+            </div>
 
         </section>
     </main>
 
-<div class="container">
+    <div class="container">
         <div class="faq-section">
             <h2 class="text-center text-pink mb-4">Frequently Asked Questions</h2>
 
@@ -307,7 +324,7 @@
     </div>
 
 
-       <!-- Button to Open the Contact Form -->
+    <!-- Button to Open the Contact Form -->
     <button id="openContactForm" class="btnn my3">Contact Us</button>
 
     <!-- The Contact Form Modal (Initially Hidden) -->
@@ -326,14 +343,15 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" class="form-control" rows="4" placeholder="Enter your message" required></textarea>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Enter your message"
+                        required></textarea>
                 </div>
                 <button type="submit" class="btnn mt-3">Send Message</button>
             </form>
         </div>
-    </div> 
+    </div>
 
-    
+
 
     <footer class="fixed-footer bg-dark text-white py-3">
         <div class="container text-center">
@@ -341,7 +359,8 @@
         </div>
     </footer>
 
-<script src="scripts/scriptDiasbek.js"></script>
+    <script src="scripts/scriptDiasbek.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
