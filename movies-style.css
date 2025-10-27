@@ -1,12 +1,15 @@
     /* Basic styling for the modal */
     .contact-form-modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Fixed position on the screen */
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Fixed position on the screen */
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
         justify-content: center;
         align-items: center;
         z-index: 1000;
@@ -77,146 +80,266 @@
         float: right;
     }
 
-     
-     .sign-up-modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
 
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .sign-up-modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
 
-        .btn-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
+    .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
+    .btn-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #333;
+        cursor: pointer;
+    }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+    .form-group {
+        margin-bottom: 1rem;
+    }
 
-        .btn-primary {
-            width: 100%;
-            padding: 10px;
-            background-color: #ff69b4;
-            border: none;
-            color: white;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
 
-        .btn-primary:hover {
-            background-color: #e0579c;
-        }
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff69b4;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        /* Dark mode circle button */
-        .dark-mode-btn {
-            width: 40px;
-            height: 40px;
-            margin: 0px 5px 5px 0px;
-            border-radius: 50%; /* Circular button */
-            background-color: #ff69b4; /* Pink background color */
-            border: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .btn-primary:hover {
+        background-color: #e0579c;
+    }
 
-        /* Dark mode icon (moon) */
-        .dark-mode-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-        }
+    /* Dark mode circle button */
+    .dark-mode-btn {
+        width: 40px;
+        height: 40px;
+        margin: 0px 5px 5px 0px;
+        border-radius: 50%;
+        /* Circular button */
+        background-color: #ff69b4;
+        /* Pink background color */
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        /* Genre filter spacing on dark theme */
-#genreFilter {
-  background-color: #1c1c1c;
-  color: #f8f9fa;
-  border-color: #333;
-  width: 50%;
-}
-#genreFilter:focus {
-  box-shadow: none;
-  border-color: #ff69b4;
-}
+    /* Dark mode icon (moon) */
+    .dark-mode-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
 
-/* Stars */
+    /* Genre filter spacing on dark theme */
+    #genreFilter {
+        background-color: #1c1c1c;
+        color: #f8f9fa;
+        border-color: #333;
+        width: 50%;
+    }
 
+    #genreFilter:focus {
+        box-shadow: none;
+        border-color: #ff69b4;
+    }
 
-.star-wrap { display:flex; gap:6px; cursor:pointer; user-select:none; }
-.star { font-size:1.1rem; line-height:1; transition: transform .1s ease; color:#6b7280; }
-.star.gold { color:#fbbf24; }
-.star:hover { transform: scale(1.15); }
-
-.movie-card .card-desc { transition: opacity .15s ease; }
-.movie-card:hover .card-desc { opacity: .95; }
-
-body.light { background:#f7f7f9; color:#ffffff; }
-body.light .bg-dark { background:#ffffff!important; }
-body.light .text-white { color:#0b0d10!important; }
-
-/* Dark (default) */
-.card.movie-card{
-  background:#1c1c1c; color:#f8f9fa; border:1px solid #2a2a2a;
-}
-/* Light */
-body.light .card.movie-card{
-  background:#fff; color:#0b0d10; border:1px solid #e6e9f2;
-}
-body.light .card.movie-card .card-text,
-body.light .card.movie-card .card-desc{ color:#586174; }
-body.light #genreFilter{
-    background:#fff; color:#0b0d10;
-}
-body.light .faq-section{
-    background:#fff; color:#0b0d10;
-}
-body.light .allmovies{
-     color:#0b0d10;
-}
-body.light .faq-question{
-    background:#fff; color:#0b0d10;
-}
-/* Focus highlight for keyboard navigation */
-.card.movie-card { transition: box-shadow .15s ease, transform .08s ease; outline: none; }
-.card.movie-card.card-focus { box-shadow: 0 0 0 3px #ff69b4; transform: translateY(-2px); }
-
-/* Showtimes chips inside cards */
-.showtimes { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
-.showtime-chip { padding:2px 8px; border-radius:12px; border:1px solid #444; font-size:.8rem; }
-body.light .showtime-chip { border-color:#e6e9f2; }
-
-/* Reveal-on-scroll animation */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .45s ease, transform .45s ease; }
-.reveal-visible { opacity: 1; transform: translateY(0); }
+    /* Stars */
 
 
+    .star-wrap {
+        display: flex;
+        gap: 6px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .star {
+        font-size: 1.1rem;
+        line-height: 1;
+        transition: transform .1s ease;
+        color: #6b7280;
+    }
+
+    .star.gold {
+        color: #fbbf24;
+    }
+
+    .star:hover {
+        transform: scale(1.15);
+    }
+
+    .movie-card .card-desc {
+        transition: opacity .15s ease;
+    }
+
+    .movie-card:hover .card-desc {
+        opacity: .95;
+    }
+
+    body.light {
+        background: #f7f7f9;
+        color: #ffffff;
+    }
+
+    body.light .bg-dark {
+        background: #ffffff !important;
+    }
+
+    body.light .text-white {
+        color: #0b0d10 !important;
+    }
+
+    /* Dark (default) */
+    .card.movie-card {
+        background: #1c1c1c;
+        color: #f8f9fa;
+        border: 1px solid #2a2a2a;
+    }
+
+    /* Light */
+    body.light .card.movie-card {
+        background: #fff;
+        color: #0b0d10;
+        border: 1px solid #e6e9f2;
+    }
+
+    body.light .card.movie-card .card-text,
+    body.light .card.movie-card .card-desc {
+        color: #586174;
+    }
+
+    body.light #genreFilter {
+        background: #fff;
+        color: #0b0d10;
+    }
+
+    body.light .faq-section {
+        background: #fff;
+        color: #0b0d10;
+    }
+
+    body.light .allmovies {
+        color: #0b0d10;
+    }
+
+    body.light .faq-question {
+        background: #fff;
+        color: #0b0d10;
+    }
+
+    /* Focus highlight for keyboard navigation */
+    .card.movie-card {
+        transition: box-shadow .15s ease, transform .08s ease;
+        outline: none;
+    }
+
+    .card.movie-card.card-focus {
+        box-shadow: 0 0 0 3px #ff69b4;
+        transform: translateY(-2px);
+    }
+
+    /* Showtimes chips inside cards */
+    .showtimes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .showtime-chip {
+        padding: 2px 8px;
+        border-radius: 12px;
+        border: 1px solid #444;
+        font-size: .8rem;
+    }
+
+    body.light .showtime-chip {
+        border-color: #e6e9f2;
+    }
+
+    /* Reveal-on-scroll animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Search highlight */
+    .hl {
+        background: #ff69b4;
+        /* matches your pink accent */
+        color: #121212;
+        /* dark text for contrast */
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+
+    /* Suggestion list */
+    #searchSuggest .list-group-item {
+        cursor: pointer;
+    }
+
+    #searchSuggest .list-group-item:hover {
+        background: #ffd1e8;
+        color: #121212;
+    }
+
+    #scrollProgressContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #444;
+        z-index: 9999;
+    }
+
+    #scrollProgress {
+        height: 100%;
+        width: 0;
+        background-color: #ff69b4;
+        /* Match your design color */
+    }
+
+    #scrollProgress {
+        transition: width 0.1s ease-in-out;
+    }
