@@ -101,16 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ===== Subscribe / Contact Forms =====
-  document.getElementById('subscribeForm')?.addEventListener('submit', (e) => {
+  /*document.getElementById('subscribeForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('subEmail');
     email.classList.remove('is-invalid');
     if (!isValidEmail(email.value)) { email.classList.add('is-invalid'); return; }
     alert('✅ Subscribed successfully!');
     e.target.reset(); closeModal(modalSubscribe);
-  });
+  });*/
 
-  document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+  /*document.getElementById('contactForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('contactName');
     const email = document.getElementById('contactEmail');
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ok) return;
     alert('📨 Message sent. Thank you!');
     e.target.reset(); closeModal(modalContact);
-  });
+  });*/
 
   // ===== Theme Switch =====
   const themeBtn = document.getElementById('themeSwitcher');
@@ -301,7 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
     li.textContent = name;
     list.appendChild(li);
   });
-  const prices = [2000, 2500, 3000];
   const withVat = prices.map(p => p * 1.12);
   console.log("Prices + VAT :", withVat);
     // === Play Sound ===

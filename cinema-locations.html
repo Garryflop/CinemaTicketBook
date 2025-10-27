@@ -11,8 +11,16 @@
   <!-- Your theme styles (must include CSS variables and component mappings) -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Your main JS (validation, modals, theme switcher, etc.) -->
+  <!-- jQuery FIRST -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Your normal JS (vanilla) -->
   <script src="scripts/ernar.js" defer></script>
+
+  <!-- Your jQuery code -->
+ <script src="scripts/ernar_jquery.js" defer></script>
+
+
 
   <!-- Minimal helper styles for pink brand + buttons -->
   <style>
@@ -58,6 +66,8 @@
       </div>
     </div>
   </nav>
+  <div id="scrollProgress"></div>
+
 
   <!-- ===== Main ===== -->
   <main class="container my-5" id="appContent">
@@ -80,11 +90,16 @@
       </div>
     </section>
 
-    <!-- Search area -->
+  
+      <!-- Search area with autocomplete -->
     <section class="row g-3 justify-content-center mb-5">
-      <div class="col-12 col-md-5 col-lg-4">
-        <input type="text" class="form-control" placeholder="Search by city..." />
+      <div class="col-12 col-md-5 col-lg-4 position-relative">
+        <input id="cinemaSearch" type="text" class="form-control" placeholder="Search cinema..." autocomplete="off" />
+
+        <!-- Autocomplete dropdown -->
+        <ul id="searchSuggestions" class="list-group position-absolute w-100"></ul>
       </div>
+
       <div class="col-12 col-md-5 col-lg-4">
         <select class="form-select">
           <option value="all">All Types</option>
@@ -94,19 +109,28 @@
           <option>Multiplex</option>
         </select>
       </div>
+
       <div class="col-12 col-md-2 col-lg-2 d-grid">
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="button" class="btn btn-primary">Search</button>
       </div>
     </section>
+
+
 
     <!-- Cinema Cards -->
     <section class="gallery-section">
       <h2 class="text-center text-pink mb-4">Our Cinemas</h2>
       <div class="row g-4">
         <!-- 1 -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3 cinema-card" data-name="Kinopark 8 IMAX Saryarka" data-city="Astana">
           <div class="card bg-dark text-white p-3 h-100">
-            <img src="images/kinopark6.png" class="card-img-top rounded mb-2" alt="Kinopark 8 IMAX Saryarka" />
+           <img 
+              class="card-img-top rounded mb-2 lazy-img"
+              src="images/placeholder.jpg"
+              data-src="images/kinopark6.png"
+              alt="Kinopark 8 IMAX Saryarka"
+            />
+
             <div class="card-body">
               <h5 class="card-title text-pink">Kinopark 8 IMAX Saryarka</h5>
               <p class="mb-3">📍 Astana, Turan Ave. 24<br>🎬 Standard, IMAX, Multiplex</p>
@@ -118,9 +142,14 @@
           </div>
         </div>
         <!-- 2 -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3 cinema-card" data-name="Kinopark 7 IMAX 3D" data-city="Astana">
           <div class="card bg-dark text-white p-3 h-100">
-            <img src="images/kinopark1.png" class="card-img-top rounded mb-2" alt="Kinopark 7 IMAX 3D" />
+            <img 
+            class="card-img-top rounded mb-2 lazy-img"
+            src="images/placeholder.jpg"
+            data-src="images/kinopark1.png"
+            alt="Kinopark 7 IMAX 3D" 
+            />
             <div class="card-body">
               <h5 class="card-title text-pink">Kinopark 7 IMAX 3D</h5>
               <p class="mb-3">📍 Astana, Dostyk St. 9<br>🎬 Premium, IMAX, Multiplex</p>
@@ -132,9 +161,14 @@
           </div>
         </div>
         <!-- 3 -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3 cinema-card" data-name="Chaplin MEGA Silk Way" data-city="Astana">
           <div class="card bg-dark text-white p-3 h-100">
-            <img src="images/chaplinmega.png" class="card-img-top rounded mb-2" alt="Chaplin MEGA Silk Way" />
+            <img 
+              class="card-img-top rounded mb-2 lazy-img"
+              src="images/placeholder.jpg"
+              data-src="images/chaplinmega.png"
+              alt="Chaplin MEGA Silk Way" 
+            />
             <div class="card-body">
               <h5 class="card-title text-pink">Chaplin MEGA Silk Way</h5>
               <p class="mb-3">📍 Astana, Kabanbay Batyr Ave. 62<br>🎬 Standard, Multiplex</p>
@@ -146,9 +180,14 @@
           </div>
         </div>
         <!-- 4 -->
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3 cinema-card" data-name="Chaplin Khan Shatyr" data-city="Astana">
           <div class="card bg-dark text-white p-3 h-100">
-            <img src="images/chaplinkhan.png" class="card-img-top rounded mb-2" alt="Chaplin Khan Shatyr" />
+          <img 
+            class="card-img-top rounded mb-2 lazy-img"
+            src="images/placeholder.jpg"
+            data-src="images/chaplinkhan.png"
+            alt="Chaplin Khan Shatyr" 
+            />
             <div class="card-body">
               <h5 class="card-title text-pink">Chaplin Khan Shatyr</h5>
               <p class="mb-3">📍 Astana, Turan Ave. 37<br>🎬 Multiplex, IMAX</p>
@@ -161,10 +200,19 @@
         </div>
       </div> <!-- row -->
     </section>
+ 
+
 
     <!-- FAQ (Accordion via JS) -->
     <section class="faq-section container my-5">
+      <div class="mb-4 text-center">
+        <input id="faqSearch" type="text" class="form-control w-75 mx-auto"
+          placeholder="Search in FAQ... try 'ticket', 'payment', 'cancel'">
+        <small class="text-muted">Live highlight in answers below</small>
+      </div>
+
       <h2 class="text-center text-pink mb-4">Frequently Asked Questions</h2>
+
 
       <div class="faq-item">
         <h3 class="faq-question">🎟 How can I book a ticket?</h3>
@@ -186,7 +234,9 @@
           <p>We accept major credit cards, debit cards, and mobile payments such as Apple Pay and Samsung Pay.</p>
         </div>
       </div>
+
     </section>
+
 
     <!-- Subscribe / Contact -->
     <div class="d-flex gap-2 justify-content-end my-3">
@@ -208,7 +258,7 @@
           </div>
 
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Subscribe</button>
+            <button type="submit" id="contactBtn" class="btn btn-primary">Send</button>
             <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
           </div>
         </form>
@@ -241,7 +291,7 @@
           </div>
 
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" id="contactBtn" class="btn btn-primary">Send</button>
             <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
           </div>
         </form>
@@ -250,7 +300,35 @@
 
     <!-- Theme button -->
     <button id="themeSwitcher" class="btn btn-outline-pink position-fixed end-0 bottom-0 m-3">🌓 Change Theme</button>
+    <div id="toast" class="toast-message"></div>
+
   </main>
+     <section id="stats" class="text-center my-5">
+      <h2 class="text-pink">Our Achievements</h2>
+      <p><span class="counter" data-count="1200">0</span> Happy Customers</p>
+      <p><span class="counter" data-count="35">0</span> Cinemas Opened</p>
+      <p><span class="counter" data-count="50000">0</span> Tickets Sold</p>
+    </section>
+    <section class="container my-5">
+  <h2 class="text-pink mb-3">Share our cinema info</h2>
+
+  <div class="copy-block bg-dark text-white p-3 rounded d-flex align-items-start gap-3">
+    <div class="flex-grow-1">
+      <p id="copyText" class="mb-1">
+        Absolute Cinema — Best IMAX and recliner seats in Astana. Book now at absolutecinema.kz
+      </p>
+      <small class="text-muted">You can copy this and send to your friend</small>
+    </div>
+
+    <div class="position-relative">
+      <button id="copyBtn" class="btn btn-outline-pink btn-sm">
+        📋 Copy
+      </button>
+      <div id="copyTooltip" class="copy-tooltip">Copied!</div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-dark text-center text-white py-4 border-top border-pink mt-5">
