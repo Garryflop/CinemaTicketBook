@@ -39,6 +39,10 @@ const translations = {
         'btn-print': '🖨️ Print Ticket',
         'btn-share': '📤 Share',
         
+        // Booking Code
+        'booking-code-title': 'Booking Code',
+        'booking-code-desc': 'Use this code for future reference or customer support',
+        
         // Order Summary
         'order-summary-title': 'Order Summary',
         'payment-details': 'Payment Details',
@@ -88,7 +92,19 @@ const translations = {
         'share-plans': 'Share Your Movie Plans',
         
         // Recommendations
-        'recommendations-title': 'You Might Also Like'
+        'recommendations-title': 'You Might Also Like',
+        'btn-book-now': 'Book Now',
+        
+        // Footer
+        'color-changer-title': 'Background Color Changer',
+        'color-changer-desc': 'Click the button below to change the page background color!',
+        'btn-change-color': '🎨 Change Background Color',
+        'current-bg': 'Current Background:',
+        'footer-team-title': 'Team Members',
+        'footer-member1': 'Diasbek Amangeldiyev - Foundation & Layout',
+        'footer-member2': 'Ernar Omarov - Navigation & Interactive',
+        'footer-member3': 'Nurdaulet Saparbekov - Forms & Advanced Features',
+        'footer-course': 'Web Technologies Frontend Course'
     },
     
     ru: {
@@ -129,6 +145,10 @@ const translations = {
         'btn-wallet': '📱 Добавить в Кошелек',
         'btn-print': '🖨️ Печать Билета',
         'btn-share': '📤 Поделиться',
+        
+        // Booking Code
+        'booking-code-title': 'Код Бронирования',
+        'booking-code-desc': 'Используйте этот код для дальнейшего обращения или поддержки клиентов',
         
         // Order Summary
         'order-summary-title': 'Сводка Заказа',
@@ -179,7 +199,19 @@ const translations = {
         'share-plans': 'Поделитесь Планами на Кино',
         
         // Recommendations
-        'recommendations-title': 'Вам Также Может Понравиться'
+        'recommendations-title': 'Вам Также Может Понравиться',
+        'btn-book-now': 'Забронировать',
+        
+        // Footer
+        'color-changer-title': 'Смена Цвета Фона',
+        'color-changer-desc': 'Нажмите кнопку ниже, чтобы изменить цвет фона страницы!',
+        'btn-change-color': '🎨 Изменить Цвет Фона',
+        'current-bg': 'Текущий Фон:',
+        'footer-team-title': 'Члены Команды',
+        'footer-member1': 'Диасбек Амангельдиев - Основа и Макет',
+        'footer-member2': 'Ернар Омаров - Навигация и Интерактив',
+        'footer-member3': 'Нурдаулет Сапарбеков - Формы и Продвинутые Функции',
+        'footer-course': 'Курс Веб-Технологий Frontend'
     },
     
     kk: {
@@ -220,6 +252,10 @@ const translations = {
         'btn-wallet': '📱 Әмиянға Қосу',
         'btn-print': '🖨️ Билетті Басып Шығару',
         'btn-share': '📤 Бөлісу',
+        
+        // Booking Code
+        'booking-code-title': 'Брондау Коды',
+        'booking-code-desc': 'Бұл кодты болашақ сілтеме немесе клиенттерге қолдау үшін пайдаланыңыз',
         
         // Order Summary
         'order-summary-title': 'Тапсырыс Қорытындысы',
@@ -267,10 +303,22 @@ const translations = {
         'preorder-snacks': 'Тағамдарды Алдын Ала Тапсыру',
         'snacks-text': 'Кезекті өткізіп, сүйікті кино тағамдарын алдын ала тапсырыңыз. Көрсетілім алдында кинотеатрдан алып кетіңіз.',
         'btn-order-snacks': 'Тағам Тапсыру',
-        'share-plans': 'Кино Жоспарларымен Бөлісіңіз',
+        'share-plans': 'Кино Жоспарларыңызбен Бөлісіңіз',
         
         // Recommendations
-        'recommendations-title': 'Сізге Ұнауы Мүмкін'
+        'recommendations-title': 'Сізге Ұнауы Мүмкін',
+        'btn-book-now': 'Брондау',
+        
+        // Footer
+        'color-changer-title': 'Фон Түсін Өзгерту',
+        'color-changer-desc': 'Бет фонының түсін өзгерту үшін төмендегі батырманы басыңыз!',
+        'btn-change-color': '🎨 Фон Түсін Өзгерту',
+        'current-bg': 'Ағымдағы Фон:',
+        'footer-team-title': 'Команда Мүшелері',
+        'footer-member1': 'Диасбек Амангелдиев - Негіз және Макет',
+        'footer-member2': 'Ернар Омаров - Навигация және Интерактив',
+        'footer-member3': 'Нурдаулет Сапарбеков - Формалар және Кеңейтілген Мүмкіндіктер',
+        'footer-course': 'Веб Технологиялары Frontend Курсы'
     }
 };
 

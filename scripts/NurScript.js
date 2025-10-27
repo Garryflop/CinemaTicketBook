@@ -61,8 +61,9 @@ function validateCustomerForm(event) {
     }
 
     if (isValid) {
-        alert('✅ Customer Information validated successfully!\n\nYou can proceed to payment.');
-        showPaymentInfo();
+        setTimeout(function() {
+            showPaymentInfo();
+        }, 2000);
         return true;
     } else {
         return false;

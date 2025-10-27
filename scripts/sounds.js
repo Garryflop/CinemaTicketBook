@@ -44,7 +44,7 @@ class SoundManager {
             console.error('❌ Error playing click sound:', error);
         }
     }
-    
+
     playSuccess() {
         if (!this.enabled || !this.sounds.switch) return;
         
