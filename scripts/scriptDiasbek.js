@@ -873,3 +873,14 @@ $(function () {
   applyFilters();
 });
 
+$(document).ready(function () {
+  $(window).on('scroll', function () {
+    var scrollTop = $(window).scrollTop();
+    var docHeight = $(document).height();
+    var winHeight = $(window).height();
+    var scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+
+    // Update the scroll progress bar width
+    $('#scrollProgress').css('width', scrollPercent + '%');
+  });
+});
