@@ -7,46 +7,36 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Shared Theme (now identical to cinemas page) -->
+  <!-- Theme -->
   <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-pink">
-    <div class="container">
+    <div class="container-fluid px-4">
       <a class="navbar-brand fw-bold text-pink" href="index.html">Absolute Cinema</a>
-
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-       <ul class="navbar-nav gap-lg-2" id="mainMenu" role="menubar">
-          <li class="nav-item" role="none"><a class="nav-link" href="index.html" role="menuitem" tabindex="0">Home</a></li>
-          <li class="nav-item" role="none"><a class="nav-link" href="movie-list.html" role="menuitem" tabindex="-1">Movies</a></li>
-          <li class="nav-item" role="none"><a class="nav-link" href="cinema-locations.html" role="menuitem" tabindex="-1">Cinemas</a></li>
-          <li class="nav-item" role="none"><a class="nav-link active" href="seat-selection.html" role="menuitem" tabindex="-1">Book Seats</a></li>
-          <li class="nav-item" role="none"><a class="nav-link" href="booking-form.html" role="menuitem" tabindex="-1">Account</a></li>
-          <li class="nav-item" role="none"><a class="nav-link" href="confirmation.html" role="menuitem" tabindex="-1">My Bookings</a></li>
-       </ul>
-
-
-        <div class="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
-          <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signup-pane">Sign Up</button>
-          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#entryGateModal" data-bs-tab="signin-pane">Sign In</button>
-        </div>
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="movie-list.html">Movies</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="cinema-locations.html">Cinemas</a></li>
+          <li class="nav-item"><a class="nav-link text-white active" href="seat-selection.html">Book Seats</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="booking-form.html">Account</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="confirmation.html">My Bookings</a></li>
+        </ul>
       </div>
     </div>
   </nav>
 
   <!-- Main -->
-  <main class="container py-5" id="appContent">
-    <p id="greeting"></p>
+  <main class="container py-5">
     <h1 class="text-center mb-4 text-pink">Booking Place</h1>
-    
-
 
     <!-- Search -->
     <div class="input-group justify-content-center mb-5">
@@ -60,15 +50,15 @@
         <div class="col-lg-10 col-xl-9">
           <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="6"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="7"></button>
-              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="8"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+              <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
             </div>
 
             <div class="carousel-inner rounded">
@@ -84,11 +74,11 @@
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
@@ -115,369 +105,284 @@
       </div>
     </section>
 
-    <!-- Popular Films -->
+    <!-- Popular Films (BOOKING COLLAPSED BY DEFAULT) -->
     <h2 class="text-center text-pink mb-4">Popular Films</h2>
     <div class="movie-gallery d-flex flex-wrap justify-content-center gap-4">
-      <!-- Card 1 -->
-      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
-        <img src="images/film1.png" class="card-img-top rounded mb-2" alt="Somnia">
-        <h5 class="card-title">Somnia: The House of Nightmares</h5>
-      
 
-  <!-- ⭐ Rating -->
-        <div class="rating my-2" data-movie="Somnia">
-          <span class="star" aria-label="1 star">★</span>
-          <span class="star" aria-label="2 stars">★</span>
-          <span class="star" aria-label="3 stars">★</span>
-          <span class="star" aria-label="4 stars">★</span>
-          <span class="star" aria-label="5 stars">★</span>
+      <!-- Movie 1 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film1.png" class="card-img-top rounded mb-2" alt="Somnia: The House of Nightmares">
+        <h5 class="card-title">Somnia: The House of Nightmares</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookSomnia" aria-expanded="false" aria-controls="bookSomnia">
+          🎟 Book Now
+        </button>
+
+        <div id="bookSomnia" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row A">
+              <input type="checkbox" class="btn-check" id="A1"><label class="btn btn-outline-pink btn-sm" for="A1">A1</label>
+              <input type="checkbox" class="btn-check" id="A2"><label class="btn btn-outline-pink btn-sm" for="A2">A2</label>
+              <input type="checkbox" class="btn-check" id="A3"><label class="btn btn-outline-pink btn-sm" for="A3">A3</label>
+              <input type="checkbox" class="btn-check" id="A4"><label class="btn btn-outline-pink btn-sm" for="A4">A4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block rating-result">Rate this movie!</small>
-        <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Somnia: The House of Nightmares">🎟 Book Now</button>
-    </div>
-      <!-- Card 2 -->
-    <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+      </div>
+
+      <!-- Movie 2 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film2.png" class="card-img-top rounded mb-2" alt="Demon Slayer">
         <h5 class="card-title">Demon Slayer: Kimetsu no Yaiba</h5>
-        <div class="rating my-2" data-movie="Demon Slayer: Kimetsu no Yaiba"> 
-          <span class="star" aria-label="1 star">★</span>
-          <span class="star" aria -label="2 stars">★</span>
-          <span class="star" aria-label="3 stars">★</span>       
-          <span class="star" aria-label="4 stars">★</span>
-          <span class="star" aria-label="5 stars">★</span>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookDemon" aria-expanded="false" aria-controls="bookDemon">
+          🎟 Book Now
+        </button>
+
+        <div id="bookDemon" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row B">
+              <input type="checkbox" class="btn-check" id="B1"><label class="btn btn-outline-pink btn-sm" for="B1">B1</label>
+              <input type="checkbox" class="btn-check" id="B2"><label class="btn btn-outline-pink btn-sm" for="B2">B2</label>
+              <input type="checkbox" class="btn-check" id="B3"><label class="btn btn-outline-pink btn-sm" for="B3">B3</label>
+              <input type="checkbox" class="btn-check" id="B4"><label class="btn btn-outline-pink btn-sm" for="B4">B4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block rating-result">Rate this movie!</small>
-        <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Demon Slayer: Kimetsu no Yaiba">🎟 Book Now</button>
-    </div>
-      <!-- Card 3 -->
-    <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+      </div>
+
+      <!-- Movie 3 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film3.png" class="card-img-top rounded mb-2" alt="Ghost Train">
         <h5 class="card-title">Ghost Train</h5>
-        <div class="rating my-2" data-movie="Ghost Train"> 
-          <span class="star" aria-label="1 star">★</span>
-          <span class="star" aria -label="2 stars">★</span>
-          <span class="star" aria-label="3 stars">★</span>     
-          <span class="star" aria-label="4 stars">★</span>
-          <span class="star" aria-label="5 stars">★</span>
-        </div>
-        <small class="text-muted d-block rating-result">Rate this movie!</small>
-        <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Ghost Train">🎟 Book Now</button>
-    </div>
-      <!-- Card 4 -->
-      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
-        <img src="images/film4.png" class="card-img-top rounded mb-2" alt="Final Destination">
-        <h5 class="card-title">Final Destination: Deadly Game</h5>
-        <div class="rating my-2" data-movie="Final Destination: Deadly Game"> 
-          <span class="star" aria -label="1 star">★</span>
-          <span class="star" aria -label="2 stars">★</span>  
-          <span class="star" aria -label="3 stars">★</span>
-          <span class="star" aria -label="4 stars">★</span>
-          <span class="star" aria -label="5 stars">★</span>
-        </div>    
-        <small class="text-muted d-block rating-result">Rate this movie!</small>
 
-        <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Final Destination: Deadly Game">🎟 Book Now</button>
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookGhost" aria-expanded="false" aria-controls="bookGhost">
+          🎟 Book Now
+        </button>
+
+        <div id="bookGhost" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row C">
+              <input type="checkbox" class="btn-check" id="C1"><label class="btn btn-outline-pink btn-sm" for="C1">C1</label>
+              <input type="checkbox" class="btn-check" id="C2"><label class="btn btn-outline-pink btn-sm" for="C2">C2</label>
+              <input type="checkbox" class="btn-check" id="C3"><label class="btn btn-outline-pink btn-sm" for="C3">C3</label>
+              <input type="checkbox" class="btn-check" id="C4"><label class="btn btn-outline-pink btn-sm" for="C4">C4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- Card 5 -->
+
+      <!-- Movie 4 -->
+      <div class="movie card bg-dark text-white p-3" style="width: 270px;">
+        <img src="images/film4.png" class="card-img-top rounded mb-2" alt="Final Destination: Deadly Game">
+        <h5 class="card-title">Final Destination: Deadly Game</h5>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookFinal" aria-expanded="false" aria-controls="bookFinal">
+          🎟 Book Now
+        </button>
+
+        <div id="bookFinal" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row D">
+              <input type="checkbox" class="btn-check" id="D1"><label class="btn btn-outline-pink btn-sm" for="D1">D1</label>
+              <input type="checkbox" class="btn-check" id="D2"><label class="btn btn-outline-pink btn-sm" for="D2">D2</label>
+              <input type="checkbox" class="btn-check" id="D3"><label class="btn btn-outline-pink btn-sm" for="D3">D3</label>
+              <input type="checkbox" class="btn-check" id="D4"><label class="btn btn-outline-pink btn-sm" for="D4">D4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Student ($8)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie 5 -->
       <div class="movie card bg-dark text-white p-3" style="width: 270px;">
         <img src="images/film5.png" class="card-img-top rounded mb-2" alt="Caught Red-Handed">
         <h5 class="card-title">Caught Red-Handed</h5>
-        <div class="rating my-2" data-movie="Caught Red-Handed"> 
-          <span class="star" aria -label="1 star">★</span>
-          <span class="star" aria -label="2 stars">★</span>  
-          <span class="star" aria -label="3 stars">★</span>
-          <span class="star" aria -label="4 stars">★</span>
-          <span class="star" aria -label="5 stars">★</span>    
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#bookCaught" aria-expanded="false" aria-controls="bookCaught">
+          🎟 Book Now
+        </button>
+
+        <div id="bookCaught" class="collapse">
+          <div class="booking-box mt-2">
+            <label class="form-label">Cinema</label>
+            <select class="form-select mb-2">
+              <option>Kinopark 8</option><option>Chaplin Khan Shatyr</option>
+              <option>Chaplin Mega Silkway</option><option>Kinopark 7</option>
+            </select>
+
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control mb-2">
+
+            <label class="form-label">Time</label>
+            <select class="form-select mb-2">
+              <option>12:00</option><option>15:00</option><option>18:00</option><option>21:00</option>
+            </select>
+
+            <h6 class="mt-2">Choose Seats</h6>
+            <div class="btn-group mb-2" role="group" aria-label="Seat row E">
+              <input type="checkbox" class="btn-check" id="E1"><label class="btn btn-outline-pink btn-sm" for="E1">E1</label>
+              <input type="checkbox" class="btn-check" id="E2"><label class="btn btn-outline-pink btn-sm" for="E2">E2</label>
+              <input type="checkbox" class="btn-check" id="E3"><label class="btn btn-outline-pink btn-sm" for="E3">E3</label>
+              <input type="checkbox" class="btn-check" id="E4"><label class="btn btn-outline-pink btn-sm" for="E4">E4</label>
+            </div>
+
+            <label class="form-label">Ticket Type</label>
+            <select class="form-select mb-2">
+              <option>Adult ($10)</option><option>Child ($6)</option>
+            </select>
+
+            <div class="btn-group w-100">
+              <button class="btn btn-secondary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm">Book</button>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block rating-result">Rate this movie!</small>
-        <button class="btn btn-primary btn-sm w-100 mt-2 book-open" data-movie="Caught Red-Handed">🎟 Book Now</button>
       </div>
-    </div>
 
-    <!-- Subscribe/Contact -->
-    <div class="d-flex gap-2 justify-content-end my-4">
-      <button id="openSubscribe" class="btn btn-outline-pink btn-sm">Subscribe</button>
-      <button id="openContact" class="btn btn-primary btn-sm">Contact Us</button>
-    </div>
-    <button id="showTimeBtn" class="btn btn-primary">Show Current Time</button>
-    <p id="timeDisplay"></p>
+    </div> <!-- /movie-gallery -->
 
+    <!-- Sidebar -->
+     <aside class="col-lg-3">
+      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
+        <h3 class="text-center text-pink">🎬 Watchlist</h3>
+        <ul class="list-unstyled">
+          <li>Avatar 2</li>
+          <li>Oppenheimer</li>
+          <li>Dune 2</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
+        <h3>🌐 Language</h3>
+        <select class="form-select">
+          <option>English</option>
+          <option>Русский</option>
+          <option>Қазақша</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section text-white p-3 bg-dark rounded mb-3">
+        <h3>♿ Accessibility</h3>
+        <div class="btn-group" role="group">
+          <button class="btn btn-outline-light btn-sm">A+</button>
+          <button class="btn btn-outline-light btn-sm">A-</button>
+          <button class="btn btn-outline-light btn-sm">🌙</button>
+        </div>
+      </div>
+
+      <div class="sidebar-section text-white p-3 bg-dark rounded">
+        <h3>❓ Help</h3>
+        <a href="support.html" class="btn btn-secondary w-100 mb-2 btn-sm">Contact Support</a>
+        <a href="faq.html" class="btn btn-secondary w-100 btn-sm">FAQ</a>
+      </div>
+    </aside>
+  </div>
   </main>
-
-  <!-- ===== Book Ticket Modal (NEW) ===== -->
-  <div class="modal fade" id="bookTicketModal" tabindex="-1" aria-labelledby="bookTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content bg-dark text-white border border-2" style="border-color: var(--accent) !important;">
-        <div class="modal-header border-0">
-          <h5 class="modal-title text-pink" id="bookTitle">Book Ticket</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-
-          <!-- Step Tabs -->
-          <ul class="nav nav-pills mb-3" id="bookingSteps" role="tablist">
-            <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#stepDetails">1) Details</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#stepSeats">2) Seats</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#stepPayment">3) Payment</button></li>
-          </ul>
-
-          <!-- Content -->
-          <div class="tab-content">
-            <!-- Step 1: Details -->
-            <div class="tab-pane fade show active" id="stepDetails">
-              <div class="row g-3">
-                <div class="col-12">
-                  <label class="form-label">Movie</label>
-                  <input id="modalMovieName" type="text" class="form-control" disabled>
-                </div>
-                <div class="col-12 col-md-6">
-                  <label class="form-label">Cinema</label>
-                  <select id="modalCinema" class="form-select">
-                    <option>Kinopark 8</option>
-                    <option>Chaplin Khan Shatyr</option>
-                    <option>Chaplin Mega Silkway</option>
-                    <option>Kinopark 7</option>
-                  </select>
-                </div>
-                <div class="col-12 col-md-3">
-                  <label class="form-label">Date</label>
-                  <input id="modalDate" type="date" class="form-control" />
-                </div>
-                <div class="col-12 col-md-3">
-                  <label class="form-label">Time</label>
-                  <select id="modalTime" class="form-select">
-                    <option>12:00</option>
-                    <option>15:00</option>
-                    <option>18:00</option>
-                    <option>21:00</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-end gap-2 mt-3">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button id="goSeats" class="btn btn-primary">Next: Seats</button>
-              </div>
-            </div>
-
-            <!-- Step 2: Seats -->
-            <div class="tab-pane fade" id="stepSeats">
-              <p class="small text-muted">Select your seats. Gray = Occupied, Pink = Selected.</p>
-              <div class="screen"></div>
-              <div id="seatMap" class="seat-map mb-3"></div>
-
-              <div class="legend d-flex gap-3 mb-2">
-                <span><span class="box available"></span> Available</span>
-                <span><span class="box selected"></span> Selected</span>
-                <span><span class="box occupied"></span> Occupied</span>
-              </div>
-
-              <div class="p-2 border rounded">
-                <div class="d-flex justify-content-between">
-                  <div>Selected seats: <span id="selectedSeatsText">—</span></div>
-                  <div class="fw-bold">Total: <span id="totalPrice">0 ₸</span></div>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between gap-2 mt-3">
-                <button id="backDetails" class="btn btn-outline-light">Back</button>
-                <button id="goPayment" class="btn btn-primary">Next: Payment</button>
-              </div>
-            </div>
-
-            <!-- Step 3: Payment -->
-            <div class="tab-pane fade" id="stepPayment">
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <label class="form-label">Cardholder Name</label>
-                  <input id="payName" type="text" class="form-control" placeholder="John Doe">
-                </div>
-                <div class="col-12 col-md-6">
-                  <label class="form-label">Card Number</label>
-                  <input id="payNumber" type="text" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19">
-                </div>
-                <div class="col-6 col-md-3">
-                  <label class="form-label">Expiry (MM/YY)</label>
-                  <input id="payExpiry" type="text" class="form-control" placeholder="12/28" maxlength="5">
-                </div>
-                <div class="col-6 col-md-3">
-                  <label class="form-label">CVV</label>
-                  <input id="payCVV" type="password" class="form-control" placeholder="123" maxlength="4">
-                </div>
-                <div class="col-12">
-                  <div class="p-3 border rounded">
-                    <h6 class="text-pink mb-2">Order Summary</h6>
-                    <div>Movie: <span id="sumMovie">—</span></div>
-                    <div>Cinema: <span id="sumCinema">—</span></div>
-                    <div>Date & Time: <span id="sumDateTime">—</span></div>
-                    <div>Seats: <span id="sumSeats">—</span></div>
-                    <div class="fw-bold mt-2">Total: <span id="sumTotal">0 ₸</span></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between gap-2 mt-3">
-                <button id="backSeats" class="btn btn-outline-light">Back</button>
-                <button id="confirmPay" class="btn btn-secondary">Pay & Confirm</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Subscribe Popup ===== -->
-  <div class="modal-overlay" id="modalSubscribe" aria-hidden="true">
-    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="subscribeTitle">
-      <button class="popup-close" aria-label="Close">&times;</button>
-      <h3 id="subscribeTitle" class="text-pink mb-3">Subscribe to Updates</h3>
-      <form id="subscribeForm" novalidate>
-        <div class="mb-3">
-          <label class="form-label" for="subEmail">Email</label>
-          <input id="subEmail" type="email" class="form-control" placeholder="name@example.com" required>
-          <div class="invalid-feedback">Please enter a valid email.</div>
-        </div>
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-          <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ===== Contact Popup ===== -->
-  <div class="modal-overlay" id="modalContact" aria-hidden="true">
-    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-      <button class="popup-close" aria-label="Close">&times;</button>
-      <h3 id="contactTitle" class="text-pink mb-3">Need help? Contact Support</h3>
-      <form id="contactForm" novalidate>
-        <div class="mb-3">
-          <label class="form-label" for="contactName">Full Name</label>
-          <input id="contactName" type="text" class="form-control" placeholder="John Doe" required>
-          <div class="invalid-feedback">Please enter your name.</div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="contactEmail">Email</label>
-          <input id="contactEmail" type="email" class="form-control" placeholder="name@example.com" required>
-          <div class="invalid-feedback">Please enter a valid email.</div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="contactMsg">Message</label>
-          <textarea id="contactMsg" class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
-          <div class="invalid-feedback">Please enter your message.</div>
-        </div>
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary">Send</button>
-          <button type="button" class="btn btn-secondary popup-cancel">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Theme switcher -->
-  <button id="themeSwitcher" class="btn btn-outline-pink position-fixed end-0 bottom-0 m-3">
-    🌓 Change Theme
-  </button>
-
-  <!-- Entry Gate Modal -->
-  <div class="modal fade" id="entryGateModal" tabindex="-1" aria-labelledby="entryGateTitle" aria-hidden="true"
-       data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content bg-dark text-white border border-2" style="border-color: var(--accent) !important;">
-        <div class="modal-header border-0">
-          <h5 class="modal-title text-pink" id="entryGateTitle">Welcome to Absolute Cinema</h5>
-        </div>
-        <div class="modal-body">
-          <ul class="nav nav-pills mb-3">
-            <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#signup-pane">Sign Up</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#signin-pane">Sign In</button></li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade show active" id="signup-pane">
-              <form id="gateSignupForm" novalidate>
-                <div class="mb-3">
-                  <label class="form-label" for="gateFullName">Full Name</label>
-                  <input id="gateFullName" type="text" class="form-control" placeholder="John Doe" required>
-                  <div class="invalid-feedback">Please enter your full name.</div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="gateEmail">Email</label>
-                  <input id="gateEmail" type="email" class="form-control" placeholder="name@example.com" required>
-                  <div class="invalid-feedback">Please enter a valid email.</div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="gatePassword">Password (min 6)</label>
-                  <input id="gatePassword" type="password" class="form-control" minlength="6" required>
-                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="gateConfirm">Confirm Password</label>
-                  <input id="gateConfirm" type="password" class="form-control" required>
-                  <div class="invalid-feedback">Passwords do not match.</div>
-                </div>
-                <div class="form-check mb-3">
-                  <input id="gateTerms" type="checkbox" class="form-check-input" required>
-                  <label class="form-check-label" for="gateTerms">I accept the Terms & Conditions</label>
-                  <div class="invalid-feedback">You must accept the terms to continue.</div>
-                </div>
-                <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary">Create Account</button>
-                  <button type="button" class="btn btn-outline-pink" id="continueGuestBtn">Continue as Guest</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="tab-pane fade" id="signin-pane">
-              <form id="gateSigninForm" novalidate>
-                <div class="mb-3">
-                  <label for="gateLoginEmail" class="form-label">Email</label>
-                  <input id="gateLoginEmail" type="email" class="form-control" required>
-                  <div class="invalid-feedback">Enter a valid email.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="gateLoginPassword" class="form-label">Password</label>
-                  <input id="gateLoginPassword" type="password" class="form-control" required>
-                  <div class="invalid-feedback">Password is required.</div>
-                </div>
-                <div class="d-grid gap-2">
-                  <button class="btn btn-secondary" type="submit">Sign In</button>
-                  <button type="button" class="btn btn-outline-pink" id="continueGuestBtn2">Continue as Guest</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer border-0">
-          <small class="text-muted">You can change your account details later in <em>Account</em>.</small>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ===== Advanced JS Features (Task 3) ===== -->
-<section class="extra-section text-center my-5">
-  <h2 id="greeting" class="mb-3">👋 Welcome!</h2>
-
-  <div class="movie-card mb-3">
-    <h4>🎬 Featured Movie</h4>
-    <p id="movieDetails"></p>
-  </div>
-
-  <div class="cinema-section mb-4">
-    <h4>🏙️ Cinemas</h4>
-    <ul id="cinemaList"></ul>
-  </div>
-
-  <div class="interactive-controls">
-    <button id="soundBtn" class="btn btn-warning me-2">🔊 Play Sound</button>
-    <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_93b6e4f7c2.mp3?filename=click-124467.mp3"></audio>
-
-    <button id="animateBtn" class="btn btn-success ms-2">✨ Animate Box</button>
-    <div id="animBox" class="anim-box mt-3"></div>
-  </div>
-</section>
-
 
   <!-- Footer -->
   <footer class="bg-dark text-center text-white py-4 border-top border-pink">
@@ -488,8 +393,7 @@
     <p class="small mt-2">Web Technologies Frontend Course – Assignment 2</p>
   </footer>
 
-  <!-- Bootstrap + Logic -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts/ernar.js" defer></script>
 </body>
 </html>

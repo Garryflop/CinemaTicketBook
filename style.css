@@ -3,28 +3,11 @@
 
 /* ===== CSS Variables ===== */
 :root {
-  --bg: #1a1a1a;                /* page background */
-  --nav: #111;                   /* navbar/footer background */
-  --box: rgba(15, 15, 35, 0.6);  /* cards/popup/gallery boxes */
-  --white: #ffffff;              /* text color */
-  --accent: #ff69b4;             /* brand pink */
-}
-
-/* ===== Theme Variants ===== */
-body.neon-theme {
-  --bg: #080f2a;
-  --nav: #000a16;
-  --box: #102040;
-  --white: #e2f3ff;
-  --accent: #00fff6;
-}
-
-body.light-theme {
-  --bg: #f8f9fa;
-  --nav: #e3e3e3;
-  --box: #ffffff;
-  --white: #111111;
-  --accent: #ff4081;
+  --bg: #1a1a1a;
+  --nav: #111;
+  --box: rgba(15, 15, 35, 0.6);
+  --white: #ffffff;
+  --accent: #ff69b4;
 }
 
 /* ===== Global ===== */
@@ -43,27 +26,12 @@ body {
   line-height: 1.6;
 }
 
-/* Make Bootstrap/dark surfaces respect theme */
-.navbar.bg-dark,
-footer.bg-dark,
-.card.bg-dark,
-.modal-content.bg-dark {
-  background-color: var(--nav) !important;
-  color: var(--white) !important;
-}
-
-/* A few custom elements should follow theme box color */
-.gallery-item,
-.popup {
-  background-color: var(--box);
-}
-
 /* Headings */
 h1, h2, h3 {
-  font-family: 'Dela Gothic One', cursive;
   color: var(--accent);
   text-align: center;
   margin: 16px 0 20px;
+  font-family: 'Dela Gothic One', cursive;
 }
 
 /* Container (for general sections) */
@@ -83,6 +51,7 @@ header {
   align-items: center;
   background-color: var(--nav);
   padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -198,7 +167,7 @@ nav a:hover::after { transform: scaleX(1); }
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* slightly larger min size */
-  gap: 22px;
+  gap: 22px; /* bigger gap */
 }
 
 /* ===== Gallery Items (CINEMA CARDS) ===== */
@@ -212,17 +181,17 @@ nav a:hover::after { transform: scaleX(1); }
   will-change: transform, box-shadow;
 }
 
-/* Strong hover effect */
+/* --- STRONG HOVER EFFECT (size increase + glow) --- */
 .gallery-item:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 30px 12px rgba(255, 105, 180, 0.35);
-  z-index: 2;
+  transform: scale(1.08);                             /* bigger on hover */
+  box-shadow: 0 0 30px 12px rgba(255, 105, 180, 0.35); /* soft pink glow */
+  z-index: 2;                                         /* lift above neighbors */
 }
 
-/* Gallery images */
+/* Images (slightly taller by default) */
 .gallery-item img {
   width: 100%;
-  height: 240px;
+  height: 240px;             /* increased from 200 -> 240 */
   object-fit: cover;
   transition: transform 0.4s ease, filter 0.4s ease;
 }
@@ -251,7 +220,7 @@ nav a:hover::after { transform: scaleX(1); }
   transform: translateY(0);
 }
 
-/* Info list */
+/* Info list under the images */
 .info {
   list-style: none;
   padding: 12px 15px 6px;
@@ -269,7 +238,7 @@ nav a:hover::after { transform: scaleX(1); }
 }
 .info .icon { color: var(--accent); }
 
-/* Buttons row */
+/* Buttons row under info */
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -315,138 +284,32 @@ nav a:hover::after { transform: scaleX(1); }
   box-shadow: 0 8px 20px rgba(255,105,180,.25);
 }
 
-/* ===== FAQ ===== */
-.faq-section {
-  max-width: 800px;
-  margin: auto;
-}
 
-.faq-item {
-  border-bottom: 1px solid #444;
-  padding: 15px 0;
-  cursor: pointer;
-}
-
-.faq-question {
-  font-size: 1.2rem;
-  color: var(--accent);
-  transition: color 0.3s ease;
-}
-
-.faq-question:hover {
-  color: #ff85c1;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  color: #ddd;
-  padding: 0 5px;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 150px;
-  padding: 10px 5px;
-}
-
-/* ===== Popup Base ===== */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1050;
-}
-.modal-overlay.show { display: flex; }
-
-.popup {
-  width: min(92vw, 520px);
-  background: var(--box);
-  color: var(--white);
-  border-radius: 12px;
-  border: 2px solid var(--accent);
-  padding: 20px 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  position: relative;
-}
-.popup-close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 28px;
-  line-height: 1;
-  color: var(--white);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-.popup-close:hover { color: var(--accent); }
-
-/* Popup inputs */
-.popup .form-control, .popup .form-select, .popup textarea {
-  background: #141430;
-  color: var(--white);
-  border: 1px solid var(--accent);
-}
-.popup .form-control:focus, .popup textarea:focus {
-  box-shadow: 0 0 8px rgba(255,105,180,.3);
-  border-color: var(--accent);
-}
-
-/* Helpers */
-.text-pink { color: var(--accent) !important; }
-.btn-outline-pink {
-  color: var(--accent);
-  border: 1px solid var(--accent);
-}
-.btn-outline-pink:hover { background: var(--accent); color: #000; }
-.help-section {
-  background-color: var(--box);
-  border: 2px solid var(--accent);
-  border-radius: 12px;
-  padding: 30px;
-  margin: 50px auto;
-  max-width: 800px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255,105,180,0.15);
-}
-.help-section h3 {
-  color: var(--accent);
-  margin-bottom: 15px;
-}
-.help-section p {
-  color: var(--white);
-  margin-bottom: 20px;
-}
-.help-section .btn {
-  margin: 5px;
-}
 
 /* ===== Footer ===== */
 footer {
-  background-color: var(--nav);
+  background-color: #1e1e40;
   padding: 24px 20px;
   border-top: 2px solid var(--accent);
   text-align: center;
   color: var(--white);
 }
 
-/* ===== Reduced Motion ===== */
+/* ===== Reduced Motion (accessibility) ===== */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive (Task 1) ===== */
 
 /* Tablets ≤ 992px */
 @media (max-width: 992px) {
-  h1, h2, h3 { font-size: 28px; }
-  .logo { font-size: 1.5em; }
-  nav ul { gap: 12px; }
+  h1, h2, h3 { font-size: 28px; }     /* shrink headings */
+  .logo { font-size: 1.5em; }         /* smaller logo */
 
+  nav ul { gap: 12px; }               /* tighter menu gaps */
+
+  /* Slightly smaller cards/images for tablet */
   .gallery-container {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
@@ -457,6 +320,7 @@ footer {
 
 /* Phones ≤ 600px */
 @media (max-width: 600px) {
+  /* Stack header items */
   header {
     flex-direction: column;
     gap: 10px;
@@ -467,11 +331,12 @@ footer {
     gap: 10px;
   }
 
+  /* Top search controls stack */
   .google-search {
     flex-direction: column;
   }
 
-  /* make gallery horizontally scrollable on mobile */
+  /* Make gallery horizontally scrollable on mobile */
   .gallery-container {
     display: flex;
     overflow-x: auto;
@@ -480,9 +345,10 @@ footer {
   }
   .gallery-item {
     flex: 0 0 auto;
-    width: 270px;
+    width: 270px; /* matches min card size */
   }
 
+  /* Optional: custom scrollbar */
   .gallery-container::-webkit-scrollbar { height: 8px; }
   .gallery-container::-webkit-scrollbar-thumb {
     background: var(--accent);
