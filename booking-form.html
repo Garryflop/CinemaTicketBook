@@ -6,320 +6,37 @@
         <meta name="description" content="Absolute Cinema - Your Provider Perfect Movie Experience">
         <meta name="keywords" content="cinema, movies, tickets, booking">
         <title>Complete Your Booking | Absolute Cinema</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="style3.css">
         <link rel="icon" type="image/x-icon" href="images/logoAC.svg">
-        <style>
-            /* Image Gallery Styles */
-            .gallery-section {
-                padding: 80px 20px;
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            .gallery-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(3, 250px);
-                gap: 20px;
-                margin-top: 40px;
-            }
-
-            .gallery-item {
-                position: relative;
-                border-radius: 15px;
-                overflow: hidden;
-                cursor: pointer;
-                transition: all 0.4s ease;
-                background: rgba(30, 30, 60, 0.8);
-                border: 2px solid transparent;
-            }
-
-            .gallery-item:hover {
-                transform: translateY(-5px) scale(1.03);
-                border-color: #ff6b35;
-                box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
-            }
-
-            .gallery-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.4s ease;
-            }
-
-            .gallery-item:hover img {
-                transform: scale(1.1);
-            }
-
-            .gallery-caption {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-                color: white;
-                padding: 20px;
-                transform: translateY(100%);
-                transition: transform 0.4s ease;
-            }
-
-            .gallery-item:hover .gallery-caption {
-                transform: translateY(0);
-            }
-
-            .gallery-caption h4 {
-                color: #ff6b35;
-                margin-bottom: 5px;
-                font-size: 18px;
-            }
-
-            .gallery-caption p {
-                font-size: 14px;
-                color: #cccccc;
-            }
-
-            /* Box styling consistency */
-            .box-example-1, .box-example-3 {
-                background: rgba(30, 30, 60, 0.9);
-                border-radius: 20px;
-                padding: 40px;
-                margin: 20px 0;
-                border: 1px solid rgba(255, 107, 53, 0.3);
-                backdrop-filter: blur(15px);
-            }
-
-            .box-example-3 {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                padding: 0;
-                background: transparent;
-                border: none;
-            }
-
-            #booking-summary {
-                background: rgba(30, 30, 60, 0.9);
-                border-radius: 20px;
-                padding: 40px;
-                border: 1px solid rgba(255, 107, 53, 0.3);
-                backdrop-filter: blur(15px);
-                margin: 20px 0;
-            }
-
-            .accent-border {
-                color: #ff6b35;
-                border-bottom: 3px solid #ff6b35;
-                padding-bottom: 10px;
-                margin-bottom: 25px;
-            }
-
-            /* Payment method selection */
-            .payment-methods {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                margin: 15px 0;
-            }
-
-            .payment-method {
-                background: rgba(15, 15, 35, 0.8);
-                border: 2px solid rgba(255, 107, 53, 0.3);
-                border-radius: 10px;
-                padding: 20px;
-                text-align: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            .payment-method:hover,
-            .payment-method.selected {
-                border-color: #ff6b35;
-                background: rgba(255, 107, 53, 0.1);
-                transform: translateY(-2px);
-            }
-
-            .payment-method div:first-child {
-                font-size: 24px;
-                margin-bottom: 8px;
-            }
-
-            /* Alternative payment forms */
-            .alt-payment-form {
-                background: rgba(15, 15, 35, 0.8);
-                border-radius: 15px;
-                padding: 30px;
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            .alt-payment-form h3 {
-                color: #ff6b35;
-                margin: 15px 0;
-            }
-
-            .qr-placeholder {
-                width: 150px;
-                height: 150px;
-                background: #333;
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 10px;
-                margin: 20px auto;
-                font-size: 12px;
-            }
-
-            .bank-details {
-                background: rgba(30, 30, 60, 0.5);
-                border-radius: 10px;
-                padding: 20px;
-                margin: 20px 0;
-                text-align: left;
-            }
-
-            .promo-input {
-                display: flex;
-                gap: 10px;
-                align-items: flex-end;
-            }
-
-            .promo-input input {
-                flex: 1;
-            }
-
-            .total-display {
-                background: rgba(15, 15, 35, 0.8);
-                border-radius: 15px;
-                padding: 25px;
-                margin: 25px 0;
-                border: 2px solid #ff6b35;
-            }
-
-            .total-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .total-left h3 {
-                color: #ff6b35;
-                margin-bottom: 5px;
-            }
-
-            .total-right {
-                text-align: right;
-            }
-
-            .total-right p:first-child {
-                font-size: 28px;
-                font-weight: bold;
-                color: #ff6b35;
-                margin-bottom: 5px;
-            }
-
-            .action-buttons {
-                display: flex;
-                gap: 20px;
-                justify-content: center;
-                margin-top: 30px;
-            }
-
-            /* Security features */
-            .security-features {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 25px;
-                margin: 40px 0;
-            }
-
-            .security-item {
-                background: rgba(30, 30, 60, 0.8);
-                border-radius: 15px;
-                padding: 25px;
-                text-align: center;
-                border: 1px solid rgba(255, 107, 53, 0.2);
-                transition: all 0.3s ease;
-            }
-
-            .security-item:hover {
-                transform: translateY(-5px);
-                border-color: #ff6b35;
-                box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
-            }
-
-            .security-item div:first-child {
-                font-size: 32px;
-                margin-bottom: 15px;
-            }
-
-            .security-item h4 {
-                color: #ff6b35;
-                margin-bottom: 10px;
-                font-size: 18px;
-            }
-
-            .payment-logos {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-
-            .payment-logos div {
-                background: rgba(30, 30, 60, 0.8);
-                padding: 10px 20px;
-                border-radius: 10px;
-                border: 1px solid rgba(255, 107, 53, 0.3);
-                font-weight: bold;
-                color: #cccccc;
-            }
-
-            @media (max-width: 768px) {
-                .gallery-container {
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-template-rows: repeat(5, 200px);
-                }
-                
-                .box-example-3 {
-                    grid-template-columns: 1fr;
-                }
-
-                .payment-methods {
-                    grid-template-columns: 1fr;
-                }
-
-                .action-buttons {
-                    flex-direction: column;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .gallery-container {
-                    grid-template-columns: 1fr;
-                    grid-template-rows: repeat(9, 180px);
-                }
-            }
-        </style>
     </head>
     <body>
         <div class="page-layout">
             <!-- Header Section -->
             <header>
                 <div class="container">
-                    <div class="nav-container">
-                        <a href="index.html" class="logo">Absolute Cinema</a>
-                        <nav>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="movie-list.html">Movies</a></li>
-                                <li><a href="cinema-locations.html">Cinemas</a></li>
-                                <li><a href="seat-selection.html">Book Seats</a></li>
-                                <li><a href="booking-form.html">Account</a></li>
-                                <li><a href="confirmation.html">My Bookings</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    <!-- TASK 5: Bootstrap Navigation Bar -->
+                    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+                        <div class="container-fluid px-lg-5">
+                            <a class="navbar-brand" href="index.html">
+                                <i class="bi bi-film"></i> Absolute Cinema
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="movie-list.html">Movies</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="cinema-locations.html">Cinemas</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="seat-selection.html">Book Seats</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="booking-form.html">Account</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">My Bookings</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
             </header>
 
@@ -331,6 +48,7 @@
                     <li><a href="#payment-form">💳 Payment</a></li>
                     <li><a href="#gallery">🖼️ Cinema Gallery</a></li>
                     <li><a href="#security">🔒 Security</a></li>
+                    <li><a href="#faq-section">❓ FAQ</a></li>
                 </ul>
             </aside>
 
@@ -428,13 +146,14 @@
                                             <label for="terms">I agree to the <a href="#" style="color: #ff6b35;">Terms and Conditions</a> *</label>
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
 
                             <!-- Payment Information Form -->
-                            <div class="box-example-1" id="payment-form">
+                            <div class="box-example-1" id="payment-form" style="display: none;">
                                 <h2 class="section-title">Payment Information</h2>
-                                <div class="form-container">
+                                <div class="col-lg-12 border border-primary rounded p-3">
                                     <!-- Payment Method Selection -->
                                     <div class="form-group">
                                         <label>Payment Method *</label>
@@ -515,13 +234,13 @@
                                     </div>
 
                                     <!-- Discount Codes -->
-                                    <div class="form-group">
-                                        <label for="promoCode">Promo Code (Optional)</label>
-                                        <div class="promo-input">
-                                            <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
-                                            <button type="button" class="btn btn-secondary" onclick="applyPromoCode()">Apply Code</button>
+                                    <div class="mb-4">
+                                        <label for="promoCode" class="form-label">Promo Code (Optional)</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="promoCode" name="promoCode" placeholder="Enter promo code">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="applyPromoCode()">Apply Code</button>
                                         </div>
-                                        <div id="promoMessage" style="margin-top: 10px; color: #ff6b35;"></div>
+                                        <div id="promoMessage" class="mt-2 text-primary"></div>
                                     </div>
 
                                     <!-- Final Total -->
@@ -539,9 +258,9 @@
                                     </div>
 
                                     <!-- Action Buttons -->
-                                    <div class="action-buttons">
-                                        <a href="seat-selection.html" class="btn btn-secondary">← Back to Seats</a>
-                                        <button type="submit" class="btn" onclick="processPayment()">Complete Payment</button>
+                                    <div class="d-flex gap-2 flex-wrap">
+                                        <a href="seat-selection.html" class="btn btn-outline-secondary flex-fill">← Back to Seats</a>
+                                        <button type="submit" class="btn btn-primary flex-fill" onclick="processPayment()">Complete Payment</button>
                                     </div>
                                 </div>
                             </div>
@@ -549,76 +268,132 @@
                     </div>
                 </section>
 
-                <!-- Image Gallery Section -->
-                <section class="gallery-section" id="gallery">
-                    <h2 class="section-title">Cinema Experience Gallery</h2>
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <img src="images\kinopark5.png" alt="Modern Cinema Interior">
-                            <div class="gallery-caption">
-                                <h4>Premium Seating</h4>
-                                <p>Luxurious reclining seats with perfect viewing angles</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\kinopark1.png" alt="IMAX Screen">
-                            <div class="gallery-caption">
-                                <h4>IMAX Experience</h4>
-                                <p>Crystal clear 4K projection with immersive surround sound</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\kinopark4.png" alt="Concession Stand">
-                            <div class="gallery-caption">
-                                <h4>Gourmet Concessions</h4>
-                                <p>Fresh popcorn, artisan snacks, and premium beverages</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\chaplinmega2.png" alt="VIP Lounge">
-                            <div class="gallery-caption">
-                                <h4>VIP Lounge</h4>
-                                <p>Exclusive lounge area for premium ticket holders</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\kinopark1.png" alt="Lobby Area">
-                            <div class="gallery-caption">
-                                <h4>Grand Lobby</h4>
-                                <p>Spacious lobby with modern art and comfortable seating</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\kinopark3.png" alt="Sound System">
-                            <div class="gallery-caption">
-                                <h4>Dolby Atmos</h4>
-                                <p>State-of-the-art 3D audio technology</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\kinopark3.png" alt="Private Screening">
-                            <div class="gallery-caption">
-                                <h4>Private Screenings</h4>
-                                <p>Intimate theater rooms for special events</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\chaplinmega3.png" alt="Bar Area">
-                            <div class="gallery-caption">
-                                <h4>Cinema Bar</h4>
-                                <p>Full-service bar with craft cocktails and wine</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images\chaplinmega.png" alt="Exterior View">
-                            <div class="gallery-caption">
-                                <h4>Modern Architecture</h4>
-                                <p>Stunning building design with LED displays</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+        <section id="gallery" class="gallery-section py-5">
+        <div class="container">
+            <h2 class="section-title mb-4">Cinema Experience Gallery</h2>
 
+            <!-- Bootstrap row + cols: g-4 = gap between columns & rows -->
+            <div class="row g-4">
+            <!-- Item 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/kinopark5.png" alt="Modern Cinema Interior">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Premium Seating</h4>
+                    <p class="mb-0 small text-light">Luxurious reclining seats with perfect viewing angles</p>
+                </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/kinopark1.png" alt="IMAX Screen">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">IMAX Experience</h4>
+                    <p class="mb-0 small text-light">Crystal clear 4K projection with immersive surround sound</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/kinopark4.png" alt="Concession Stand">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Gourmet Concessions</h4>
+                    <p class="mb-0 small text-light">Fresh popcorn, artisan snacks, and premium beverages</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/chaplinmega2.png" alt="VIP Lounge">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">VIP Lounge</h4>
+                    <p class="mb-0 small text-light">Exclusive lounge area for premium ticket holders</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/kinopark1.png" alt="Lobby Area">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Grand Lobby</h4>
+                    <p class="mb-0 small text-light">Spacious lobby with modern art and comfortable seating</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/kinopark3.png" alt="Sound System">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Dolby Atmos</h4>
+                    <p class="mb-0 small text-light">State-of-the-art 3D audio technology</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/kinopark3.png" alt="Private Screening">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Private Screenings</h4>
+                    <p class="mb-0 small text-light">Intimate theater rooms for special events</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/chaplinmega3.png" alt="Bar Area">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Cinema Bar</h4>
+                    <p class="mb-0 small text-light">Full-service bar with craft cocktails and wine</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item">
+                <div class="img-wrap">
+                    <img src="images/chaplinmega.png" alt="Exterior View">
+                </div>
+                <div class="gallery-caption">
+                    <h4 class="h5 text-warning mb-1">Modern Architecture</h4>
+                    <p class="mb-0 small text-light">Stunning building design with LED displays</p>
+                </div>
+                </div>
+            </div>
+
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+
+        </section>
                 <!-- Security & Trust Section -->
                 <section class="section" id="security">
                     <div class="container">
@@ -660,9 +435,141 @@
                         </div>
                     </div>
                 </section>
+                <!-- Current Date and Time Section -->
+        <section class="section" id="datetime-section">
+            <div class="container">
+                <h2 class="section-title">Current Date & Time</h2>
+                <div class="datetime-display-box">
+                    <div class="datetime-icon">🕐</div>
+                    
+                    <div id="currentDate" class="date-display">
+                        Loading date...
+                    </div>
+                    
+                    <div id="currentTime" class="time-display">
+                        Loading time...
+                    </div>
+                    
+                    <div id="currentDay" class="day-display">
+                        Loading day...
+                    </div>
+                    
+                    <div class="timezone-info">
+                        <span id="timezone">Timezone: Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+                        <!-- FAQ Accordion Section -->
+        <section class="section" id="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="accordion-container">
+                    
+                    <!-- Question 1 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>How do I book tickets online?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Select your movie, choose your preferred showtime, pick your seats, and complete the payment. You'll receive a confirmation email with your e-tickets immediately after booking.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Can I cancel or modify my booking?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes, you can cancel or modify your booking up to 2 hours before the showtime. A cancellation fee may apply. Contact our customer service for assistance at +7 (747) 174-25-08.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>What payment methods do you accept?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We accept Visa, MasterCard, American Express, Kaspi, Apple Pay, and Google Pay. All transactions are secure and encrypted with bank-level SSL security.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Do you offer group discounts?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes! Groups of 10 or more people can enjoy special discounted rates. Please contact us at least 24 hours in advance to arrange group bookings and receive a custom quote.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>What should I bring to the cinema?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Bring your booking confirmation (digital or printed), a valid ID, and arrive 15 minutes before showtime. Outside food and beverages are not permitted in our cinemas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Are there age restrictions for movies?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes, we follow standard movie ratings (G, PG, PG-13, R). Children under 13 must be accompanied by an adult for PG-13 movies. R-rated movies require valid ID for entry.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+            <!-- Popup Subscription Form -->
+    <div id="subscriptionPopup" class="popup-overlay">
+        <div class="popup-container">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive movie deals, updates, and special offers!</p>
+            
+            <form id="subscriptionForm" class="popup-form" onsubmit="handleSubscription(event)">
+                <div class="form-group">
+                    <label for="popupName">Full Name *</label>
+                    <input type="text" id="popupName" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupEmail">Email Address *</label>
+                    <input type="email" id="popupEmail" placeholder="example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupPhone">Phone Number</label>
+                    <input type="tel" id="popupPhone" placeholder="+7 (XXX) XXX-XXXX">
+                </div>
+                
+                <button type="submit" class="btn">Subscribe Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Subscribe Button -->
+    <button id="openPopupBtn" class="floating-subscribe-btn" onclick="openPopup()">
+        📬 Subscribe
+    </button>
             </main>
         </div>
-
         <footer>
             <div class="container">
                 <div id="footer-content">
@@ -671,10 +578,12 @@
                         <p>Diasbek Amangeldiyev - Foundation & Layout</p>
                         <p>Ernar Omarov - Navigation & Interactive</p>
                         <p>Nurdaulet Saparbekov - Forms & Advanced Features</p>
-                        <p>Web Technologies Frontend Course - Assignment 2</p>
+                        <p>Web Technologies Frontend Course</p>
                     </div>
                 </div>
             </div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="scripts/NurScript.js"></script>
 </body>
 </html>
